@@ -1,1 +1,1 @@
-# RoamReady
+# TrailMagic
