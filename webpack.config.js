@@ -1,9 +1,11 @@
 const path = require('path');
 
 module.exports = {
+  context: __dirname,
   entry: './frontend/enter_trail_magic.jsx',
   output: {
-    filename: 'app/assets/javascripts'
+    path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
+    filename: 'bundle.js'
   },
   module: {
     rules: [
@@ -21,6 +23,6 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
-    extension: ['.js', '.jsx', '*']
+    extensions: ['.js', '.jsx', '*']
   }
 };
