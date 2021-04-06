@@ -9,9 +9,9 @@ export default () => (
   <div>
     <header className="site-header">
       <nav>
-      <p>Explore</p>
-      <p>T_r_A_i_L_m_A_g_I_c</p>
-      <WelcomeContainer />
+        <p>Explore</p>
+        <p>T_r_A_i_L_m_A_g_I_c</p>
+        <WelcomeContainer />
       </nav>
     </header>
     <Switch>

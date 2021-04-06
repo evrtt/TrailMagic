@@ -5,9 +5,9 @@ const Welcome = ({ currentUser, logout } ) => {
 
   if(currentUser) {
     return (
-      <div className="welcome-comp">
-        <h3>Howdy {currentUser.username}</h3>
-        <button onClick={() => logout()}>Signout</button>
+      <div className="dropdown">
+        <div className="dropdown-button">{currentUser.username}</div>
+        <button onClick={() => logout()} className="dropdown-content">Logout</button>
       </div>
     )
   } else {

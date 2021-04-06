@@ -5,16 +5,23 @@
 .site-header nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  box-sizing: border-box;
+  background-color: lightseagreen;
 
   p {
-    padding: 10px;
+    padding: 8px;
   }
 
-  div {
+  .welcome-comp {
     display: flex;
     flex-direction: row;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding: 10px;
+    
+    div {
+      padding: 8px;
+    }
 
     a {
       font-size: medium;
@@ -29,13 +36,13 @@
     
     .signup-link {
       color: white;
-      background-color: rgb(102, 125, 224);
+      background-color: rgb(130, 153, 252);
       padding: 5px;
 
     }
     .signup-link:hover {
       color: white;
-      background-color: rgb(145, 165, 255)
+      background-color: rgb(157, 173, 245);
     }
 
     .login-link {
@@ -51,7 +58,39 @@
     }
 
   }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    margin: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .dropdown:hover > .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-button {
+    margin-top: 9px;
+    margin-bottom: 9px;
+    padding: 8px;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    width: 85px;
+    height: 40px;
+    z-index: 1;
+    right: 0;
+  }
+
+
+
+
 }
+
+
 
 
 
