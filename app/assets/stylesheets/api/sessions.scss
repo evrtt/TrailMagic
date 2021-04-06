@@ -1,3 +1,57 @@
 // Place all the styles related to the api/sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.site-header nav {
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    padding: 10px;
+  }
+
+  div {
+    display: flex;
+    flex-direction: row;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px;
+
+    a {
+      font-size: medium;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px 8px 8px 8px;
+      width: 82px;
+      height: 32px;
+      margin: 5px;
+    }
+    
+    .signup-link {
+      color: white;
+      background-color: rgb(102, 125, 224);
+      padding: 5px;
+
+    }
+    .signup-link:hover {
+      color: white;
+      background-color: rgb(145, 165, 255)
+    }
+
+    .login-link {
+      color: rgb(91, 121, 255);
+      background-color: white;
+      border: solid 2px rgb(91, 121, 255);
+      padding: 3px;
+
+    }
+
+    .login-link:hover {
+      background-color: rgb(241, 241, 241);
+    }
+
+  }
+}
+
+
+

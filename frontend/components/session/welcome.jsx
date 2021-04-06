@@ -13,9 +13,9 @@ const Welcome = ({ currentUser, logout } ) => {
   } else {
     return (
       <div className="welcome-comp">
-        <Link to="/signup">Sign Up</Link>
+        <Link to="/signup" className="signup-link">Sign Up</Link>
         <br/>
-        <Link to="/login">Login</Link>
+        <Link to="/login" className="login-link">Login</Link>
       </div>
     )
   }

@@ -23,8 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   };
-  
-  debugger
     //JUST FOR TESTING v
   window.getState = store.getState;
   window.dispatch = store.dispatch;
