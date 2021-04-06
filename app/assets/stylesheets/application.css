@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+
+
+ /* CSS RESET */
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, strong, var, ol, ul, 
+li, form, label, legend, caption, article, aside, canvas, details, figure, 
+figcaption, footer, header, menu, nav, section, time, mark {
+
+  margin: 0;
+  padding 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+
+}
+
+figcaption, figure, footer, header, nav, menu, section {
+  display: block
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+ /* CSS RESET */
