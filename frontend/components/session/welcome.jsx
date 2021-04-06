@@ -7,7 +7,14 @@ const Welcome = ({ currentUser, logout } ) => {
     return (
       <div className="dropdown">
         <div className="dropdown-button">{currentUser.username}</div>
-        <button onClick={() => logout()} className="dropdown-content">Logout</button>
+        <ul className="dropdown-content" >
+          <li>
+            <button 
+              onClick={() => logout()} 
+              className="dropdown-content-button" 
+            >Logout</button>
+          </li>
+        </ul>
       </div>
     )
   } else {

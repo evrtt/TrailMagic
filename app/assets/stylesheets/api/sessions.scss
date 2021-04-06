@@ -67,7 +67,8 @@
   }
   
   .dropdown:hover > .dropdown-content {
-    display: block;
+    display: flex;
+    justify-content: center;
   }
 
   .dropdown-button {
@@ -79,10 +80,26 @@
   .dropdown-content {
     display: none;
     position: absolute;
-    width: 85px;
+    width: 105px;
     height: 40px;
     z-index: 1;
     right: 0;
+    background-color: white;
+    border: none;
+    border-radius: 0px 0px 8px 8px;
+  }
+
+  .dropdown-content-button {
+    background-color: rgb(231, 231, 231);
+    cursor: pointer;
+    border: none;
+    background-color: lightgrey;
+    // padding-left: 8px;
+    // padding-right: 8px;
+    // padding-top: 4px;
+    // padding-bottom: 4px;
+    width: 105px;
+    height: 30px;
   }
 
 
