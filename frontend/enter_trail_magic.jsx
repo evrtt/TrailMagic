@@ -1,11 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import * as SessionUtil from './utils/session_api_util'
+import {
+  login,
+  logout,
+  signUp
+} from './actions/session_actions';
+import configureStore from './store/store';
+import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded', () => {
-  window.signUp = SessionUtil.signUp;
-  window.login = SessionUtil.login;
-  window.logout = SessionUtil.logout;
+  
+  //JUST FOR TESTING v
+  const store = configureStore();
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
+
+  window.signUp = signUp;
+  window.login = login;
+  window.logout = logout;
+  //JUST FOR TESTING ^
   const root = document.getElementById('root');
-  ReactDOM.render(<p>OHLA</p>, root);
+  ReactDOM.render(<Root store={store} />, root);
 })
