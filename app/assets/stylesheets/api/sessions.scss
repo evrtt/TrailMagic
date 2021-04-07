@@ -11,22 +11,85 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 300px;
+  height: 500px;
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
   z-index: 0;
+  font-family: 'Montserrat', Sans-Serif;
+  width: 480px;
+
 
   h1 {
     font-family: 'Montserrat', Sans-Serif;
+    font-size: x-large;
+    font-weight: 600;
   }
 
   .session-form {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+
+    input[type="submit"] {
+      border-radius: 8px 8px 8px 8px;
+      padding: 8px;
+      font-size: medium;
+      background-color: forestgreen;
+      color: white;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      width: 350px;
+    }
+
+    input {
+      
+    }
+
+    button {
+      border: 1px solid black;
+      border-radius: 8px 8px 8px 8px;
+      padding: 8px;
+      font-size: medium;
+      width: 350px;
+      background-color: forestgreen;
+      color: white;
+
+    }
+  }
+  
+}
+
+.input-good {
+  
+  input {
+    color: black;
+    border: black 1px thin;
+    font-family: 'Montserrat', Sans-Serif;
+
+  }
+
+  input::placeholder {
+    color: black;
+    font-family: 'Montserrat', Sans-Serif;
   }
 }
 
+.input-bad {
+  
+  
+  input {
+    color: red;
+    border: red 1px solid;
+  }
+  input::placeholder {
+    color: red;
+  }
+}
 
 
 
