@@ -32,7 +32,7 @@ figcaption, footer, header, menu, nav, section, time, mark {
 }
 
 figcaption, figure, footer, header, nav, menu, section {
-  display: block
+  display: block;
 }
 
 body {
