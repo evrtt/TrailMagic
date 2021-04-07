@@ -22,7 +22,7 @@ li, form, label, legend, caption, article, aside, canvas, details, figure,
 figcaption, footer, header, menu, nav, section, time, mark {
 
   margin: 0;
-  padding 0;
+  padding: 0;
   border: 0;
   font-size: 100%;
   font: inherit;
