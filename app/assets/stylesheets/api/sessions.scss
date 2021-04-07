@@ -5,39 +5,58 @@
 .session-form-container {
   position: fixed;
   background-color: white;
-  border: solid 1px lightgrey;
   border-radius: 8px 8px 8px 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   height: 500px;
-  top: 50%;
+  top: 390px;
   right: 50%;
   transform: translate(50%, -50%);
   z-index: 0;
   font-family: 'Montserrat', Sans-Serif;
-  width: 480px;
+  width: auto;
+  box-shadow:  0 0 8px 1px lightgrey;
+  margin-left: auto;
+  margin-right: auto;
 
 
   h1 {
     font-family: 'Montserrat', Sans-Serif;
     font-size: x-large;
     font-weight: 600;
+    text-align: center;
   }
 
+  
   .session-form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 400px;
+    padding-top: 10px;
+    margin-right: 12px;
+    margin-left: 12px;
+    
+    span {
+      font-size: 75%;
+      color: red;
+      text-align: center;
+      padding: 3px;
+    }
 
     input[type="submit"] {
       border-radius: 8px 8px 8px 8px;
-      padding: 8px;
+      padding: 12px;
       font-size: medium;
       background-color: forestgreen;
       color: white;
+      border-style: none;
+    }
+
+    input[type="submit"]:hover {
+      background-color: rgb(0, 155, 0);
     }
 
     div {
@@ -46,19 +65,54 @@
       width: 350px;
     }
 
-    input {
-      
+    input[type="password"] {
+      padding: 12px;
+      border-radius: 8px 8px 8px 8px;
+      border: 1px black solid;
+    }
+
+    input[type="password"]:hover {
+      border: 1px solid forestgreen;
+    }
+
+    input[type="password"]:focus {
+      padding: 11px;
+      border: 2px forestgreen solid;
+    }
+
+    input[type="text"] {
+      padding: 12px;
+      border-radius: 8px 8px 8px 8px;
+      border: 1px black solid;
+    }
+
+    input[type="text"]:hover {
+      border: 1px solid forestgreen;
+    }
+
+    input[type="text"]:focus {
+      padding: 11px;
+      border: 2px forestgreen solid;
     }
 
     button {
-      border: 1px solid black;
+      border-style: none;
       border-radius: 8px 8px 8px 8px;
-      padding: 8px;
+      padding: 12px;
       font-size: medium;
       width: 350px;
       background-color: forestgreen;
       color: white;
 
+    }
+
+    button:hover {
+      background-color: rgb(0, 155, 0);
+    }
+
+    button:active {
+      outline: none;
+      border: none;
     }
   }
   
@@ -83,11 +137,30 @@
   
   
   input {
-    color: red;
     border: red 1px solid;
   }
   input::placeholder {
     color: red;
+  }
+}
+
+.switch-form {
+  font-size: small;
+
+  span {
+    font-weight: 400;
+  }
+
+  button {
+    text-decoration: none;
+    border: none;
+    background-color: white;
+    color: forestgreen;
+    font-weight: 600;
+  }
+
+  button:hover {
+    color: rgb(0, 167, 0)
   }
 }
 

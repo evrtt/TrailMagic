@@ -17,7 +17,9 @@ class SessionForm extends React.Component {
   }
 
   componentDidMount() {
-    this.props.clearErrors();
+    if (Array.isArray(this.props.errors)) {
+      this.props.clearErrors();
+    }
   }
 
   update(field) {
@@ -42,7 +44,8 @@ class SessionForm extends React.Component {
     })
   }
 
-  demoLogin() {
+  demoLogin(e) {
+    e.preventDefault();
     this.props.login({username: 'Demo Guest', password: '!@#$%^&*()'})
   }
 
@@ -64,7 +67,7 @@ class SessionForm extends React.Component {
       let buttonText;
       let title;
       let corrected;
-      let loginError = "";
+      let loginError;
       let usernameError = "";
       let passwordError = "";
       let usernameClass = "input-good";
@@ -72,14 +75,16 @@ class SessionForm extends React.Component {
       if(this.props.formType === 'login') {
         spanText = "New to Trail Magic?";
         buttonText = "Sign up for free";
-        title = "Log in and get after it";
+        title = "Log in and let's get after it";
         corrected = "Log In";
         if (Array.isArray(this.props.errors)) {
           if (this.props.errors.includes(
             "Cannot find a user with that username and password"
             )
           ) { 
-          loginError = "Cannot find a user with that username and password";
+          loginError = <span>
+            Login failed. Please check username and password.
+          </span>
         }
 
         }
@@ -90,14 +95,14 @@ class SessionForm extends React.Component {
         corrected = "Sign In";
         if (Array.isArray(this.props.errors)) {
           if (this.props.errors.includes("Username has already been taken")) {
-            usernameError = "Username has already been taken";
+            usernameError = "Username has already been taken.";
             usernameClass = "input-bad";
           } else if (this.props.errors.includes("Username can't be blank")) {
-            usernameError = "Username can't be blank";
+            usernameError = "Username can't be blank.";
             usernameClass = "input-bad";
           };
           if (this.props.errors.includes("Password is too short (minimum is 8 characters)")) {
-            passwordError = "Password must contain at least 8 characters";
+            passwordError = "Password must contain at least 8 characters.";
             passwordClass = "input-bad";
           };
         };
@@ -129,7 +134,7 @@ class SessionForm extends React.Component {
                 <span>{passwordError}</span>
             </div>
 
-            <span>{loginError}</span>
+            {loginError}
 
             <input type="submit" value={corrected}/>
 
