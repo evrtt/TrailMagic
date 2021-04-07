@@ -7,7 +7,7 @@ export default (oldState = {}, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_ERRORS:
-      let errors = action.responseJSON
+      let errors = action.errors.responseJSON
       return Object.assign({}, errors)
     case RECEIVE_CURRENT_USER:
       return {}

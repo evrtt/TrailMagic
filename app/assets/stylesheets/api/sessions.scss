@@ -2,109 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.site-header nav {
+.session-form-container {
+  position: fixed;
+  background-color: white;
+  border: solid 1px lightgrey;
+  border-radius: 8px 8px 8px 8px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  height: 50px;
-  box-sizing: border-box;
-  background-color: lightseagreen;
+  height: 300px;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  z-index: 0;
 
-  p {
-    padding: 8px;
+  h1 {
+    font-family: 'Montserrat', Sans-Serif;
   }
 
-  .welcome-comp {
+  .session-form {
     display: flex;
-    flex-direction: row;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    
-    div {
-      padding: 8px;
-    }
-
-    a {
-      font-size: medium;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 8px 8px 8px 8px;
-      width: 82px;
-      height: 32px;
-      margin: 5px;
-    }
-    
-    .signup-link {
-      color: white;
-      background-color: rgb(130, 153, 252);
-      padding: 5px;
-
-    }
-    .signup-link:hover {
-      color: white;
-      background-color: rgb(157, 173, 245);
-    }
-
-    .login-link {
-      color: rgb(91, 121, 255);
-      background-color: white;
-      border: solid 2px rgb(91, 121, 255);
-      padding: 3px;
-
-    }
-
-    .login-link:hover {
-      background-color: rgb(241, 241, 241);
-    }
-
+    flex-direction: column;
   }
-
-  .dropdown {
-    position: relative;
-    display: inline-block;
-    margin: none;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
-  
-  .dropdown:hover > .dropdown-content {
-    display: flex;
-    justify-content: center;
-  }
-
-  .dropdown-button {
-    margin-top: 9px;
-    margin-bottom: 9px;
-    padding: 8px;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    width: 105px;
-    height: 40px;
-    z-index: 1;
-    right: 0;
-    background-color: white;
-    border: none;
-    border-radius: 0px 0px 8px 8px;
-  }
-
-  .dropdown-content-button {
-    background-color: rgb(231, 231, 231);
-    cursor: pointer;
-    border: none;
-    background-color: lightgrey;
-    // padding-left: 8px;
-    // padding-right: 8px;
-    // padding-top: 4px;
-    // padding-bottom: 4px;
-    width: 105px;
-    height: 30px;
-  }
-
-
-
-
 }
 
 

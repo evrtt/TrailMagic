@@ -1,0 +1,134 @@
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 61px;
+  box-sizing: border-box;
+  border-bottom: solid 1px lightgrey;
+  z-index: 1;
+
+  .header-nav {
+    padding: 8px;
+    font-family: 'Montserrat', Sans-Serif;
+    width: 200px;
+
+    span {
+      margin-left: 10px;
+    }
+  }
+
+  .logo-container {
+    padding: 8px;
+    font-family: 'Montserrat', Sans-Serif;
+    width: 200px;
+    text-align: center;
+    font-size: x-large;
+    font-weight: 600;
+  }
+
+  .welcome-comp {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-family: 'Montserrat', Sans-Serif;
+    width: 200px;
+    
+    div {
+      padding: 8px;
+    }
+
+    a {
+      font-size: medium;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px 8px 8px 8px;
+      width: 82px;
+      height: 32px;
+      margin: 5px;
+    }
+    
+    .signup-link {
+      color: white;
+      background-color: rgb(130, 153, 252);
+      padding: 8px;
+      font-size: 70%;
+      font-weight: 600;
+      height: 40px;
+
+    }
+    .signup-link:hover {
+      color: white;
+      background-color: rgb(157, 173, 245);
+    }
+
+    .login-link {
+      color: rgb(91, 121, 255);
+      background-color: white;
+      border: solid 2px rgb(91, 121, 255);
+      padding: 6px;
+      font-size: 70%;
+      font-weight: 600;
+      height: 40px;
+      margin-right: 10px;
+
+    }
+
+    .login-link:hover {
+      background-color: rgb(241, 241, 241);
+    }
+
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    margin: none;
+    font-family: 'Montserrat', Sans-Serif;
+    width: 200px;
+    text-align: right;
+    height: 61px;
+  }
+  
+  .dropdown:hover > .dropdown-content {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .dropdown-button {
+    padding: 8px;
+    height: 61px;
+    top: 50%;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    z-index: 1;
+    right: 0;
+    background-color: white;
+    border: none;
+    border-radius: 0px 0px 8px 8px;
+  }
+
+  .dropdown-content-button {
+    font-size: medium;
+    background-color: white;
+    cursor: pointer;
+    border: none;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 150px;
+    height: 40px;
+    text-align: left;
+  }
+
+  .dropdown-content-button:hover {
+    background-color: rgb(245, 245, 245);
+  }
+
+}

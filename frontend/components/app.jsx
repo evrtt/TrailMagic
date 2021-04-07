@@ -6,17 +6,20 @@ import SignUpFormContainer from './session/signup_form_container';
 import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 
 export default () => (
-  <div>
+  <section className="main">
     <header className="site-header">
-      <nav>
-        <p>Explore</p>
-        <p>T_r_A_i_L_m_A_g_I_c</p>
+        <nav className="header-nav">
+          <span>Explore</span>
+        </nav>
+        <div className="logo-container">
+          TrailMagic
+        </div>
         <WelcomeContainer />
-      </nav>
     </header>
     <Switch>
       <AuthRoute exact path='/login' component={LoginFormContainer} />
       <AuthRoute exact path='/signup' component={SignUpFormContainer} />
+      {/* <Route exact path='/' component={SplashContainer} /> */}
     </Switch>
-  </div>
+  </section>
 );
