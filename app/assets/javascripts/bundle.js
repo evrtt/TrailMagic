@@ -115,6 +115,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "RECEIVE_CURRENT_USER": () => (/* binding */ RECEIVE_CURRENT_USER),
 /* harmony export */   "RECEIVE_ERRORS": () => (/* binding */ RECEIVE_ERRORS),
 /* harmony export */   "LOGOUT_CURRENT_USER": () => (/* binding */ LOGOUT_CURRENT_USER),
+/* harmony export */   "CLEAR_ERRORS": () => (/* binding */ CLEAR_ERRORS),
+/* harmony export */   "clearErrors": () => (/* binding */ clearErrors),
 /* harmony export */   "login": () => (/* binding */ login),
 /* harmony export */   "logout": () => (/* binding */ logout),
 /* harmony export */   "signUp": () => (/* binding */ signUp)
@@ -124,6 +126,7 @@ __webpack_require__.r(__webpack_exports__);
 var RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 var RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 var LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
+var CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 var receiveCurrentUser = function receiveCurrentUser(currentUser) {
   return {
@@ -145,6 +148,11 @@ var receiveErrors = function receiveErrors(errors) {
   };
 };
 
+var clearErrors = function clearErrors() {
+  return {
+    type: CLEAR_ERRORS
+  };
+};
 var login = function login(user) {
   return function (dispatch) {
     return _utils_session_api_util__WEBPACK_IMPORTED_MODULE_0__.login(user).then(function (user) {
@@ -273,7 +281,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state) {
   return {
-    errors: state.errors,
+    errors: state.errors.sessionErrors,
     formType: 'login'
   };
 };
@@ -285,6 +293,9 @@ var mDTP = function mDTP(dispatch) {
     },
     login: function login(user) {
       return dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__.login)(user));
+    },
+    clearErrors: function clearErrors() {
+      return dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__.clearErrors)());
     }
   };
 };
@@ -345,13 +356,9 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      user: {
-        username: "",
-        password: ""
-      },
-      redirected: false,
-      formType: _this.props.formType,
-      errors: _this.props.errors
+      username: "",
+      password: "",
+      redirected: false
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.redirect = _this.redirect.bind(_assertThisInitialized(_this));
@@ -360,21 +367,27 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(SessionForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.clearErrors();
+    }
+  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
 
       return function (e) {
-        return _this2.setState({
-          user: _defineProperty({}, field, e.currentTarget.value)
-        });
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      this.props.formAction(this.state.user);
+      this.props.formAction({
+        username: this.state.username,
+        password: this.state.password
+      });
     }
   }, {
     key: "redirect",
@@ -395,7 +408,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       if (this.state.redirected) {
-        if (this.state.formType == 'login') {
+        if (this.props.formType == 'login') {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Redirect, {
             to: "/signup"
           });
@@ -409,35 +422,72 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         var buttonText;
         var title;
         var corrected;
+        var loginError = "";
+        var usernameError = "";
+        var passwordError = "";
+        var usernameClass = "input-good";
+        var passwordClass = "input-good";
 
         if (this.props.formType === 'login') {
           spanText = "New to Trail Magic?";
           buttonText = "Sign up for free";
           title = "Log in and get after it";
           corrected = "Log In";
+
+          if (Array.isArray(this.props.errors)) {
+            if (this.props.errors.includes("Cannot find a user with that username and password")) {
+              loginError = "Cannot find a user with that username and password";
+            }
+          }
         } else {
           spanText = "Already have an account?";
           buttonText = "Login";
           title = "Create your free account";
           corrected = "Sign In";
+
+          if (Array.isArray(this.props.errors)) {
+            if (this.props.errors.includes("Username has already been taken")) {
+              usernameError = "Username has already been taken";
+              usernameClass = "input-bad";
+            } else if (this.props.errors.includes("Username can't be blank")) {
+              usernameError = "Username can't be blank";
+              usernameClass = "input-bad";
+            }
+
+            ;
+
+            if (this.props.errors.includes("Password is too short (minimum is 8 characters)")) {
+              passwordError = "Password must contain at least 8 characters";
+              passwordClass = "input-bad";
+            }
+
+            ;
+          }
+
+          ;
         }
 
+        ;
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "session-form-container"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
           onSubmit: this.handleSubmit,
           className: "session-form"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: usernameClass
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
           type: "text",
-          value: this.state.user.username,
+          value: this.state.username,
           onChange: this.update('username'),
           placeholder: "username"
-        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, usernameError)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: passwordClass
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
           type: "password",
-          value: this.state.user.password,
+          value: this.state.password,
           onChange: this.update('password'),
           placeholder: "password"
-        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, passwordError)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, loginError), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
           type: "submit",
           value: corrected
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
@@ -481,7 +531,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state, ownProps) {
   return {
-    errors: state.errors,
+    errors: state.errors.sessionErrors,
     formType: 'signup'
   };
 };
@@ -493,6 +543,9 @@ var mDTP = function mDTP(dispatch, ownProps) {
     },
     login: function login(user) {
       return dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__.login)(user));
+    },
+    clearErrors: function clearErrors() {
+      return dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__.clearErrors)());
     }
   };
 };
@@ -681,8 +734,11 @@ __webpack_require__.r(__webpack_exports__);
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_ERRORS:
-      var errors = action.errors.responseJSON;
-      return Object.assign({}, errors);
+      var sessionErrors = Object.values(action.errors.responseJSON);
+      return sessionErrors;
+
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.CLEAR_ERRORS:
+      return {};
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CURRENT_USER:
       return {};

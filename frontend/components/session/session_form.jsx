@@ -6,14 +6,9 @@ class SessionForm extends React.Component {
     super(props);
 
     this.state = {
-      user: {
-        username: "",
-        password: ""
-      },
-      redirected: false,
-      formType: this.props.formType,
-      errors: this.props.errors
-
+      username: "",
+      password: "",
+      redirected: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,19 +16,24 @@ class SessionForm extends React.Component {
     this.demoLogin = this.demoLogin.bind(this);
   }
 
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
   update(field) {
     return (
       e => this.setState({
-        user: {
           [field]: e.currentTarget.value
-        }
       })
     )   
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.formAction(this.state.user);
+    this.props.formAction({
+        username: this.state.username, 
+        password: this.state.password
+      });
   }
 
   redirect() {
@@ -49,7 +49,7 @@ class SessionForm extends React.Component {
   render() {
 
     if(this.state.redirected) {
-      if (this.state.formType == 'login') {
+      if (this.props.formType == 'login') {
         return (
           <Redirect to='/signup' />
         )
@@ -64,18 +64,44 @@ class SessionForm extends React.Component {
       let buttonText;
       let title;
       let corrected;
+      let loginError = "";
+      let usernameError = "";
+      let passwordError = "";
+      let usernameClass = "input-good";
+      let passwordClass = "input-good";
       if(this.props.formType === 'login') {
         spanText = "New to Trail Magic?";
         buttonText = "Sign up for free";
-        title = "Log in and get after it"
-        corrected = "Log In"
+        title = "Log in and get after it";
+        corrected = "Log In";
+        if (Array.isArray(this.props.errors)) {
+          if (this.props.errors.includes(
+            "Cannot find a user with that username and password"
+            )
+          ) { 
+          loginError = "Cannot find a user with that username and password";
+        }
+
+        }
       } else {
         spanText = "Already have an account?";
         buttonText = "Login";
-        title = "Create your free account"
-        corrected = "Sign In"
-      }
-
+        title = "Create your free account";
+        corrected = "Sign In";
+        if (Array.isArray(this.props.errors)) {
+          if (this.props.errors.includes("Username has already been taken")) {
+            usernameError = "Username has already been taken";
+            usernameClass = "input-bad";
+          } else if (this.props.errors.includes("Username can't be blank")) {
+            usernameError = "Username can't be blank";
+            usernameClass = "input-bad";
+          };
+          if (this.props.errors.includes("Password is too short (minimum is 8 characters)")) {
+            passwordError = "Password must contain at least 8 characters";
+            passwordClass = "input-bad";
+          };
+        };
+      };
       return (
         <div className="session-form-container">
           <form 
@@ -83,23 +109,27 @@ class SessionForm extends React.Component {
             className="session-form"
             >
             <h1>{title}</h1>
-            <label>
+            <div className={usernameClass}>
               <input 
                 type="text" 
-                value={this.state.user.username} 
+                value={this.state.username} 
                 onChange={this.update('username')}
                 placeholder="username"
                 />
-            </label>
+                <span>{usernameError}</span>
+            </div>
 
-            <label>
+            <div className={passwordClass}>
               <input 
                 type="password" 
-                value={this.state.user.password} 
+                value={this.state.password} 
                 onChange={this.update('password')}
                 placeholder="password"
                 />
-            </label>
+                <span>{passwordError}</span>
+            </div>
+
+            <span>{loginError}</span>
 
             <input type="submit" value={corrected}/>
 
