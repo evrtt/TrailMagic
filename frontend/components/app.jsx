@@ -15,20 +15,13 @@ export default () => (
         <nav className="header-nav">
           <span>Explore</span>
         </nav>
-        {/* <div className="logo-container">
-          <Link to="/" className="logo-link">
-            <span>Trail</span>
-            <img className="logo-header" src={window.logoURL}/>
-            <span>Magic</span>
-          </Link>
-        </div> */}
         <HeaderLogoContainer />
         <WelcomeContainer />
     </header>
     <section className="main-section">
       <Switch>
-        <AuthRoute exact path='/login' component={LoginFormContainer} />
         <AuthRoute exact path='/signup' component={SignUpFormContainer} />
+        <AuthRoute exact path='/login' component={LoginFormContainer} />
         {/* <Route exact path='/' component={SplashContainer} /> */}
       </Switch>
     </section>

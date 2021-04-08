@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .session-form-container {
-  position: fixed;
+  position: relative;
   background-color: white;
   border-radius: 8px 8px 8px 8px;
   display: flex;
@@ -12,11 +12,11 @@
   align-items: center;
   height: 500px;
   top: 390px;
-  right: 50%;
-  transform: translate(50%, -50%);
+  right: 0%;
+  top: 8%;
   z-index: 0;
   font-family: 'Montserrat', Sans-Serif;
-  width: auto;
+  width: 400px;
   box-shadow:  0 0 8px 1px lightgrey;
   margin-left: auto;
   margin-right: auto;
