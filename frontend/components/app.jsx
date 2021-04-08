@@ -13,9 +13,8 @@ export default () => (
         </nav>
         <div className="logo-container">
           <Link to="/" className="logo-link">
-            <span>Trail</span>
             <img className="logo" src={window.logoURL}/>
-            <span>Magic</span>
+            <span>TrailMagic</span>
           </Link>
         </div>
         <WelcomeContainer />

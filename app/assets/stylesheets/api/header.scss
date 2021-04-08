@@ -143,11 +143,13 @@
   .logo {
     width: 110px;
     height: 60px;
+    padding-left: 10px;
   }
 
   .logo-container {
     display: flex;
     justify-content: center;
+    width: fit-content;
   }
 
   .logo-link {

@@ -68,7 +68,6 @@
     input[type="password"] {
       padding: 12px;
       border-radius: 8px 8px 8px 8px;
-      border: 1px black solid;
     }
 
     input[type="password"]:hover {
@@ -83,7 +82,6 @@
     input[type="text"] {
       padding: 12px;
       border-radius: 8px 8px 8px 8px;
-      border: 1px black solid;
     }
 
     input[type="text"]:hover {
@@ -122,7 +120,7 @@
   
   input {
     color: black;
-    border: black 1px thin;
+    border: black 1px solid;
     font-family: 'Montserrat', Sans-Serif;
 
   }
