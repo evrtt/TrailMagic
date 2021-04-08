@@ -6,7 +6,7 @@ import SignUpFormContainer from './session/signup_form_container';
 import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-import HeaderLogoContainer from './header_logo_container';
+import HeaderLogo from './header_logo';
 
 
 export default () => (
@@ -15,7 +15,7 @@ export default () => (
         <nav className="header-nav">
           <span>Explore</span>
         </nav>
-        <HeaderLogoContainer />
+        <HeaderLogo />
         <WelcomeContainer />
     </header>
     <section className="main-section">
@@ -30,9 +30,16 @@ export default () => (
         <img className="logo" src={window.logoURL} />
         <span>TrailMagic</span>
       </Link>
-      <div className="icons">
-        <FontAwesomeIcon icon={faLinkedin} />
-        <FontAwesomeIcon icon={faGithub} />
+      <div className="icons-container">
+        <span>Find me on</span>
+        <div className="icons">
+          <a href="https://www.linkedin.com/in/everett-smith-924798153">
+            <FontAwesomeIcon icon={faLinkedin} />
+          </a>
+          <a href="https://github.com/evrtt">
+            <FontAwesomeIcon icon={faGithub} />
+          </a>
+        </div>
       </div>
 
     </footer>

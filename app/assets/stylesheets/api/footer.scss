@@ -20,17 +20,39 @@
       font-family: 'Montserrat', Sans-Serif;
       font-size: xx-large;
       font-weight: 600;
+      color: rgb(117, 117, 117);
 
     }
   }
 
   .logo {
-    height: 80px;
-    width: 147px;
+    height: 40px;
+    width: 85px;
   }
 
+  .icons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      font-family: 'Montserrat', Sans-Serif;
+      font-size: large;
+      padding-bottom: 8px;
+      width: 130px;
+      text-align: center;
+      color: rgb(117, 117, 117);
+      font-weight: 500;
+    }
+  }
+  
+
   .icons {
-    font-size: x-large;
-    margin-right: 20px;
+    font-size: xx-large;
+    display: flex;
+    justify-content: space-between;
+    width: 80px;
+    color: rgb(117, 117, 117);
   }
 }
