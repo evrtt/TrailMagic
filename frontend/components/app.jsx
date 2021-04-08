@@ -6,6 +6,7 @@ import SignUpFormContainer from './session/signup_form_container';
 import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import HeaderLogoContainer from './header_logo_container';
 
 
 export default () => (
@@ -14,13 +15,14 @@ export default () => (
         <nav className="header-nav">
           <span>Explore</span>
         </nav>
-        <div className="logo-container">
+        {/* <div className="logo-container">
           <Link to="/" className="logo-link">
             <span>Trail</span>
             <img className="logo-header" src={window.logoURL}/>
             <span>Magic</span>
           </Link>
-        </div>
+        </div> */}
+        <HeaderLogoContainer />
         <WelcomeContainer />
     </header>
     <section className="main-section">

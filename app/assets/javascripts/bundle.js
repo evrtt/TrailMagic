@@ -6290,13 +6290,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _session_welcome_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./session/welcome_container */ "./frontend/components/session/welcome_container.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _session_login_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session/login_form_container */ "./frontend/components/session/login_form_container.js");
 /* harmony import */ var _session_signup_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session/signup_form_container */ "./frontend/components/session/signup_form_container.js");
 /* harmony import */ var _utils_route_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/route_util */ "./frontend/utils/route_util.jsx");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-/* harmony import */ var _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
+/* harmony import */ var _header_logo_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./header_logo_container */ "./frontend/components/header_logo_container.jsx");
+
 
 
 
@@ -6312,15 +6314,7 @@ __webpack_require__.r(__webpack_exports__);
     className: "site-header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("nav", {
     className: "header-nav"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Explore")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "logo-container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-    to: "/",
-    className: "logo-link"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Trail"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    className: "logo-header",
-    src: window.logoURL
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Magic"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_session_welcome_container__WEBPACK_IMPORTED_MODULE_1__.default, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Explore")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_header_logo_container__WEBPACK_IMPORTED_MODULE_6__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_session_welcome_container__WEBPACK_IMPORTED_MODULE_1__.default, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
     className: "main-section"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_4__.AuthRoute, {
     exact: true,
@@ -6332,7 +6326,7 @@ __webpack_require__.r(__webpack_exports__);
     component: _session_signup_form_container__WEBPACK_IMPORTED_MODULE_3__.default
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("footer", {
     className: "footer"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
     to: "/",
     className: "logo-link"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
@@ -6341,11 +6335,81 @@ __webpack_require__.r(__webpack_exports__);
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "TrailMagic")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "icons"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_5__.FontAwesomeIcon, {
-    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faLinkedin
+    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_9__.faLinkedin
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_5__.FontAwesomeIcon, {
-    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faGithub
+    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_9__.faGithub
   }))));
 });
+
+/***/ }),
+
+/***/ "./frontend/components/header_logo.jsx":
+/*!*********************************************!*\
+  !*** ./frontend/components/header_logo.jsx ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+var HeaderLogo = function HeaderLogo(props) {
+  if (props.session.id) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+      to: "/",
+      className: "logo-link"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Trail"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+      className: "magic-logo-header",
+      src: window.magicLogoURL
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Magic"));
+  } else {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+      to: "/",
+      className: "logo-link"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Trail"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+      className: "logo-header",
+      src: window.logoURL
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Magic"));
+  }
+
+  ;
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HeaderLogo);
+
+/***/ }),
+
+/***/ "./frontend/components/header_logo_container.jsx":
+/*!*******************************************************!*\
+  !*** ./frontend/components/header_logo_container.jsx ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _header_logo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./header_logo */ "./frontend/components/header_logo.jsx");
+
+
+
+
+var mSTP = function mSTP(state) {
+  return {
+    session: state.session
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mSTP, null)(_header_logo__WEBPACK_IMPORTED_MODULE_2__.default));
 
 /***/ }),
 
