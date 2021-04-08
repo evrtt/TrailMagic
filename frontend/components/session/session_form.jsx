@@ -92,7 +92,7 @@ class SessionForm extends React.Component {
         spanText = "Already have an account?";
         buttonText = "Login";
         title = "Create your free account";
-        corrected = "Sign In";
+        corrected = "Sign Up";
         if (Array.isArray(this.props.errors)) {
           if (this.props.errors.includes("Username has already been taken")) {
             usernameError = "Username has already been taken.";
