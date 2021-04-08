@@ -140,7 +140,7 @@
     background-color: rgb(245, 245, 245);
   }
 
-  .logo {
+  .logo-header {
     width: 110px;
     height: 60px;
     padding-left: 10px;
@@ -149,7 +149,7 @@
   .logo-container {
     display: flex;
     justify-content: center;
-    width: fit-content;
+    width: 260px
   }
 
   .logo-link {
@@ -157,7 +157,6 @@
       flex-direction: row;
       align-items: center;
       justify-content: space-around;
-      width: fit-content;
   }
 
 }
