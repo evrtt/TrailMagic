@@ -13704,14 +13704,18 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
           value: this.state.username,
           onChange: this.update('username'),
           placeholder: "Username"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, usernameError)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+          className: "username-errors"
+        }, usernameError)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: passwordClass
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
           type: "password",
           value: this.state.password,
           onChange: this.update('password'),
           placeholder: "Password"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, passwordError)), loginError, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+          className: "password-errors"
+        }, passwordError)), loginError, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
           type: "submit",
           value: corrected
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {

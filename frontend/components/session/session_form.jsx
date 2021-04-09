@@ -126,7 +126,7 @@ class SessionForm extends React.Component {
                   onChange={this.update('username')}
                   placeholder="Username"
                   />
-                  <span>{usernameError}</span>
+                  <span className="username-errors" >{usernameError}</span>
               </div>
 
               <div className={passwordClass}>
@@ -136,7 +136,7 @@ class SessionForm extends React.Component {
                   onChange={this.update('password')}
                   placeholder="Password"
                   />
-                  <span>{passwordError}</span>
+                  <span className="password-errors" >{passwordError}</span>
               </div>
 
               {loginError}

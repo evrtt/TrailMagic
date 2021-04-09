@@ -48,13 +48,6 @@
   margin-right: 12px;
   margin-left: 12px;
 
-  span {
-  font-size: 75%;
-  color: red;
-  text-align: center;
-  margin-top: 3px;
-  }
-
   input {
     margin-top: 25px;
     font-size: 100%;
@@ -176,11 +169,16 @@
   }
 }
 
-
 .login-error {
   font-size: 75%;
   color: red;
   text-align: center;
   margin-top: 25px;
+}
+.username-errors, .password-errors {
+  font-size: 75%;
+  color: red;
+  text-align: center;
+  margin-top: 3px;
 }
 
