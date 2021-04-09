@@ -108,45 +108,47 @@ class SessionForm extends React.Component {
         };
       };
       return (
-        <div className="session-form-container">
-          <form 
-            onSubmit={this.handleSubmit}
-            className="session-form"
-            >
-            <h1>{title}</h1>
-            <div className={usernameClass}>
-              <input 
-                type="text" 
-                value={this.state.username} 
-                onChange={this.update('username')}
-                placeholder="username"
-                />
-                <span>{usernameError}</span>
+        <div className="session-section">
+          <div className="session-form-container">
+            <form 
+              onSubmit={this.handleSubmit}
+              className="session-form"
+              >
+              <h1>{title}</h1>
+              <div className={usernameClass}>
+                <input 
+                  type="text" 
+                  value={this.state.username} 
+                  onChange={this.update('username')}
+                  placeholder="username"
+                  />
+                  <span>{usernameError}</span>
+              </div>
+
+              <div className={passwordClass}>
+                <input 
+                  type="password" 
+                  value={this.state.password} 
+                  onChange={this.update('password')}
+                  placeholder="password"
+                  />
+                  <span>{passwordError}</span>
+              </div>
+
+              {loginError}
+
+              <input type="submit" value={corrected}/>
+
+              <button onClick={this.demoLogin}>Demo</button>
+            </form>
+            <div className="switch-form">
+              <span>{spanText}</span>
+              <button onClick={this.redirect}>
+                {buttonText}
+              </button>
             </div>
-
-            <div className={passwordClass}>
-              <input 
-                type="password" 
-                value={this.state.password} 
-                onChange={this.update('password')}
-                placeholder="password"
-                />
-                <span>{passwordError}</span>
-            </div>
-
-            {loginError}
-
-            <input type="submit" value={corrected}/>
-
-            <button onClick={this.demoLogin}>Demo</button>
-          </form>
-          <div className="switch-form">
-            <span>{spanText}</span>
-            <button onClick={this.redirect}>
-              {buttonText}
-            </button>
           </div>
-        </div>
+        </div>  
       )
     }  
   };

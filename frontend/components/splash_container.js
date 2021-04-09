@@ -11,4 +11,4 @@ import Splash from './splash';
 // })
 
 
-export default connect(null, null)(splash)
+export default connect(null, null)(Splash);

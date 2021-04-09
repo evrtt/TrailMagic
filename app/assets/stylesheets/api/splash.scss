@@ -1,0 +1,63 @@
+.splash-container {
+  font-family: 'Montserrat', Sans-Serif;
+}
+
+
+.search-bar-container {
+  background-image: url('/assets/alpine.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  height: 520px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  
+  h1 {
+    color: white;
+    font-size: 320%;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+}
+.search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-family: 'Montserrat', Sans-Serif;
+  background-color: white;
+  padding: 18px;
+  padding-right: 10px;
+  border-radius: 100px;
+  width: 600px;
+  max-width: 100%;
+  height: auto;
+  border: none;
+  
+  button {
+    color: forestgreen;
+    background-color: transparent;
+    border: none;
+    font-size: 200%;
+  }
+
+  input {
+    width: 570px;
+    max-width: 100%;
+    border: none;
+    color: rgb(100, 100, 100);
+  }
+}
+
+.search-icon {
+  color: rgb(70, 70, 70);
+  font-weight: 10%;
+  font-size: small;
+}
+
+.filler-content {
+  height: 520px;
+  background-color: blanchedalmond;
+  display: block;
+}

@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.session-section {
+  height: 800px;
+  background-image: url('/assets/park.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
 .session-form-container {
   position: relative;
   background-color: white;
@@ -28,93 +36,92 @@
     font-weight: 600;
     text-align: center;
   }
-
+}
   
-  .session-form {
+.session-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px;
+  padding-top: 10px;
+  margin-right: 12px;
+  margin-left: 12px;
+    
+  span {
+    font-size: 75%;
+    color: red;
+    text-align: center;
+    padding: 3px;
+  }
+
+  input[type="submit"] {
+    border-radius: 8px 8px 8px 8px;
+    padding: 12px;
+    font-size: medium;
+    background-color: forestgreen;
+    color: white;
+    border-style: none;
+  }
+
+  input[type="submit"]:hover {
+    background-color: rgb(0, 155, 0);
+  }
+
+  div {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 400px;
-    padding-top: 10px;
-    margin-right: 12px;
-    margin-left: 12px;
-    
-    span {
-      font-size: 75%;
-      color: red;
-      text-align: center;
-      padding: 3px;
-    }
-
-    input[type="submit"] {
-      border-radius: 8px 8px 8px 8px;
-      padding: 12px;
-      font-size: medium;
-      background-color: forestgreen;
-      color: white;
-      border-style: none;
-    }
-
-    input[type="submit"]:hover {
-      background-color: rgb(0, 155, 0);
-    }
-
-    div {
-      display: flex;
-      flex-direction: column;
-      width: 350px;
-    }
-
-    input[type="password"] {
-      padding: 12px;
-      border-radius: 8px 8px 8px 8px;
-    }
-
-    input[type="password"]:hover {
-      border: 1px solid forestgreen;
-    }
-
-    input[type="password"]:focus {
-      padding: 11px;
-      border: 2px forestgreen solid;
-    }
-
-    input[type="text"] {
-      padding: 12px;
-      border-radius: 8px 8px 8px 8px;
-    }
-
-    input[type="text"]:hover {
-      border: 1px solid forestgreen;
-    }
-
-    input[type="text"]:focus {
-      padding: 11px;
-      border: 2px forestgreen solid;
-    }
-
-    button {
-      border-style: none;
-      border-radius: 8px 8px 8px 8px;
-      padding: 12px;
-      font-size: medium;
-      width: 350px;
-      background-color: forestgreen;
-      color: white;
-
-    }
-
-    button:hover {
-      background-color: rgb(0, 155, 0);
-    }
-
-    button:active {
-      outline: none;
-      border: none;
-    }
+    width: 350px;
   }
-  
+
+  input[type="password"] {
+    padding: 12px;
+    border-radius: 8px 8px 8px 8px;
+  }
+
+  input[type="password"]:hover {
+    border: 1px solid forestgreen;
+  }
+
+  input[type="password"]:focus {
+    padding: 11px;
+    border: 2px forestgreen solid;
+  }
+
+   input[type="text"] {
+    padding: 12px;
+    border-radius: 8px 8px 8px 8px;
+  }
+
+  input[type="text"]:hover {
+    border: 1px solid forestgreen;
+  }
+
+  input[type="text"]:focus {
+    padding: 11px;
+    border: 2px forestgreen solid;
+  }
+
+  button {
+    border-style: none;
+    border-radius: 8px 8px 8px 8px;
+    padding: 12px;
+    font-size: medium;
+    width: 350px;
+    background-color: forestgreen;
+    color: white;
+
+  }
+
+  button:hover {
+    background-color: rgb(0, 155, 0);
+  }
+
+  button:active {
+    outline: none;
+    border: none;
+  }
 }
+
 
 .input-good {
   

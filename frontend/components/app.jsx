@@ -7,6 +7,7 @@ import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import HeaderLogo from './header_logo';
+import SplashContainer from './splash_container';
 
 
 export default () => (
@@ -23,10 +24,6 @@ export default () => (
         <AuthRoute exact path='/signup' component={SignUpFormContainer} />
         <AuthRoute exact path='/login' component={LoginFormContainer} />
         <Route exact path='/' component={SplashContainer} />
-        <div className="search-bar-container">
-          <h1>Pick a new Adventure</h1>
-          <input className="search-bar" type="text" name="" id=""/>
-        </div>
       </Switch>
     </section>
     <footer className="footer">
