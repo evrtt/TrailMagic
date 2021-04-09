@@ -1,12 +1,8 @@
 import { WINDOW_RESIZE } from "../actions/ui_actions"
 
-// const preloadedState = {
-//   width: typeof window === 'object' ? window.innerWidth
-// }
-
 const preloadedState = {
-  width: null,
-  height: null
+  width: typeof window === 'object' ? window.innerWidth : null,
+  height: typeof window === 'object' ? window.innerHeight : null
 }
 
 export default (state = preloadedState, action) => {

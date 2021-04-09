@@ -7,7 +7,7 @@ import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import HeaderLogo from './header_logo';
-import SplashContainer from './splash_container';
+import SplashContainer from './splash/splash_container';
 
 
 export default () => (
