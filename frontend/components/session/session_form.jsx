@@ -76,7 +76,7 @@ class SessionForm extends React.Component {
         spanText = "New to Trail Magic?";
         buttonText = "Sign up for free";
         title = "Log in and let's get after it";
-        corrected = "Log In";
+        corrected = "Log in";
         if (Array.isArray(this.props.errors)) {
           if (this.props.errors.includes(
             "Cannot find a user with that username and password"
@@ -90,9 +90,9 @@ class SessionForm extends React.Component {
         }
       } else {
         spanText = "Already have an account?";
-        buttonText = "Login";
+        buttonText = "Log in";
         title = "Create your free account";
-        corrected = "Sign Up";
+        corrected = "Sign up";
         if (Array.isArray(this.props.errors)) {
           if (this.props.errors.includes("Username has already been taken")) {
             usernameError = "Username has already been taken.";
@@ -120,7 +120,7 @@ class SessionForm extends React.Component {
                   type="text" 
                   value={this.state.username} 
                   onChange={this.update('username')}
-                  placeholder="username"
+                  placeholder="Username"
                   />
                   <span>{usernameError}</span>
               </div>
@@ -130,7 +130,7 @@ class SessionForm extends React.Component {
                   type="password" 
                   value={this.state.password} 
                   onChange={this.update('password')}
-                  placeholder="password"
+                  placeholder="Password"
                   />
                   <span>{passwordError}</span>
               </div>

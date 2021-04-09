@@ -5,6 +5,7 @@ import {
   logout,
   signUp
 } from './actions/session_actions';
+import { windowResize } from './actions/ui_actions';
 import configureStore from './store/store';
 import Root from './components/root';
 
@@ -34,4 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //JUST FOR TESTING ^
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
+  window.addEventListener('resize', () => {
+    store.dispatch(windowResize(window.innerWidth, window.innerHeight))
+  });
 });

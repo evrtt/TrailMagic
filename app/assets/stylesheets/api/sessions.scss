@@ -8,23 +8,24 @@
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
 }
 
 .session-form-container {
   position: relative;
   background-color: white;
-  border-radius: 8px 8px 8px 8px;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
-  height: 500px;
+  height: 400px;
   top: 390px;
   right: 0%;
-  top: 8%;
+  top: 7%;
   z-index: 0;
   font-family: 'Montserrat', Sans-Serif;
-  width: 400px;
+  width: 450px;
   box-shadow:  0 0 8px 1px lightgrey;
   margin-left: auto;
   margin-right: auto;
@@ -35,15 +36,15 @@
     font-size: x-large;
     font-weight: 600;
     text-align: center;
+    margin-top: 32px;
+    color: rgb(109, 109, 109);
   }
 }
   
 .session-form {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 400px;
-  padding-top: 10px;
+  height: 340px;
   margin-right: 12px;
   margin-left: 12px;
     
@@ -51,13 +52,16 @@
     font-size: 75%;
     color: red;
     text-align: center;
-    padding: 3px;
+  }
+
+  input {
+    margin-top: 25px;
+    font-size: 100%;
   }
 
   input[type="submit"] {
     border-radius: 8px 8px 8px 8px;
     padding: 12px;
-    font-size: medium;
     background-color: forestgreen;
     color: white;
     border-style: none;
@@ -70,7 +74,7 @@
   div {
     display: flex;
     flex-direction: column;
-    width: 350px;
+    width: 406px;
   }
 
   input[type="password"] {
@@ -105,10 +109,11 @@
     border-style: none;
     border-radius: 8px 8px 8px 8px;
     padding: 12px;
-    font-size: medium;
-    width: 350px;
+    font-size: 100%;
+    width: 406px;
     background-color: forestgreen;
     color: white;
+    margin-top: 25px;
 
   }
 
@@ -127,13 +132,13 @@
   
   input {
     color: black;
-    border: black 1px solid;
+    border: rgb(192, 192, 192) solid 1px;
     font-family: 'Montserrat', Sans-Serif;
 
   }
 
   input::placeholder {
-    color: black;
+    color: rgb(192, 192, 192);
     font-family: 'Montserrat', Sans-Serif;
   }
 }
@@ -151,6 +156,7 @@
 
 .switch-form {
   font-size: small;
+  margin-top: 10px;
 
   span {
     font-weight: 400;

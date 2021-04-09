@@ -12,7 +12,7 @@ const Welcome = ({ currentUser, logout } ) => {
             <button 
               onClick={() => logout()} 
               className="dropdown-content-button" 
-            >Logout</button>
+            >Log out</button>
           </li>
         </ul>
       </div>
@@ -20,9 +20,9 @@ const Welcome = ({ currentUser, logout } ) => {
   } else {
     return (
       <div className="welcome-comp">
-        <Link to="/signup" className="signup-link">Sign Up</Link>
+        <Link to="/signup" className="signup-link">Sign up</Link>
         <br/>
-        <Link to="/login" className="login-link">Login</Link>
+        <Link to="/login" className="login-link">Log in</Link>
       </div>
     )
   }
