@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 400px;
+  max-height: 500px;
   top: 390px;
   right: 0%;
   top: 7%;
@@ -44,14 +44,15 @@
 .session-form {
   display: flex;
   flex-direction: column;
-  height: 340px;
+  max-height: 400px;
   margin-right: 12px;
   margin-left: 12px;
-    
+
   span {
-    font-size: 75%;
-    color: red;
-    text-align: center;
+  font-size: 75%;
+  color: red;
+  text-align: center;
+  margin-top: 3px;
   }
 
   input {
@@ -156,7 +157,7 @@
 
 .switch-form {
   font-size: small;
-  margin-top: 10px;
+  margin: 30px;
 
   span {
     font-weight: 400;
@@ -176,5 +177,10 @@
 }
 
 
-
+.login-error {
+  font-size: 75%;
+  color: red;
+  text-align: center;
+  margin-top: 25px;
+}
 

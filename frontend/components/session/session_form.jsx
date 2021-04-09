@@ -86,7 +86,7 @@ class SessionForm extends React.Component {
             "Cannot find a user with that username and password"
             )
           ) { 
-          loginError = <span>
+          loginError = <span className="login-error">
             Login failed. Please check username and password.
           </span>
         }

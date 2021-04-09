@@ -13656,7 +13656,9 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
 
           if (Array.isArray(this.props.errors)) {
             if (this.props.errors.includes("Cannot find a user with that username and password")) {
-              loginError = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Login failed. Please check username and password.");
+              loginError = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+                className: "login-error"
+              }, "Login failed. Please check username and password.");
             }
           }
         } else {
