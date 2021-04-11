@@ -8,13 +8,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import HeaderLogo from './header_logo';
 import SplashContainer from './splash/splash_container';
+import TrailIndexContainer from './trails/trail_index_container';
+
 
 
 export default () => (
   <section className="main">
     <header className="site-header">
         <nav className="header-nav">
-          <span>Explore</span>
+          <Link to="/trails" className="explore-link">
+            <span>Explore</span>
+          </Link>
         </nav>
         <HeaderLogo />
         <WelcomeContainer />
@@ -23,6 +27,7 @@ export default () => (
       <Switch>
         <AuthRoute exact path='/signup' component={SignUpFormContainer} />
         <AuthRoute exact path='/login' component={LoginFormContainer} />
+        <Route exact path='/trails' component={TrailIndexContainer} />
         <Route exact path='/' component={SplashContainer} />
       </Switch>
     </section>

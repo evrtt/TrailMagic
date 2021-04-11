@@ -14,9 +14,16 @@
     color: rgb(117, 117, 117);
     font-weight: 600;
     font-size: 90%;
+  }
 
+  .explore-link {
+    
     span {
       margin-left: 10px;
+    }
+
+    span:hover {
+      color: forestgreen;
     }
   }
 
