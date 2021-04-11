@@ -9,6 +9,10 @@ import { windowResize } from './actions/ui_actions';
 import configureStore from './store/store';
 import Root from './components/root';
 import * as trailAPIUtil from './utils/trails_api_util';
+import {
+  fetchAllTrails,
+  fetchCurrentTrail
+} from './actions/trails_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   
@@ -31,6 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.fetchTrail = trailAPIUtil.fetchTrail;
   window.fetchTrails = trailAPIUtil.fetchTrails;
+
+  window.fetchCurrentTrail = fetchCurrentTrail;
+  window.fetchAllTrails = fetchAllTrails;
 
   window.signUp = signUp;
   window.login = login;

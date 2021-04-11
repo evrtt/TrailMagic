@@ -13316,6 +13316,56 @@ var signUp = function signUp(user) {
 
 /***/ }),
 
+/***/ "./frontend/actions/trails_actions.js":
+/*!********************************************!*\
+  !*** ./frontend/actions/trails_actions.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "RECEIVE_ALL_TRAILS": () => (/* binding */ RECEIVE_ALL_TRAILS),
+/* harmony export */   "RECEIVE_CURRENT_TRAIL": () => (/* binding */ RECEIVE_CURRENT_TRAIL),
+/* harmony export */   "fetchAllTrails": () => (/* binding */ fetchAllTrails),
+/* harmony export */   "fetchCurrentTrail": () => (/* binding */ fetchCurrentTrail)
+/* harmony export */ });
+/* harmony import */ var _utils_trails_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/trails_api_util */ "./frontend/utils/trails_api_util.js");
+
+var RECEIVE_ALL_TRAILS = 'RECEIVE_ALL_TRAILS';
+var RECEIVE_CURRENT_TRAIL = 'RECEIVE_CURRENT_TRAIL';
+
+var receiveAllTrails = function receiveAllTrails(trails) {
+  return {
+    type: RECEIVE_ALL_TRAILS,
+    trails: trails
+  };
+};
+
+var receiveCurrentTrail = function receiveCurrentTrail(currentTrail) {
+  return {
+    type: RECEIVE_CURRENT_TRAIL,
+    currentTrail: currentTrail
+  };
+};
+
+var fetchAllTrails = function fetchAllTrails() {
+  return function (dispatch) {
+    _utils_trails_api_util__WEBPACK_IMPORTED_MODULE_0__.fetchTrails().then(function (trails) {
+      return dispatch(receiveAllTrails(trails));
+    });
+  };
+};
+var fetchCurrentTrail = function fetchCurrentTrail(trailId) {
+  return function (dispatch) {
+    _utils_trails_api_util__WEBPACK_IMPORTED_MODULE_0__.fetchTrail(trailId).then(function (currentTrail) {
+      return dispatch(receiveCurrentTrail(currentTrail));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/ui_actions.js":
 /*!****************************************!*\
   !*** ./frontend/actions/ui_actions.js ***!
@@ -14095,12 +14145,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var _session_users_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./session/users_reducer */ "./frontend/reducers/session/users_reducer.js");
+/* harmony import */ var _trails_trails_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./trails/trails_reducer */ "./frontend/reducers/trails/trails_reducer.js");
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,redux__WEBPACK_IMPORTED_MODULE_1__.combineReducers)({
-  users: _users_reducer__WEBPACK_IMPORTED_MODULE_0__.default
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,redux__WEBPACK_IMPORTED_MODULE_2__.combineReducers)({
+  users: _session_users_reducer__WEBPACK_IMPORTED_MODULE_0__.default,
+  trails: _trails_trails_reducer__WEBPACK_IMPORTED_MODULE_1__.default
 }));
 
 /***/ }),
@@ -14117,11 +14170,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _session_errors_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./session_errors_reducer */ "./frontend/reducers/session_errors_reducer.js");
+/* harmony import */ var _session_session_errors_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./session/session_errors_reducer */ "./frontend/reducers/session/session_errors_reducer.js");
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,redux__WEBPACK_IMPORTED_MODULE_1__.combineReducers)({
-  sessionErrors: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_0__.default
+  sessionErrors: _session_session_errors_reducer__WEBPACK_IMPORTED_MODULE_0__.default
 }));
 
 /***/ }),
@@ -14140,7 +14193,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _errors_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./errors_reducer */ "./frontend/reducers/errors_reducer.js");
 /* harmony import */ var _entities_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./entities_reducer */ "./frontend/reducers/entities_reducer.js");
-/* harmony import */ var _session_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session_reducer */ "./frontend/reducers/session_reducer.js");
+/* harmony import */ var _session_session_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session/session_reducer */ "./frontend/reducers/session/session_reducer.js");
 /* harmony import */ var _ui_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ui_reducer */ "./frontend/reducers/ui_reducer.js");
 
 
@@ -14149,7 +14202,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_4__.combineReducers)({
   entities: _entities_reducer__WEBPACK_IMPORTED_MODULE_1__.default,
-  session: _session_reducer__WEBPACK_IMPORTED_MODULE_2__.default,
+  session: _session_session_reducer__WEBPACK_IMPORTED_MODULE_2__.default,
   errors: _errors_reducer__WEBPACK_IMPORTED_MODULE_0__.default,
   ui: _ui_reducer__WEBPACK_IMPORTED_MODULE_3__.default
 });
@@ -14157,10 +14210,10 @@ var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_4__.combineReducers)({
 
 /***/ }),
 
-/***/ "./frontend/reducers/session_errors_reducer.js":
-/*!*****************************************************!*\
-  !*** ./frontend/reducers/session_errors_reducer.js ***!
-  \*****************************************************/
+/***/ "./frontend/reducers/session/session_errors_reducer.js":
+/*!*************************************************************!*\
+  !*** ./frontend/reducers/session/session_errors_reducer.js ***!
+  \*************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -14168,7 +14221,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {
   var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -14193,10 +14246,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./frontend/reducers/session_reducer.js":
-/*!**********************************************!*\
-  !*** ./frontend/reducers/session_reducer.js ***!
-  \**********************************************/
+/***/ "./frontend/reducers/session/session_reducer.js":
+/*!******************************************************!*\
+  !*** ./frontend/reducers/session/session_reducer.js ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -14204,7 +14257,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {
   var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
@@ -14226,6 +14279,76 @@ __webpack_require__.r(__webpack_exports__);
 
     default:
       return oldState;
+  }
+});
+
+/***/ }),
+
+/***/ "./frontend/reducers/session/users_reducer.js":
+/*!****************************************************!*\
+  !*** ./frontend/reducers/session/users_reducer.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {
+  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(oldState);
+
+  switch (action.type) {
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CURRENT_USER:
+      return Object.assign({}, oldState, _defineProperty({}, action.currentUser.id, action.currentUser));
+
+    default:
+      return oldState;
+  }
+});
+
+/***/ }),
+
+/***/ "./frontend/reducers/trails/trails_reducer.js":
+/*!****************************************************!*\
+  !*** ./frontend/reducers/trails/trails_reducer.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _actions_trails_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/trails_actions */ "./frontend/actions/trails_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var initState = {
+  trails: null
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_trails_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_ALL_TRAILS:
+      return Object.assign({}, state, {
+        trails: action.trails
+      });
+
+    case _actions_trails_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CURRENT_TRAIL:
+      return Object.assign({}, state, _defineProperty({}, action.currentTrail.id, action.currentTrail));
+
+    default:
+      return state;
   }
 });
 
@@ -14264,37 +14387,6 @@ var preloadedState = {
 
     default:
       return state;
-  }
-});
-
-/***/ }),
-
-/***/ "./frontend/reducers/users_reducer.js":
-/*!********************************************!*\
-  !*** ./frontend/reducers/users_reducer.js ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {
-  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-  Object.freeze(oldState);
-
-  switch (action.type) {
-    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CURRENT_USER:
-      return Object.assign({}, oldState, _defineProperty({}, action.currentUser.id, action.currentUser));
-
-    default:
-      return oldState;
   }
 });
 
@@ -50906,7 +50998,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _utils_trails_api_util__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utils/trails_api_util */ "./frontend/utils/trails_api_util.js");
+/* harmony import */ var _actions_trails_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./actions/trails_actions */ "./frontend/actions/trails_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -50939,6 +51033,8 @@ document.addEventListener('DOMContentLoaded', function () {
   window.dispatch = store.dispatch;
   window.fetchTrail = _utils_trails_api_util__WEBPACK_IMPORTED_MODULE_6__.fetchTrail;
   window.fetchTrails = _utils_trails_api_util__WEBPACK_IMPORTED_MODULE_6__.fetchTrails;
+  window.fetchCurrentTrail = _actions_trails_actions__WEBPACK_IMPORTED_MODULE_7__.fetchCurrentTrail;
+  window.fetchAllTrails = _actions_trails_actions__WEBPACK_IMPORTED_MODULE_7__.fetchAllTrails;
   window.signUp = _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__.signUp;
   window.login = _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__.login;
   window.logout = _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__.logout; //JUST FOR TESTING ^

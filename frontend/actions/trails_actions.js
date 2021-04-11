@@ -9,7 +9,7 @@ const receiveAllTrails = (trails) => ({
 })
 
 const receiveCurrentTrail = (currentTrail) => ({
-  type: RECEIVE_ALL_TRAILS,
+  type: RECEIVE_CURRENT_TRAIL,
   currentTrail
 })
 
