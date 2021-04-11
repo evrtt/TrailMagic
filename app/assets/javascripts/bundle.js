@@ -14438,6 +14438,33 @@ var logout = function logout() {
 
 /***/ }),
 
+/***/ "./frontend/utils/trails_api_util.js":
+/*!*******************************************!*\
+  !*** ./frontend/utils/trails_api_util.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "fetchTrails": () => (/* binding */ fetchTrails),
+/* harmony export */   "fetchTrail": () => (/* binding */ fetchTrail)
+/* harmony export */ });
+var fetchTrails = function fetchTrails() {
+  return $.ajax({
+    url: '/api/trails',
+    method: 'GET'
+  });
+};
+var fetchTrail = function fetchTrail(trailId) {
+  return $.ajax({
+    url: "/api/trails/".concat(trailId),
+    method: 'GET'
+  });
+};
+
+/***/ }),
+
 /***/ "./node_modules/history/esm/history.js":
 /*!*********************************************!*\
   !*** ./node_modules/history/esm/history.js ***!
@@ -50878,7 +50905,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_ui_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actions/ui_actions */ "./frontend/actions/ui_actions.js");
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
+/* harmony import */ var _utils_trails_api_util__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utils/trails_api_util */ "./frontend/utils/trails_api_util.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -50908,6 +50937,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
+  window.fetchTrail = _utils_trails_api_util__WEBPACK_IMPORTED_MODULE_6__.fetchTrail;
+  window.fetchTrails = _utils_trails_api_util__WEBPACK_IMPORTED_MODULE_6__.fetchTrails;
   window.signUp = _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__.signUp;
   window.login = _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__.login;
   window.logout = _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__.logout; //JUST FOR TESTING ^
