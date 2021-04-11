@@ -7,5 +7,7 @@ class Trail < ApplicationRecord
   validates :location, presence: true
   validates :description, presence: true
   validates :estimated_time, presence: true
+
+  has_many_attached :photos
   
 end
