@@ -1,14 +1,15 @@
 import React from 'react';
 
 const TrailIndexItem = (props) => {
-  console.log(props.trail)
+
   return (
-    <li className="trails-index-item">
+    <li className="trail-index-item">
       <h1>{props.trail.title}</h1>
-      <p>{props.trail.location}</p>
-      <p>{props.trail.difficulty}</p>
-      <span>{props.trail.legnth}</span>
-      <span>{props.trail.estimated_time}</span>
+      <p className="trail-location">{props.trail.location}</p>
+      <p className={`dif-${props.trail.difficulty}`}>{props.trail.difficulty}</p>
+      <span>
+        Dist: {props.trail.length} miles -
+        Est: {props.trail.estimated_time} hours</span>
     </li>
   )
 }

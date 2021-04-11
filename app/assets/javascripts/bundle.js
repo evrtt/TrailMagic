@@ -14274,10 +14274,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var TrailIndexItem = function TrailIndexItem(props) {
-  console.log(props.trail);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
-    className: "trails-index-item"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, props.trail.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, props.trail.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, props.trail.difficulty), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, props.trail.legnth), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, props.trail.estimated_time));
+    className: "trail-index-item"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, props.trail.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+    className: "trail-location"
+  }, props.trail.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+    className: "dif-".concat(props.trail.difficulty)
+  }, props.trail.difficulty), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Dist: ", props.trail.length, " miles - Est: ", props.trail.estimated_time, " hours"));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TrailIndexItem);

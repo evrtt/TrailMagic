@@ -4,21 +4,48 @@
 
 .trails-index{
   display: block;
-  margin-left: 10px;
+  margin: 0 10px 0 10px;
+  font-family: 'Montserrat', Sans-Serif;
+  color: grey;
 }
 
-.trails-index-item {
+.trail-index-item {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  max-width: 150px;
+  max-width: 300px;
   max-height: 100px;
   box-shadow: 0 1px 2px 0 lightgray;
   padding: 10px 0 10px 0;
-  margin: 1px 0 1px 0;
+  margin: 10px 0 10px 0;
 
 
   h1{
-    
+    font-weight: bold;
   }
+
+  .trail-location {
+    min-width: max-content;
+    font-size: 14px;
+  }
+
+  p {
+    max-width: 60px;
+    width: fit-content;
+    padding: 3px;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+}
+
+.dif-hard {
+  background-color: rgb(255, 166, 166);
+}
+
+.dif-easy {
+  background-color: green;
+}
+
+.dif-moderate {
+  background-color: blue;
 }
