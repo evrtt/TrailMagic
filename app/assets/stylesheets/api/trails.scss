@@ -2,22 +2,37 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.trails-index{
-  display: block;
+// @import 'mapbox-gl/dist/mapbox-gl.css';
+
+.trails-index-page {
+  display: grid;
+  grid-template-columns: 350px auto;
+  height: 600px;
+}
+
+.trail-index-map {
+  display: grid;
+  height: inherit;
+}
+
+.trails-index-list{
+  display: grid;
   margin: 0 10px 0 10px;
   font-family: 'Montserrat', Sans-Serif;
   color: grey;
+  height: inherit;
+  overflow: auto;
 }
 
 .trail-index-item {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  max-width: 300px;
   max-height: 100px;
   box-shadow: 0 1px 2px 0 lightgray;
   padding: 10px 0 10px 0;
   margin: 10px 0 10px 0;
+  width: 350px;
 
 
   h1{
@@ -36,16 +51,28 @@
     font-size: 12px;
     border-radius: 3px;
   }
+
+  span {
+    padding: 3px 0 3px 0;
+  }
 }
 
 .dif-hard {
-  background-color: rgb(255, 166, 166);
+  background-color: rgb(104, 104, 104);
+  color: white;
+  font-weight: 500;
 }
 
 .dif-easy {
   background-color: green;
+  color: white;
+  font-weight: 500;
+
+
 }
 
 .dif-moderate {
   background-color: blue;
+  color: white;
+  font-weight: 500;
 }

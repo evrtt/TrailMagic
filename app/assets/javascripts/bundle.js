@@ -13506,6 +13506,16 @@ var HeaderLogo = function HeaderLogo() {
 
 /***/ }),
 
+/***/ "./frontend/components/map/mapbox.jsx":
+/*!********************************************!*\
+  !*** ./frontend/components/map/mapbox.jsx ***!
+  \********************************************/
+/***/ (() => {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/everettsmith/Desktop/TrailMagic/frontend/components/map/mapbox.jsx: JSX attributes must only be assigned a non-empty expression (31:29)\n\n\u001b[0m \u001b[90m 29 |\u001b[39m         mapStyle\u001b[33m=\u001b[39m\u001b[32m\"mapbox://styles/mapbox/outdoors-v11\"\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 30 |\u001b[39m         onViewportChange\u001b[33m=\u001b[39m{viewport \u001b[33m=>\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39msetState({viewport})}\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 |\u001b[39m         mapboxApiAccessToken\u001b[33m=\u001b[39m{}\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 32 |\u001b[39m         \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 33 |\u001b[39m     )\u001b[0m\n\u001b[0m \u001b[90m 34 |\u001b[39m   }\u001b[0m\n    at Object._raise (/Users/everettsmith/Desktop/TrailMagic/node_modules/@babel/parser/lib/index.js:775:17)\n    at Object.raiseWithData (/Users/everettsmith/Desktop/TrailMagic/node_modules/@babel/parser/lib/index.js:768:17)\n    at Object.raise (/Users/everettsmith/Desktop/TrailMagic/node_modules/@babel/parser/lib/index.js:736:17)\n    at Object.jsxParseAttributeValue (/Users/everettsmith/Desktop/TrailMagic/node_modules/@babel/parser/lib/index.js:4993:16)\n    at Object.jsxParseAttribute (/Users/everettsmith/Desktop/TrailMagic/node_modules/@babel/parser/lib/index.js:5042:44)\n    at Object.jsxParseOpeningElementAfterName (/Users/everettsmith/Desktop/TrailMagic/node_modules/@babel/parser/lib/index.js:5062:28)\n    at Object.jsxParseOpeningElementAt (/Users/everettsmith/Desktop/TrailMagic/node_modules/@babel/parser/lib/index.js:5055:17)\n    at Object.jsxParseElementAt (/Users/everettsmith/Desktop/TrailMagic/node_modules/@babel/parser/lib/index.js:5087:33)\n    at Object.jsxParseElement (/Users/everettsmith/Desktop/TrailMagic/node_modules/@babel/parser/lib/index.js:5161:17)\n    at Object.parseExprAtom (/Users/everettsmith/Desktop/TrailMagic/node_modules/@babel/parser/lib/index.js:5168:19)");
+
+/***/ }),
+
 /***/ "./frontend/components/root.jsx":
 /*!**************************************!*\
   !*** ./frontend/components/root.jsx ***!
@@ -14156,6 +14166,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _trail_index_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./trail_index_item */ "./frontend/components/trails/trail_index_item.jsx");
+/* harmony import */ var _map_mapbox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../map/mapbox */ "./frontend/components/map/mapbox.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -14182,7 +14193,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
 var TrailIndex = /*#__PURE__*/function (_React$Component) {
   _inherits(TrailIndex, _React$Component);
 
@@ -14203,14 +14213,18 @@ var TrailIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
-        className: "trails-index"
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "trails-index-page"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+        className: "trails-index-list"
       }, this.props.trails.map(function (trail) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_trail_index_item__WEBPACK_IMPORTED_MODULE_1__.default, {
           key: trail.id,
           trail: trail
         });
-      })));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "trail-index-map"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_map_mapbox__WEBPACK_IMPORTED_MODULE_2__.default, null)));
     }
   }]);
 

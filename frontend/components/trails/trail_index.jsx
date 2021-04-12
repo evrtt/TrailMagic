@@ -1,7 +1,6 @@
-import { faThemeisle } from '@fortawesome/free-brands-svg-icons';
-import { faCommentsDollar } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import TrailIndexItem from './trail_index_item';
+import Map from '../map/mapbox';
 
 class TrailIndex extends React.Component {
 
@@ -17,12 +16,15 @@ class TrailIndex extends React.Component {
 
   render() {
     return (
-      <div>
-        <ul className="trails-index">
+      <div className="trails-index-page">
+        <ul className="trails-index-list">
           {this.props.trails.map( 
             trail => <TrailIndexItem key={trail.id} trail={trail} />
             )}
         </ul>
+        <div className="trail-index-map">
+          <Map />
+        </div>
       </div>
       )
   }
