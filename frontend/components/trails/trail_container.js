@@ -8,7 +8,7 @@ const mSTP = (state, ownProps) => ({
 });
 
 const mDTP = (dispatch) => ({
-  fetchCurrentTrail = (trailId) => dispatch(fetchCurrentTrail(trailId));
+  fetchCurrentTrail: (trailId) => dispatch(fetchCurrentTrail(trailId))
 })
 
 export default connect(mSTP, mDTP)(Trail);

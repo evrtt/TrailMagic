@@ -12,6 +12,10 @@ class Trail extends React.Component {
 
   }
 
+  componentDidMount() {
+    this.props.fetchCurrentTrail(this.props.trail.id);
+  }
+
   mapViewOn() {
     this.setState({mapView: true})
   }
@@ -35,7 +39,7 @@ class Trail extends React.Component {
             <p className="trail-location">{props.trail.location}</p>
             <p className={`dif-${props.trail.difficulty}`}>{props.trail.difficulty}</p>
           </div>
-          <div className="trail-map">
+          <div className="trail-page-map">
             <MapContainer trail={this.props.trail} />
           </div>
         </div>
@@ -50,14 +54,22 @@ class Trail extends React.Component {
           </nav>
           <div className="trail-page-header">
             <h1>{this.props.trail.title}</h1>
-            <p className="trail-location">{props.trail.location}</p>
-            <p className={`dif-${props.trail.difficulty}`}>{props.trail.difficulty}</p>
+            <p className="trail-location">{this.props.trail.location}</p>
+            <p className={`dif-${props.trail.difficulty}`}>{this.props.trail.difficulty}</p>
           </div>
           <div className="trail-page-content-left">
-            <p>{this.props.description}</p>
+            <p className="description">{this.props.description}</p>
+            <span>{this.props.trail.length}</span>
+            <span>{this.props.trail.estimatedTime}</span>
+            <nav>
+              WAYPOINTS HERE TOGGLED
+              REVIEWS HERE TOGGLED
+              PHOTOS HERE TOGGLED
+            </nav>
           </div>
           <div className="trail-page-content-right">
-            <div>STATIC MAP HERE</div>
+            <div className="static-map">STATIC MAP HERE</div>
+            <button className="map-view-on">View Full Map</button>
           </div>
         </div>
       )

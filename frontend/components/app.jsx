@@ -9,6 +9,7 @@ import { faGithub, faLinkedin, faLinkedinIn } from '@fortawesome/free-brands-svg
 import HeaderLogo from './header_logo';
 import SplashContainer from './splash/splash_container';
 import TrailIndexContainer from './trails/trail_index_container';
+import TrailContainer from './trails/trail_container';
 
 
 
