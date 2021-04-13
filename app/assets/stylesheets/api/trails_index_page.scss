@@ -90,3 +90,62 @@
   color: white;
   font-weight: 500;
 }
+
+.popup-trail-item {
+  background-color: none;
+  height: 100px;
+  width: 400px;
+  border-radius: 8px;
+  font-family: 'Montserrat', Sans-Serif;
+  color: rgb(143, 143, 143);
+
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: 15px;
+    min-width: 100px;
+  }
+
+
+  h1{
+    font-weight: bold;
+  }
+
+  .trail-location {
+    min-width: max-content;
+    font-size: 14px;
+  }
+
+  p {
+    width: 65px;
+    padding: 3px;
+    margin-bottom: 3px;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+
+  span {
+    padding: 3px 0 3px 0;
+    font-size: 14px;
+  }
+
+  .dif-hard {
+  background-color: rgb(143, 143, 143);
+  color: white;
+  font-weight: 500;
+  }
+
+  .dif-easy {
+    background-color: rgb(106, 194, 106);
+    color: white;
+    font-weight: 500;
+
+  }
+
+  .dif-moderate {
+    background-color: rgb(97, 144, 214);
+    color: white;
+    font-weight: 500;
+  }
+}

@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 const TrailIndexItem = (props) => {
 
   let klass;
-  props.from === "popup" ? klass = "popup-trail-item" : klass = "trail-index-item"
+  props.from === "popup" ? klass = "popup-trail-item" : klass = "trail-index-item-link"
 
   return (
     <li className="trail-index-item">
-      <Link to={`/trails/${props.trail.id}`} className="trail-index-item-link">
+      <Link to={`/trails/${props.trail.id}`} className={klass}>
         <div>
           
         </div>
