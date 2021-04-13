@@ -1,5 +1,8 @@
 import React from 'react';
 import MapContainer from '../map/mapbox_container';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCameraRetro, faDirections, faPrint } from '@fortawesome/free-solid-svg-icons';
+
 
 
 class Trail extends React.Component {
@@ -15,6 +18,7 @@ class Trail extends React.Component {
 
   componentDidMount() {
     if (this.props.trail === undefined) {
+      this.props.fetchAll
       this.props.fetchCurrentTrail(this.props.currentTrail);
     }
   }
@@ -71,29 +75,44 @@ class Trail extends React.Component {
                   <p className={`dif-${this.props.trail.difficulty}`}>{this.props.trail.difficulty}</p>
                 </div>
               </div>
-              <div className="green-bar"></div>
-              <div className="trail-page-content-left">
-                <p className="description">{this.props.description}</p>
-                <span>Dist {this.props.trail.length} Miles</span>
-                <span>Est {this.props.trail.estimatedTime} Hours</span>
-                <nav className="nav">
-                  WAYPOINTS HERE TOGGLED
-                  REVIEWS HERE TOGGLED
-                  PHOTOS HERE TOGGLED
-                </nav>
-                {/* {this.state.contentLeftNav === "reviews" ? (
-                  <TrailReviews trailId={this.props.trail.id}/>
-                ) : null} */}
-                {/* {this.state.contentLeftNav === "waypoints" ? (
-                  <TrailWaypoints trailId={this.props.trail.id}/>
-                ) : null} */}
-                {/* {this.state.contentLeftNav === "photos" ? (
-                  <TrailPhotos trailId={this.props.trail.id}/>
-                ) : null} */}
+              <div className="green-bar">
+                <button>
+                  <FontAwesomeIcon icon={faCameraRetro} className="icon"/>
+                  <p>Photos</p>
+                </button>
+                <button>
+                    <FontAwesomeIcon icon={faDirections} className="icon"/>
+                  <p>Directions</p>
+                </button>
+                <button>
+                    <FontAwesomeIcon icon={faPrint} className="icon"/>
+                  <p>Print/PDF Map</p>
+                </button>
               </div>
-              <div className="trail-page-content-right">
-                <div className="static-map">STATIC MAP HERE</div>
-                <button className="map-view-on">View Full Map</button>
+              <div className="trail-page-content">
+                <div className="trail-page-content-left">
+                  <p className="description">{this.props.trail.description}</p>
+                  <span>Dist {this.props.trail.length} Miles</span>
+                  <span>Est {this.props.trail.estimatedTime} Hours</span>
+                  <nav className="nav">
+                    WAYPOINTS HERE TOGGLED
+                    REVIEWS HERE TOGGLED
+                    PHOTOS HERE TOGGLED
+                  </nav>
+                  {/* {this.state.contentLeftNav === "reviews" ? (
+                    <TrailReviews trailId={this.props.trail.id}/>
+                  ) : null} */}
+                  {/* {this.state.contentLeftNav === "waypoints" ? (
+                    <TrailWaypoints trailId={this.props.trail.id}/>
+                  ) : null} */}
+                  {/* {this.state.contentLeftNav === "photos" ? (
+                    <TrailPhotos trailId={this.props.trail.id}/>
+                  ) : null} */}
+                </div>
+                <div className="trail-page-content-right">
+                  <div className="static-map">STATIC MAP HERE</div>
+                  <button className="map-view-on">View Full Map</button>
+                </div>
               </div>
             </div>
           </div>

@@ -20,7 +20,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 30px;
+  height: 48px;
   
 }
 
@@ -87,3 +87,60 @@
   font-weight: 500;
 }
 
+.green-bar {
+  background-color: rgb(75, 163, 75);
+  height: 48px;
+  display: flex;
+  justify-content: space-around;
+
+  button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    background-color: rgb(75, 163, 75);
+    border: none;
+    color: white;
+  }
+
+  .icon {
+    position: relative;
+    bottom: 45%;
+    color: rgb(75, 163, 75);
+    padding: 10px;
+    border-radius: 100px;
+    background-color: white;
+    font-size: 20px;
+  }
+
+  p {
+    position: relative;
+    bottom: 30%;
+  }
+}
+
+.trail-page-content {
+  display:grid;
+  grid-template-columns: 70% 30%;
+  max-width: 1000px;
+}
+
+.trail-page-content-left {
+  display: block;
+  margin: 15px;
+
+  p {
+    line-height: 1.8;
+    font-weight: 300;
+    color: grey;
+    padding-bottom: 15px;
+    border-bottom: lightgrey 1px solid;
+  }
+}
+
+.trail-page-content-right {
+  display: block;
+  padding: 15px;
+  border-left: lightgrey solid 1px; 
+
+}
