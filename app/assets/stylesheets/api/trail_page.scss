@@ -1,0 +1,40 @@
+.grey-background {
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+  width: 100vw;
+  background-color: rgb(243, 243, 243);
+  font-family: 'Montserrat', Sans-Serif;
+  border-top: 1px rgb(223, 223, 223) solid;
+}
+
+.trail-page-no-map {
+  max-width: 1200px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(243, 243, 243);
+}
+
+.trail-page-nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+
+}
+
+.nav-spans {
+  color: rgb(172, 172, 172);
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    margin: 0 10px 0 10px;
+  }
+
+  span:first-of-type {
+    margin-left: 0;
+  }
+}

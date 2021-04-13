@@ -28,9 +28,9 @@ class FillerContent extends React.Component {
         <p>This app is extremely niche. You basically have the entire place to yourself. </p>
       </span>
       <span>
-        <h1>#0001</h1>
-        <h4>Website Made</h4>
-        <p>This is the first web application I have made. I hope you like it!</p>
+        <h1>First</h1>
+        <h4>Website Built</h4>
+        <p>This is the first full stack web application I've built. I truly hope you enjoy it.</p>
       </span>
     </div>
     )

@@ -53,39 +53,45 @@ class Trail extends React.Component {
         )
       } else if (!this.state.mapView) {
         return (
-          <div className="trail-page-no-map">
-            <nav className="trail-page-nav">
-              <span>{this.props.trail.location}</span>
-              <div>SEARCH COMPONENT HERE</div>
-              {/* <SearchComponent /> */}
-            </nav>
-            <div className="trail-page-header">
-              <h1>{this.props.trail.title}</h1>
-              <p className="trail-location">{this.props.trail.location}</p>
-              <p className={`dif-${this.props.trail.difficulty}`}>{this.props.trail.difficulty}</p>
-            </div>
-            <div className="trail-page-content-left">
-              <p className="description">{this.props.description}</p>
-              <span>Dist {this.props.trail.length} Miles</span>
-              <span>Est {this.props.trail.estimatedTime} Hours</span>
-              <nav className="nav">
-                WAYPOINTS HERE TOGGLED
-                REVIEWS HERE TOGGLED
-                PHOTOS HERE TOGGLED
+          <div className="grey-background">
+            <div className="trail-page-no-map">
+              <nav className="trail-page-nav">
+                <div className="nav-spans">
+                  {this.props.trail.location.split(',').map( el =>
+                    <span>{el.toString()}</span>
+                  )}
+                </div>
+                <div>SEARCH COMPONENT HERE</div>
+                {/* <SearchComponent /> */}
               </nav>
-              {/* {this.state.contentLeftNav === "reviews" ? (
-                <TrailReviews trailId={this.props.trail.id}/>
-              ) : null} */}
-              {/* {this.state.contentLeftNav === "waypoints" ? (
-                <TrailWaypoints trailId={this.props.trail.id}/>
-              ) : null} */}
-              {/* {this.state.contentLeftNav === "photos" ? (
-                <TrailPhotos trailId={this.props.trail.id}/>
-              ) : null} */}
-            </div>
-            <div className="trail-page-content-right">
-              <div className="static-map">STATIC MAP HERE</div>
-              <button className="map-view-on">View Full Map</button>
+              <div className="trail-page-header">
+                <h1>{this.props.trail.title}</h1>
+                <p className="trail-location">{this.props.trail.location.split(",")[0].toString()}</p>
+                <p className={`dif-${this.props.trail.difficulty}`}>{this.props.trail.difficulty}</p>
+              </div>
+              <div className="trail-page-content-left">
+                <p className="description">{this.props.description}</p>
+                <span>Dist {this.props.trail.length} Miles</span>
+                <span>Est {this.props.trail.estimatedTime} Hours</span>
+                <nav className="nav">
+                  WAYPOINTS HERE TOGGLED
+                  REVIEWS HERE TOGGLED
+                  PHOTOS HERE TOGGLED
+                </nav>
+                {/* {this.state.contentLeftNav === "reviews" ? (
+                  <TrailReviews trailId={this.props.trail.id}/>
+                ) : null} */}
+                {/* {this.state.contentLeftNav === "waypoints" ? (
+                  <TrailWaypoints trailId={this.props.trail.id}/>
+                ) : null} */}
+                {/* {this.state.contentLeftNav === "photos" ? (
+                  <TrailPhotos trailId={this.props.trail.id}/>
+                ) : null} */}
+              </div>
+              <div className="trail-page-content-right">
+                <div className="static-map">STATIC MAP HERE</div>
+                <button className="map-view-on">View Full Map</button>
+              </div>
             </div>
           </div>
         )

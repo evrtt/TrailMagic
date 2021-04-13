@@ -13,7 +13,7 @@ const TrailIndexItem = (props) => {
         <p className="trail-location">{props.trail.location}</p>
         <p className={`dif-${props.trail.difficulty}`}>{props.trail.difficulty}</p>
         <span>
-          Dist: {props.trail.length} miles -
+          Dist: {props.trail.length} miles |
           Est: {props.trail.estimatedTime} hours</span>
       </Link >
     </li>
