@@ -152,7 +152,7 @@ class Trail extends React.Component {
                       REVIEWS HERE TOGGLED
                       PHOTOS HERE TOGGLED
                     {this.state.contentLeftNav === "reviews" ? (
-                        <div>REVIEWS GO HERE</div>
+                        <div>THIS IS A FAKE REVIEW THAT NEEDS TO BE REPLACED SO THAT I CAN STYLE THIS SECTION CORRECLTY I JUST NEEDED SOME TEXT TO SEE HOW IT WOULD LOOK IS ALL</div>
                       // <TrailReviews trailId={this.props.trail.id}/>
                     ) : null}
                     {/* {this.state.contentLeftNav === "waypoints" ? (

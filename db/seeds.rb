@@ -1,3 +1,4 @@
+require 'open-uri'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -132,6 +133,36 @@ trail_12 = Trail.create({title: "North Mount Elbert Trail",
   route_type: "Out & back"})
 
 
+#01 North Crestone Creek Seed Files 
+
+north_crestone_creek_01 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_01.jpg')
+north_crestone_creek_02 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_02.jpg')
+north_crestone_creek_03 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_03.jpg')
+north_crestone_creek_04 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_04.jpg')
+north_crestone_creek_05 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_05.jpg')
+north_crestone_creek_06 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_06.jpg')
+north_crestone_creek_07 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_07.jpg')
+north_crestone_creek_08 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_08.jpg')
+north_crestone_creek_09 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_09.jpg')
+north_crestone_creek_10 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_10.jpg')
+north_crestone_creek_11 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_11.jpg')
+north_crestone_creek_12 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_12.jpg')
+north_crestone_creek_13 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_13.jpg')
+north_crestone_creek_14 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_14.jpg')
+north_crestone_creek_15 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_15.jpg')
+
+
+#02 Cahill Pond Seed Files
+
+cahill_pond_01 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/cahill_pond_01.jpg')
+cahill_pond_01 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/cahill_pond_02.jpg')
+cahill_pond_01 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/cahill_pond_03.jpg')
+
+#03 Summer Whitehouse Trail Loop Seed Files
+
+#04 Upper Blue Lakes Trail Seed Files
+
+#05 Quandary Peak Trail Seed Files
 
 #   Trail Magic Trail Seeds
 
