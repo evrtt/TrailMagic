@@ -8,6 +8,8 @@ class CreateTrails < ActiveRecord::Migration[5.2]
       t.string :location, null: false
       t.text :description, null: false
       t.float :estimated_time, null: false
+      t.string :elevation_gain, null: false
+      t.string :route_type, null: false
 
       t.timestamps
     end

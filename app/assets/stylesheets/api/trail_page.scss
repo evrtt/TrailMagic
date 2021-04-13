@@ -9,7 +9,7 @@
 }
 
 .trail-page-no-map {
-  max-width: 1200px;
+  max-width: 1000px;
   width: auto;
   display: flex;
   flex-direction: column;
@@ -21,6 +21,7 @@
   justify-content: space-between;
   align-items: center;
   height: 30px;
+  
 
 }
 
@@ -38,3 +39,52 @@
     margin-left: 0;
   }
 }
+
+.trail-page-header{
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  background-color: lightgreen;
+}
+
+.trail-page-header-content {
+ 
+  color: white;
+  margin-left: 10px;
+  margin-bottom: 15px;
+
+  h1 {
+    font-size: 32px;
+  }
+
+  p {
+    max-width: 60px;
+    width: fit-content;
+    padding: 3px;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+
+  .trail-location {
+    min-width: max-content;
+    font-size: 14px;
+  }
+}
+
+.dif-hard {
+  background-color: rgb(104, 104, 104);
+  font-weight: 500;
+}
+
+.dif-easy {
+  background-color: green;
+  font-weight: 500;
+}
+
+.dif-moderate {
+  background-color: blue;
+  font-weight: 500;
+}
+

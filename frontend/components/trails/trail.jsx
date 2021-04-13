@@ -65,10 +65,13 @@ class Trail extends React.Component {
                 {/* <SearchComponent /> */}
               </nav>
               <div className="trail-page-header">
-                <h1>{this.props.trail.title}</h1>
-                <p className="trail-location">{this.props.trail.location.split(",")[0].toString()}</p>
-                <p className={`dif-${this.props.trail.difficulty}`}>{this.props.trail.difficulty}</p>
+                <div className="trail-page-header-content">
+                  <h1>{this.props.trail.title}</h1>
+                  <p className="trail-location">{this.props.trail.location.split(",")[0].toString()}</p>
+                  <p className={`dif-${this.props.trail.difficulty}`}>{this.props.trail.difficulty}</p>
+                </div>
               </div>
+              <div className="green-bar"></div>
               <div className="trail-page-content-left">
                 <p className="description">{this.props.description}</p>
                 <span>Dist {this.props.trail.length} Miles</span>

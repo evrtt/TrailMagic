@@ -7,6 +7,8 @@ class Trail < ApplicationRecord
   validates :location, presence: true
   validates :description, presence: true
   validates :estimated_time, presence: true
+  validates :route_type, presence: true, inclusion: {in: ["Out & back", "Loop"]}
+  validates :elevation_gain, presence: true
 
   has_many_attached :photos
   
