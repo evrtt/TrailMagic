@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2021_04_11_000740) do
     t.string "location", null: false
     t.text "description", null: false
     t.float "estimated_time", null: false
+    t.string "elevation_gain", null: false
+    t.string "route_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["location"], name: "index_trails_on_location"
