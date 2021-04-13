@@ -14,8 +14,8 @@ export default (state = {}, action) => {
       });
       return Object.assign( {}, newState, )
       // return newState;
-    case RECEIVE_CURRENT_TRAIL:
-      return Object.assign({}, state, { [action.currentTrail.id]: action.currentTrail })
+    // case RECEIVE_CURRENT_TRAIL:
+    //   return Object.assign({}, state, { [action.currentTrail.id]: action.currentTrail })
     default:
       return state;
   }

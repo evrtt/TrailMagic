@@ -16,11 +16,8 @@ class Trail extends React.Component {
   }
 
 
-  componentDidMount() {
-    if (this.props.trail === undefined) {
-      this.props.fetchAll
-      this.props.fetchCurrentTrail(this.props.currentTrail);
-    }
+  componentDidMount() { 
+      this.props.fetchAllTrails();
   }
 
   mapViewOn() {
@@ -71,8 +68,8 @@ class Trail extends React.Component {
               <div className="trail-page-header">
                 <div className="trail-page-header-content">
                   <h1>{this.props.trail.title}</h1>
-                  <p className="trail-location">{this.props.trail.location.split(",")[0].toString()}</p>
                   <p className={`dif-${this.props.trail.difficulty}`}>{this.props.trail.difficulty}</p>
+                  <p className="trail-location">{this.props.trail.location.split(",")[0].toString()}</p>
                 </div>
               </div>
               <div className="green-bar">
@@ -92,8 +89,20 @@ class Trail extends React.Component {
               <div className="trail-page-content">
                 <div className="trail-page-content-left">
                   <p className="description">{this.props.trail.description}</p>
-                  <span>Dist {this.props.trail.length} Miles</span>
-                  <span>Est {this.props.trail.estimatedTime} Hours</span>
+                  <div className="content-spans">
+                    <div>
+                      <p>Length</p>
+                      <span> {this.props.trail.length} Mi</span>
+                    </div>
+                    <div>
+                      <p>Elevation gain</p>
+                      <span>{this.props.trail.elevationGain}</span>
+                    </div>
+                    <div>
+                      <p>Route type</p>
+                      <span>{this.props.trail.routeType}</span>
+                    </div>
+                  </div>
                   <nav className="nav">
                     WAYPOINTS HERE TOGGLED
                     REVIEWS HERE TOGGLED
@@ -112,6 +121,7 @@ class Trail extends React.Component {
                 <div className="trail-page-content-right">
                   <div className="static-map">STATIC MAP HERE</div>
                   <button className="map-view-on">View Full Map</button>
+                  {this.props.trails.map}
                 </div>
               </div>
             </div>
