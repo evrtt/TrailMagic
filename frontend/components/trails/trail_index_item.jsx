@@ -7,7 +7,7 @@ const TrailIndexItem = (props) => {
   props.from === "popup" ? klass = "popup-trail-item" : klass = "trail-index-item-link"
 
   return (
-    <li className="trail-index-item">
+    <li key={props.trail.id} className="trail-index-item">
       <Link to={`/trails/${props.trail.id}`} className={klass}>
         <div>
           

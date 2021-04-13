@@ -9,6 +9,10 @@ class TrailIndex extends React.Component {
 
   }
 
+  openPopup(trailId) {
+    this.setState({popup: true, })
+  }
+
   render() {
     return (
       <div className="trails-index-page">

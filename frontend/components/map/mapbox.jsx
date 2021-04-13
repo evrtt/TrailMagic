@@ -63,12 +63,13 @@ class Map extends React.Component {
               {Object.values(this.props.trails).map(trail => (
                 <div>
                   <Marker
-                    key={`${trail.id}`}
+                    key={`marker-${trail.id}`}
                     latitude={trail.routeCoords[0][0]}
                     longitude={trail.routeCoords[0][1]}
                     className="marker-class"
                   >
-                    <FontAwesomeIcon 
+                    <FontAwesomeIcon
+                      key={`icon-${trail.id}`} 
                       icon={faMapMarkerAlt} 
                       className="nav-icon"
                       onClick={this.openPopup(trail.id)}
@@ -80,11 +81,16 @@ class Map extends React.Component {
             {this.state.popup ? 
               <div className="popup-div">
               <Popup
+                key={`popup-${this.state.popupTrailId}`}
                 latitude={this.props.trails[this.state.popupTrailId].routeCoords[0][0]}
                 longitude={this.props.trails[this.state.popupTrailId].routeCoords[0][1]}
                 onClose={this.closePopup}
+                className="popup"
               >
-                <TrailIndexItem from="popup" trail={this.props.trails[this.state.popupTrailId]} />
+                <TrailIndexItem 
+                  from="popup" 
+                  trail={this.props.trails[this.state.popupTrailId]} 
+                />
               </Popup> 
               </div>
             : null}

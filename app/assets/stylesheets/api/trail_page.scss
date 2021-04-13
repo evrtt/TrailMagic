@@ -1,4 +1,16 @@
-.grey-background {
+
+// CSS FOR THE TRAIL PAGE WHEN IT IS TOGGLED TO THE MAP VIEW IS BELOW
+// ADD THE PREFIX "map-view" TO ANY CLASS NAMES HERE
+
+
+
+
+
+// CSS FOR THE TRAIL PAGE WHEN IT IS TOGGLED OUT OF MAP VIEW IS BELOW
+// ADD THE PREFIX "standard-view" TO ANY CLASS NAMES HERE
+
+
+.standard-view-grey-background {
   display: flex;
   justify-content: center;
   height: fit-content;
@@ -8,7 +20,7 @@
   border-top: 1px rgb(223, 223, 223) solid;
 }
 
-.trail-page-no-map {
+.standard-view-trail-page-no-map {
   max-width: 1024px;
   width: auto;
   display: flex;
@@ -17,7 +29,7 @@
   background-color: rgb(243, 243, 243);
 }
 
-.trail-page-nav{
+.standard-view-trail-page-nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,7 +37,7 @@
   
 }
 
-.nav-spans {
+.standard-view-nav-spans {
   color: rgb(172, 172, 172);
   font-size: 11px;
   display: flex;
@@ -40,7 +52,7 @@
   }
 }
 
-.trail-page-header{
+.standard-view-trail-page-header{
   height: 300px;
   display: flex;
   flex-direction: column;
@@ -49,7 +61,7 @@
   background-color: lightgreen;
 }
 
-.trail-page-header-content {
+.standard-view-trail-page-header-content {
  
   color: white;
   margin-left: 10px;
@@ -71,28 +83,28 @@
     margin-bottom: 5px;
   }
 
-  .trail-location {
+  .standard-view-trail-location {
     min-width: max-content;
     font-size: 14px;
   }
 }
 
-.dif-hard {
+.standard-view-dif-hard {
   background-color: rgb(143, 143, 143);
   font-weight: 500;
 }
 
-.dif-easy {
+.standard-view-dif-easy {
   background-color: rgb(106, 194, 106);
   font-weight: 500;
 }
 
-.dif-moderate {
+.standard-view-dif-moderate {
   background-color: rgb(97, 144, 214);
   font-weight: 500;
 }
 
-.green-bar {
+.standard-view-green-bar {
   background-color: rgb(75, 163, 75);
   height: 48px;
   display: flex;
@@ -102,38 +114,43 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100px;
+    width: 120px;
     background-color: rgb(75, 163, 75);
     border: none;
     color: white;
   }
 
-  .icon {
+  button:hover {
+    background-color: rgb(94, 212, 94);
+  }
+
+  .standard-view-icon {
     position: relative;
     bottom: 45%;
-    color: rgb(75, 163, 75);
+    color: rgb(124, 124, 124);
     padding: 10px;
     border-radius: 100px;
     background-color: white;
     font-size: 20px;
   }
-
+  
   p {
     position: relative;
-    bottom: 30%;
+    bottom: 36%;
+    font-size: 16px;
   }
 }
 
-.trail-page-content {
+.standard-view-trail-page-content {
   display:grid;
   grid-template-columns: 70% 30%;
   max-width: 1024px;
   background-color: white;
 }
 
-.trail-page-content-left {
+.standard-view-trail-page-content-left {
   display: block;
-  margin: 15px;
+  border-left: lightgrey 1px solid;
 
   p {
     line-height: 1.8;
@@ -141,9 +158,10 @@
     color: grey;
     padding-bottom: 15px;
     border-bottom: lightgrey 1px solid;
+    margin: 15px;
   }
 
-  .content-spans {
+  .standard-view-content-spans {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -154,7 +172,7 @@
       flex-direction: column;
 
       p {
-        font-size: 8px;
+        font-size: 10px;
         font-weight: 300;
         border: none;
         margin: 3px;
@@ -171,9 +189,45 @@
   }
 }
 
-.trail-page-content-right {
+.standard-view-content-left-nav {
+  height: 48px;
+  background-color: rgb(238, 238, 238);
+  display: flex;
+  justify-content: space-around;
+  
+  
+  button {
+    border: none;
+    background-color: rgb(238, 238, 238);
+    color: rgb(92, 92, 92);
+    font-size: 20px;
+    font-weight: 500;
+    padding-bottom: 14px;
+    padding-top: 14px;
+  }
+
+  .standard-view-content-left-nav-selected {
+    border-bottom: rgb(75, 163, 75) 3px solid;
+    color:rgb(75, 163, 75)
+  }
+
+  button:hover {
+    color: rgb(75, 163, 75);
+  }
+}
+
+  
+.standard-view-trail-page-content-right {
   display: block;
   padding: 15px;
   border-left: lightgrey solid 1px; 
 
+}
+
+.standard-view-reviews-content {
+  height: 300px;
+}
+
+.standard-view-photos-content {
+  height: 300px;
 }

@@ -101,10 +101,10 @@
 
   div {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
     margin-left: 15px;
     min-width: 100px;
+  
   }
 
 
@@ -149,3 +149,5 @@
     font-weight: 500;
   }
 }
+
+
