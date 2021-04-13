@@ -28,6 +28,7 @@ export default () => (
         <AuthRoute exact path='/signup' component={SignUpFormContainer} />
         <AuthRoute exact path='/login' component={LoginFormContainer} />
         <Route exact path='/trails' component={TrailIndexContainer} />
+        {/* <Route exact path='/trails/:id' component={TrailContainer} /> */}
         <Route exact path='/' component={SplashContainer} />
       </Switch>
     </section>

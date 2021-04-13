@@ -7,12 +7,14 @@
 .trails-index-page {
   display: grid;
   grid-template-columns: 350px auto;
-  height: 600px;
+  height: auto;
+  max-height: 800px;
 }
 
 .trail-index-map {
   display: grid;
   height: inherit;
+  max-height: inherit
 }
 
 .trails-index-list{
@@ -21,6 +23,7 @@
   font-family: 'Montserrat', Sans-Serif;
   color: grey;
   height: inherit;
+  max-height: inherit;
   overflow: auto;
 }
 

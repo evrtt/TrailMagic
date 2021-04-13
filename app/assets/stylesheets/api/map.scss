@@ -1,1 +1,22 @@
 
+.nav-icon {
+  size: 20px;
+  position: relative;
+  font-size: 20px;
+  color: blue;
+  background: none;
+  border: none;
+  cursor: pointer;
+  bottom: 0.5em;
+  right: 50%;
+}
+
+.marker-btn {
+  display: none;
+}
+
+// .marker-class {
+//   background-color: darkmagenta;
+//   // position: relative;
+//   height: 0;
+// }

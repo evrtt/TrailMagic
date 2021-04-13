@@ -20,12 +20,7 @@ module.exports = {
           }
         },
       }
-      // {
-      //   test: /\bmapbox-gl-csp-worker.js\b/i,
-      //   use: { loader: "worker-loader" },
-      // }
-    ],
-    noParse: /(mapbox-gl)\.js$/
+    ]
   },
   devtool: 'eval',
   resolve: {

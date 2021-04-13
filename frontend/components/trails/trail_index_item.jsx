@@ -2,6 +2,9 @@ import React from 'react';
 
 const TrailIndexItem = (props) => {
 
+  let klass;
+  props.from === "popup" ? klass = "popup-trail-item" : klass = "trail-index-item"
+
   return (
     <li className="trail-index-item">
       <h1>{props.trail.title}</h1>

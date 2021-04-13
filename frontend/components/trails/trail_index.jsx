@@ -1,17 +1,12 @@
 import React from 'react';
 import TrailIndexItem from './trail_index_item';
-import Map from '../map/mapbox';
+import MapContainer from '../map/mapbox_container';
 
 class TrailIndex extends React.Component {
 
   constructor(props) {
     super(props)
 
-  }
-
-  componentDidMount() {
-      console.log(this.props.trails)
-      this.props.fetchAllTrails();
   }
 
   render() {
@@ -23,7 +18,7 @@ class TrailIndex extends React.Component {
             )}
         </ul>
         <div className="trail-index-map">
-          <Map />
+          <MapContainer trails={this.props.trails}/>
         </div>
       </div>
       )
