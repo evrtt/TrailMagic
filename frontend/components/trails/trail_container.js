@@ -6,7 +6,9 @@ import { fetchAllTrails, fetchCurrentTrail } from '../../actions/trails_actions'
 const mSTP = (state, ownProps) => ({
   trail: state.entities.trails[ownProps.match.params.trailId],
   currentTrail: ownProps.match.params.trailId,
-  trails: state.entities.trails
+  trails: state.entities.trails,
+  popup: ownProps.popup,
+  popupTrailId: ownProps.popupTrailId
 });
 
 const mDTP = (dispatch) => ({

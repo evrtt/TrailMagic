@@ -9,9 +9,9 @@ class FillerContent extends React.Component {
    
    render() {
      let klass = "resize-big"
-     if(this.props.ui.width < 800) {
+     if(this.props.window.width < 800) {
        klass = "resize-small"
-     } else if(this.props.ui.width > 800) {
+     } else if(this.props.window.width > 800) {
        klass = "resize-big"
      }
      

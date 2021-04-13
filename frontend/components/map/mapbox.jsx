@@ -18,14 +18,11 @@ class Map extends React.Component {
         zoom: 7,
         bearing: 0,
         pitch: 0
-      }, 
-      popup: false,
-      popupTrailId: null
+      }
 
     }
 
     this.openPopup = this.openPopup.bind(this);
-    this.closePopup = this.closePopup.bind(this);
   };
 
   componentDidMount() {
@@ -34,17 +31,12 @@ class Map extends React.Component {
 
   openPopup(trailId) {
     return (
-      e => {
-      e.preventDefault();
-      this.setState({popupTrailId: trailId, popup: true})}
+      () => this.props.openPopup(trailId)
     )
   }
 
-  closePopup() {
-    this.setState({popupTrailId: null, popup: false})
-  }
-
   render() {
+    let iconClass;
     if (this.props.trails.length < 12) {
       return <div></div>
     } else {
@@ -69,27 +61,32 @@ class Map extends React.Component {
                     className="marker-class"
                   >
                     <FontAwesomeIcon
+                      
                       key={`icon-${trail.id}`} 
                       icon={faMapMarkerAlt} 
-                      className="nav-icon"
+                      className={
+                        this.props.popupTrailId === trail.id 
+                        ? "nav-icon-popped" 
+                        : "nav-icon" 
+                      }
                       onClick={this.openPopup(trail.id)}
                     />
 
                   </Marker>
                 </div>
               ))}
-            {this.state.popup ? 
+            {this.props.popup ? 
               <div className="popup-div">
               <Popup
-                key={`popup-${this.state.popupTrailId}`}
-                latitude={this.props.trails[this.state.popupTrailId].routeCoords[0][0]}
-                longitude={this.props.trails[this.state.popupTrailId].routeCoords[0][1]}
-                onClose={this.closePopup}
+                key={`popup-${this.props.popupTrailId}`}
+                latitude={this.props.trails[this.props.popupTrailId].routeCoords[0][0]}
+                longitude={this.props.trails[this.props.popupTrailId].routeCoords[0][1]}
+                onClose={this.props.closePopup}
                 className="popup"
               >
                 <TrailIndexItem 
                   from="popup" 
-                  trail={this.props.trails[this.state.popupTrailId]} 
+                  trail={this.props.trails[this.props.popupTrailId]} 
                 />
               </Popup> 
               </div>
