@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TrailIndexItem = (props) => {
 
@@ -7,7 +8,7 @@ const TrailIndexItem = (props) => {
 
   return (
     <li className="trail-index-item">
-      <Link to={`/api/trails/${this.props.trail.id}`}>
+      <Link to={`/trails/${props.trail.id}`}>
         <h1>{props.trail.title}</h1>
         <p className="trail-location">{props.trail.location}</p>
         <p className={`dif-${props.trail.difficulty}`}>{props.trail.difficulty}</p>

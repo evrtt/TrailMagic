@@ -4,7 +4,8 @@ import Trail from './trail';
 import { fetchCurrentTrail } from '../../actions/trails_actions';
 
 const mSTP = (state, ownProps) => ({
-  trail: state.entities.trails[ownProps.match.params.trailId]
+  trail: state.entities.trails[ownProps.match.params.trailId],
+  currentTrail: ownProps.match.params.trailId
 });
 
 const mDTP = (dispatch) => ({

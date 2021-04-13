@@ -28,9 +28,9 @@ export default () => (
       <Switch>
         <AuthRoute exact path='/signup' component={SignUpFormContainer} />
         <AuthRoute exact path='/login' component={LoginFormContainer} />
-        <Route exact path='/trails' component={TrailIndexContainer} />
-        <Route exact path='/trails/:trailId' component={TrailContainer} />
         <Route exact path='/' component={SplashContainer} />
+        <Route exact path='/trails' component={TrailIndexContainer} />
+        <Route path='/trails/:trailId' component={TrailContainer} />
       </Switch>
     </section>
     <footer className="footer">

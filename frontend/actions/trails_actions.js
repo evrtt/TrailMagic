@@ -19,6 +19,7 @@ export const fetchAllTrails = () => dispatch => {
 }
 
 export const fetchCurrentTrail = (trailId) => dispatch => {
+  console.log(trailId)
   trailsAPIUtil.fetchTrail(trailId)
     .then(currentTrail => dispatch(receiveCurrentTrail(currentTrail)))
 }

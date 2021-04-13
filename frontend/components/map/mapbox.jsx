@@ -45,75 +45,76 @@ class Map extends React.Component {
   }
 
   render() {
-    
-    if (JSON.stringify(this.props.trails) !== JSON.stringify({})) {
-      console.log("TRUUUUU")
-      console.log(this.props.trails[0].routeCoords[0][0])
-      return (
-        <div>
+    if (this.props.trails.length < 12) {
+      return <div></div>
+    } else {
+      if (JSON.stringify(this.props.trails) !== JSON.stringify({})) {
+        console.log("TRUUUUU")
+        return (
+          <div>
+            <ReactMapGL
+              {...this.state.viewport}
+              width="100%"
+              height="100%"
+              mapStyle="mapbox://styles/mapbox/outdoors-v11"
+              onViewportChange={viewport => this.setState({viewport})}
+              mapboxApiAccessToken={window.mapAPIKey}
+            >
+              {Object.values(this.props.trails).map(trail => (
+                <div>
+                  <Marker
+                    key={`${trail.id}`}
+                    latitude={trail.routeCoords[0][0]}
+                    longitude={trail.routeCoords[0][1]}
+                    className="marker-class"
+                  >
+                    <FontAwesomeIcon 
+                      icon={faMapMarkerAlt} 
+                      className="nav-icon"
+                      onClick={this.openPopup(trail.id)}
+                    />
+
+                  </Marker>
+                </div>
+              ))}
+            {this.state.popup ? 
+              <div className="popup-div">
+              <Popup
+                latitude={this.props.trails[this.state.popupTrailId].routeCoords[0][0]}
+                longitude={this.props.trails[this.state.popupTrailId].routeCoords[0][1]}
+                onClose={this.closePopup}
+              >
+                <TrailIndexItem from="popup" trail={this.props.trails[this.state.popupTrailId]} />
+              </Popup> 
+              </div>
+            : null}
+              {/* {this.state.popup ? (
+                <Popup
+                  latitude={this.props.trails[this.state.popupTrailId].routeCoords[0][0]}
+                  longitude={this.props.trails[this.state.popupTrailId].routeCoords[0][1]}
+                >
+                  <TrailIndexItem from="popup" trail={this.props.trails[this.state.popupTrailId]} />
+                </Popup>
+              ) : null
+              } */}
+
+
+            </ReactMapGL>
+          </div>
+        )
+      } else {
+        console.log("FALSE")
+        return (
           <ReactMapGL
             {...this.state.viewport}
             width="100%"
             height="100%"
             mapStyle="mapbox://styles/mapbox/outdoors-v11"
-            onViewportChange={viewport => this.setState({viewport})}
+            onViewportChange={viewport => this.setState({ viewport })}
             mapboxApiAccessToken={window.mapAPIKey}
-          >
-            {this.props.trails.map(trail => (
-              <div>
-                <Marker
-                  key={`${trail.id}`}
-                  latitude={trail.routeCoords[0][0]}
-                  longitude={trail.routeCoords[0][1]}
-                  className="marker-class"
-                >
-                  <FontAwesomeIcon 
-                    icon={faMapMarkerAlt} 
-                    className="nav-icon"
-                    onClick={this.openPopup(trail.id - 1)}
-                  />
-
-                </Marker>
-              </div>
-
-))}
-          {this.state.popup ? 
-            <div className="popup-div">
-            <Popup
-              latitude={this.props.trails[this.state.popupTrailId].routeCoords[0][0]}
-              longitude={this.props.trails[this.state.popupTrailId].routeCoords[0][1]}
-              onClose={this.closePopup}
-            >
-              <TrailIndexItem from="popup" trail={this.props.trails[this.state.popupTrailId]} />
-            </Popup> 
-            </div>
-          : null}
-            {/* {this.state.popup ? (
-              <Popup
-                latitude={this.props.trails[this.state.popupTrailId].routeCoords[0][0]}
-                longitude={this.props.trails[this.state.popupTrailId].routeCoords[0][1]}
-              >
-                <TrailIndexItem from="popup" trail={this.props.trails[this.state.popupTrailId]} />
-              </Popup>
-             ) : null
-            } */}
-
-
-          </ReactMapGL>
-        </div>
-      )
-    } else {
-      console.log("FALSE")
-      return (
-        <ReactMapGL
-          {...this.state.viewport}
-          width="100%"
-          height="100%"
-          mapStyle="mapbox://styles/mapbox/outdoors-v11"
-          onViewportChange={viewport => this.setState({ viewport })}
-          mapboxApiAccessToken={window.mapAPIKey}
-        ></ReactMapGL>
-      )
+          ></ReactMapGL>
+        )
+      }
     }
   }
 }

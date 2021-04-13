@@ -18,19 +18,19 @@ class FillerContent extends React.Component {
     return(
     <div className={klass}>
       <span>
-        <h1> 0.004k</h1>
+        <h1> 0.012k</h1>
         <h4>curated trails</h4>
-        <p>See four trails that I've personally hiked and photos of them taken on my phone.</p>
+        <p>See twelve trails that I've personally hiked and photos of them taken on my phone.</p>
       </span>
       <span>
         <h1>0 mil</h1>
         <h4>fellow explorers</h4>
-        <p>This app is extremely niche. You basically have the place to yourself.</p>
+        <p>This app is extremely niche. You basically have the entire place to yourself. </p>
       </span>
       <span>
-        <h1>200</h1>
-        <h4>Hours Logged</h4>
-        <p>Thats about how long it took me to make this website.</p>
+        <h1>#0001</h1>
+        <h4>Website Made</h4>
+        <p>This is the first web application I have made. I hope you like it!</p>
       </span>
     </div>
     )

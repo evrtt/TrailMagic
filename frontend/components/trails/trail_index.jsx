@@ -13,7 +13,7 @@ class TrailIndex extends React.Component {
     return (
       <div className="trails-index-page">
         <ul className="trails-index-list">
-          {this.props.trails.map( 
+          {Object.values(this.props.trails).map( 
             trail => <TrailIndexItem key={trail.id} trail={trail} />
             )}
         </ul>
