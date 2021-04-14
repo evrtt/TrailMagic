@@ -58,7 +58,7 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-  background-color: lightgreen;
+  background-image: url(trailPhotoURL);
 }
 
 .standard-view-trail-page-header-content {
@@ -94,10 +94,11 @@
   font-weight: 500;
 }
 
-.standard-view-dif-easy {
-  background-color: rgb(106, 194, 106);
-  font-weight: 500;
-}
+// .standard-view-dif-easy {
+//   background-size: cover;
+//   background-position: center;
+//   background-repeat: no-repeat;  font-weight: 500;
+// }
 
 .standard-view-dif-moderate {
   background-color: rgb(97, 144, 214);

@@ -28,7 +28,7 @@ class TrailIndexItem extends React.Component {
         >
           <Link to={`/trails/${this.props.trail.id}`} className="trail-index-item-link">
             <div>
-
+              <img src={``} alt=""/>
             </div>
             <div>
               <h1>{this.props.trail.title}</h1>

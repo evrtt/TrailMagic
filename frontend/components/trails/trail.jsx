@@ -98,7 +98,15 @@ class Trail extends React.Component {
                 <div>SEARCH COMPONENT HERE</div>
                 {/* <SearchComponent /> */}
               </nav>
-              <div className={`${prefix}-trail-page-header`}>
+              <div 
+                className={`${prefix}-trail-page-header`}
+                style={{ 
+                  backgroundImage: `url(${this.props.trail.mainPhotoURL})`, 
+                  backgroundSize: "cover",
+                  backgroundPosition: "center top 50%",
+                  backgroundRepeat: "no-repeat"
+                }}
+              >
                 <div className={`${prefix}-trail-page-header-content`}>
                   <h1>{this.props.trail.title}</h1>
                   <p className={`${prefix}-dif-${this.props.trail.difficulty}`}>{this.props.trail.difficulty}</p>
