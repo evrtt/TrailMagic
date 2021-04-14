@@ -135,36 +135,132 @@ trail_12 = Trail.create({title: "North Mount Elbert Trail",
 
 #01 North Crestone Creek Seed Files 
 
-north_crestone_creek_01 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_01.jpg')
-north_crestone_creek_02 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_02.jpg')
-north_crestone_creek_03 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_03.jpg')
-north_crestone_creek_04 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_04.jpg')
-north_crestone_creek_05 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_05.jpg')
-north_crestone_creek_06 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_06.jpg')
-north_crestone_creek_07 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_07.jpg')
-north_crestone_creek_08 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_08.jpg')
-north_crestone_creek_09 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_09.jpg')
-north_crestone_creek_10 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_10.jpg')
-north_crestone_creek_11 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_11.jpg')
-north_crestone_creek_12 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_12.jpg')
-north_crestone_creek_13 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_13.jpg')
-north_crestone_creek_14 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_14.jpg')
-north_crestone_creek_15 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_15.jpg')
+north_crestone_creek_01 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_01.jpg')
+north_crestone_creek_02 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_02.jpg')
+north_crestone_creek_03 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_03.jpg')
+north_crestone_creek_04 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_04.jpg')
+north_crestone_creek_05 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_05.jpg')
+north_crestone_creek_06 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_06.jpg')
+north_crestone_creek_07 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_07.jpg')
+north_crestone_creek_08 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_08.jpg')
+north_crestone_creek_09 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_09.jpg')
+north_crestone_creek_10 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_10.jpg')
+north_crestone_creek_11 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_11.jpg')
+north_crestone_creek_12 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_12.jpg')
+north_crestone_creek_13 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_13.jpg')
+north_crestone_creek_14 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_14.jpg')
+north_crestone_creek_15 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/north_crestone_creek_15.jpg')
 
+trail_01.photos.attach([{io: north_crestone_creek_01, filename: "north_crestone_creek_01.jpg"}, {io: north_crestone_creek_02, filename: "north_crestone_creek_02.jpg"}, {io: north_crestone_creek_03, filename: "north_crestone_creek_03.jpg"}, {io: north_crestone_creek_04, filename: "north_crestone_creek_04.jpg"}, {io: north_crestone_creek_05, filename: "north_crestone_creek_05.jpg"}, {io: north_crestone_creek_06, filename: "north_crestone_creek_06.jpg"}, {io: north_crestone_creek_07, filename: "north_crestone_creek_07.jpg"}, {io: north_crestone_creek_08, filename: "north_crestone_creek_08.jpg"}, {io: north_crestone_creek_09, filename: "north_crestone_creek_09.jpg"}, {io: north_crestone_creek_10, filename: "north_crestone_creek_10.jpg"}, {io: north_crestone_creek_11, filename: "north_crestone_creek_11.jpg"}, {io: north_crestone_creek_12, filename: "north_crestone_creek_12.jpg"}, {io: north_crestone_creek_13, filename: "north_crestone_creek_13.jpg"}, {io: north_crestone_creek_14, filename: "north_crestone_creek_14.jpg"}, {io: north_crestone_creek_15, filename: "north_crestone_creek_15.jpg"}])
 
 #02 Cahill Pond Seed Files
 
-cahill_pond_01 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/cahill_pond_01.jpg')
-cahill_pond_01 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/cahill_pond_02.jpg')
-cahill_pond_01 = open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/cahill_pond_03.jpg')
+cahill_pond_01 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/cahill_pond_01.jpg')
+cahill_pond_02 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/cahill_pond_02.jpg')
+cahill_pond_03 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/cahill_pond_03.jpg')
+
+trail_02.photos.attach([{io: cahill_pond_01, filename: "cahill_pond_01.jpg"}, {io: cahill_pond_02, filename: "cahill_pond_02.jpg"}, {io: cahill_pond_03, filename: "cahill_pond_01.jpg"}])
 
 #03 Summer Whitehouse Trail Loop Seed Files
 
+mount_falcon_01 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/castle_trail_01.jpg')
+mount_falcon_02 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/castle_trail_02.JPG')
+mount_falcon_03 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/castle_trail_03.JPG')
+
+trail_03.photos.attach([{io: mount_falcon_01, filename: "mount_falcon_01.jpg"}, {io: mount_falcon_02, filename: "mount_falcon_02.JPG"}, {io: mount_falcon_03, filename: "mount_falcon_03.JPG"}])
+
 #04 Upper Blue Lakes Trail Seed Files
+
+blue_lakes_01 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/blue_lakes_01.jpg')
+blue_lakes_02 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/blue_lakes_02.jpg')
+blue_lakes_03 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/blue_lakes_03.jpg')
+blue_lakes_04 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/blue_lakes_04.jpg')
+blue_lakes_05 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/blue_lakes_05.jpg')
+blue_lakes_06 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/blue_lakes_06.jpg')
+blue_lakes_07 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/blue_lakes_07.jpg')
+blue_lakes_08 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/blue_lakes_08.jpg')
+blue_lakes_09 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/blue_lakes_09.jpg')
+
+trail_04.photos.attach([{io: blue_lakes_01, filename: "blue_lakes_01.jpg"}, {io: blue_lakes_02, filename: "blue_lakes_02.jpg"}, {io: blue_lakes_03, filename: "blue_lakes_03.jpg"}, {io: blue_lakes_04, filename: "blue_lakes_04.jpg"}, {io: blue_lakes_05, filename: "blue_lakes_05.jpg"}, {io: blue_lakes_06, filename: "blue_lakes_06.jpg"}, {io: blue_lakes_07, filename: "blue_lakes_07.jpg"}, {io: blue_lakes_08, filename: "blue_lakes_08.jpg"}, {io: blue_lakes_09, filename: "blue_lakes_09.jpg"}])
 
 #05 Quandary Peak Trail Seed Files
 
+quandary_peak_01 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/quandary_peak_01.jpg')
+quandary_peak_02 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/quandary_peak_02.jpg')
+quandary_peak_03 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/quandary_peak_03.jpg')
+quandary_peak_04 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/quandary_peak_04.jpg')
+quandary_peak_05 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/quandary_peak_05.jpg')
+quandary_peak_06 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/quandary_peak_06.jpg')
+quandary_peak_07 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/quandary_peak_07.jpg')
+quandary_peak_08 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/quandary_peak_08.jpg')
+quandary_peak_09 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/quandary_peak_09.jpg')
+
+trail_05.photos.attach([{io: quandary_peak_01, filename: "quandary_peak_01.jpg"}, {io: quandary_peak_02, filename: "quandary_peak_02.jpg"}, {io: quandary_peak_03, filename: "quandary_peak_03.jpg"}, {io: quandary_peak_04, filename: "quandary_peak_04.jpg"}, {io: quandary_peak_05, filename: "quandary_peak_05.jpg"}, {io: quandary_peak_06, filename: "quandary_peak_06.jpg"}, {io: quandary_peak_07, filename: "quandary_peak_07.jpg"}, {io: quandary_peak_08, filename: "quandary_peak_08.jpg"}, {io: quandary_peak_09, filename: "quandary_peak_09.jpg"}])
+
+#06 Fourmile Falls Trail Seed Files
+
+fourmile_falls_01 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/fourmile_falls_01.jpg')
+fourmile_falls_02 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/fourmile_falls_02.jpg')
+fourmile_falls_03 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/fourmile_falls_03.jpg')
+fourmile_falls_04 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/fourmile_falls_04.jpg')
+
+trail_06.photos.attach([{io: fourmile_falls_01, filename: "fourmile_falls_01.jpg"}, {io: fourmile_falls_02, filename: "fourmile_falls_02.jpg"}, {io: fourmile_falls_03, filename: "fourmile_falls_03.jpg"}, {io: fourmile_falls_04, filename: "fourmile_falls_04.jpg"}])
+
+#07 Cheeseman Park Outer Loop Seed Files
+
+cheeseman_park_01 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/cheeseman_park_01.JPG')
+cheeseman_park_02 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/cheeseman_park_02.JPG')
+cheeseman_park_03 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/cheeseman_park_03.JPG')
+
+trail_07.photos.attach([{io: cheeseman_park_01, filename: "cheeseman_park_01.JPG"}, {io: cheeseman_park_02, filename: "cheeseman_park_02.JPG"}, {io: cheeseman_park_03, filename: "cheeseman_park_03.JPG"}])
+
+#08 Stone House Loop
+
+bear_creek_01 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/bear_creek_01.JPG')
+bear_creek_02 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/bear_creek_02.JPG')
+bear_creek_03 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/bear_creek_03.JPG')
+
+trail_08.photos.attach([{io: bear_creek_01, filename: "bear_creek_01.JPG"}, {io: bear_creek_02, filename: "bear_creek_02.JPG"}, {io: bear_creek_03, filename: "bear_creek_03.JPG"}])
+
+#09 "Mesa and Redrock Canyon Loop"
+
+redrocks_01 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/redrocks_01.jpg')
+redrocks_02 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/redrocks_02.jpg')
+redrocks_03 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/redrocks_03.jpg')
+
+trail_09.photos.attach([{io: redrocks_01, filename: "redrocks_01.jpg"}, {io: redrocks_02, filename: "redrocks_02.jpg"}, {io: redrocks_03, filename: "redrocks_03.jpg"}])
+
+#10 High Dune Trail
+
+high_dune_01 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/high_dune_01.jpg')
+high_dune_02 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/high_dune_02.jpg')
+high_dune_03 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/high_dune_03.jpg')
+high_dune_04 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/high_dune_04.jpg')
+high_dune_05 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/high_dune_05.jpg')
+high_dune_06 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/high_dune_06.jpg')
+high_dune_07 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/high_dune_07.jpg')
+
+trail_10.photos.attach([{io: high_dune_01, filename: "high_dune_01.jpg"}, {io: high_dune_02, filename: "high_dune_02.jpg"}, {io: high_dune_03, filename: "high_dune_03.jpg"}, {io: high_dune_04, filename: "high_dune_04.jpg"}, {io: high_dune_05, filename: "high_dune_05.jpg"}, {io: high_dune_06, filename: "high_dune_06.jpg"}, {io: high_dune_07, filename: "high_dune_07.jpg"}])
+
+#11 North Table Mountain Rim Loop
+
+table_mountain_01 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/table_mountain_01.JPG')
+table_mountain_02 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/table_mountain_02.JPG')
+table_mountain_03 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/table_mountain_03.JPG')
+
+trail_11.photos.attach([{io: table_mountain_01, filename: "table_mountain_01.JPG"}, {io: table_mountain_02, filename: "table_mountain_02.JPG"}, {io: table_mountain_03, filename: "table_mountain_03.JPG"}])
+
+#12 North Mount Elbert Trail
+
+mount_elbert_01 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/mount_elbert_01.jpg')
+mount_elbert_02 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/mount_elbert_02.jpg')
+mount_elbert_03 = URI.open('https://trail-magic-seeds.s3-us-west-1.amazonaws.com/mount_elbert_03.jpg')
+
+trail_12.photos.attach([{io: mount_elbert_01, filename: "mount_elbert_01.jpg"}, {io: mount_elbert_02, filename: "mount_elbert_02.jpg"}, {io: mount_elbert_03, filename: "mount_elbert_03.jpg"}])
+
 #   Trail Magic Trail Seeds
+
+
 
 # North Crestone Creek Trail
 # Dist 10.4 miles
