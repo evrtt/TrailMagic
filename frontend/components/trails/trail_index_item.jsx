@@ -27,10 +27,10 @@ class TrailIndexItem extends React.Component {
           onMouseLeave={this.props.closePopup}
         >
           <Link to={`/trails/${this.props.trail.id}`} className="trail-index-item-link">
-            <div>
-              <img src={``} alt=""/>
+            <div className="trail-index-item-header-top">
+              <img src={this.props.trail.mainPhotoURL} className="trail-index-item-photo"/>
             </div>
-            <div>
+            <div className="trail-index-item-header-bottom">
               <h1>{this.props.trail.title}</h1>
               <p className="trail-location">{this.props.trail.location}</p>
               <p className={`dif-${this.props.trail.difficulty}`}>{this.props.trail.difficulty}</p>
@@ -48,18 +48,34 @@ class TrailIndexItem extends React.Component {
           key={this.props.trail.id}
           className="popup-trail-item"
         >
-            <div>
-
-            </div>
-            <div>
-              <h1>{this.props.trail.title}</h1>
-              <p className="trail-location">{this.props.trail.location}</p>
-              <p className={`dif-${this.props.trail.difficulty}`}>{this.props.trail.difficulty}</p>
-              <span>
-                Dist: {this.props.trail.length} miles |
-                Est: {this.props.trail.estimatedTime} hours
-              </span>
-            </div>
+          <div 
+            className="popup-photo-container"
+            style={{
+              backgroundImage: `url(${this.props.trail.mainPhotoURL})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center top 50%",
+              backgroundRepeat: "no-repeat",
+              borderRadius: "8px",
+              marginRight: "10px"
+            }}
+            >
+            {/* <img 
+              src={this.props.trail.mainPhotoURL}
+              style={{
+                objectFit: "cover",
+                objectPosition: "center"
+              }} 
+            /> */}
+          </div>
+          <div className="popup-trail-item-content">
+           <h1>{this.props.trail.title}</h1>
+            <p className="trail-location">{this.props.trail.location}</p>
+            <p className={`dif-${this.props.trail.difficulty}`}>{this.props.trail.difficulty}</p>
+            <span>
+              Dist: {this.props.trail.length} miles |
+              Est: {this.props.trail.estimatedTime} hours
+            </span>
+          </div>
         </div>
       )
     }
