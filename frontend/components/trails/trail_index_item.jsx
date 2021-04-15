@@ -7,11 +7,23 @@ class TrailIndexItem extends React.Component {
 
 
     this.openPopup = this.openPopup.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   openPopup(trailId) {
     return(
       () => this.props.openPopup(trailId)
+    )
+  }
+
+  handleClick(trailId) {
+    return(
+      () => {
+        this.props.clearTrailPhotos();
+        this.props.fetchTrailPhotos(trailId);
+        this.props.switchToReviews();
+        window.scrollTo(0, 0);
+      }
     )
   }
   
@@ -75,6 +87,33 @@ class TrailIndexItem extends React.Component {
             </span>
           </div>
         </div>
+      )
+    } else if(this.props.from === "sidebar") {
+      return (
+        <li
+          key={this.props.trail.id}
+          className="trail-index-item-sidebar"
+        >
+          <Link 
+            to={`/trails/${this.props.trail.id}`} 
+            update={"true"} 
+            className="trail-index-item-link-sidebar"
+            onClick={this.handleClick(this.props.trail.id)}
+          >
+            <div className="trail-index-item-header-top">
+              <img src={this.props.trail.mainPhotoURL} className="trail-index-item-photo-sidebar" />
+            </div>
+            <div className="trail-index-item-header-bottom-sidebar">
+              <h1>{this.props.trail.title}</h1>
+              <p className="trail-location">{this.props.trail.location}</p>
+              <p className={`dif-${this.props.trail.difficulty}-sidebar`}>{this.props.trail.difficulty}</p>
+              <span>
+                Dist: {this.props.trail.length} miles |
+                Est: {this.props.trail.estimatedTime} hours
+              </span>
+            </div>
+          </Link >
+        </li>
       )
     }
   }

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCameraRetro, faDirections, faMapMarkerAlt, faPrint } from '@fortawesome/free-solid-svg-icons';
 import TrailPhotosContainer from './trail_photos_container';
 import { StaticMap } from 'react-map-gl';
+import TrailIndexContainer from '../trails/trail_index_container';
 
 
 class Trail extends React.Component {
@@ -11,52 +12,29 @@ class Trail extends React.Component {
     super(props)
 
     this.state = {
-      mapView: false,
-      contentLeftNav: "reviews"
+      mapView: false
     }
-
-
-    this.mapViewOn = this.mapViewOn.bind(this);
-    this.mapViewOff = this.mapViewOff.bind(this);
-    this.navLeftContentToReviews = this.navLeftContentToReviews.bind(this);
-    this.navLeftContentToPhotos = this.navLeftContentToPhotos.bind(this);
+  
   }
+
 
 
   componentDidMount() { 
       this.props.fetchAllTrails();
       this.props.fetchTrailPhotos(this.props.currentTrail);
+      this.props.switchToReviews();
+      window.scrollTo(0, 0);
   }
 
   componentWillUnmount() {
     this.props.clearTrailPhotos();
   }
 
-  mapViewOn(e) {
-    e.preventDefault();
-    this.setState({mapView: true})
-  }
-
-  mapViewOff(e) {
-    e.preventDefault();
-    this.setState({mapView: false})
-  }
-
-  navLeftContentToReviews(e) {
-    e.preventDefault();
-    this.setState({contentLeftNav: "reviews"})
-  }
-  
-  navLeftContentToPhotos(e) {
-    e.preventDefault();
-    this.setState({contentLeftNav: "photos"})
-  }
-
   render () {
     let toggledcontent;
     let reviewsBtn;
     let photosBtn;
-    if (this.state.contentLeftNav === "reviews") {
+    if (this.props.reviewsOrPhotos === "reviews") {
       toggledcontent = "reviews-content"
       reviewsBtn = "content-left-nav-selected"
       photosBtn = "nothing"
@@ -70,23 +48,25 @@ class Trail extends React.Component {
     } else {
       let prefix;
       if (this.state.mapView) {
-        prefix = "map-view"
-        return (
-          <div className="trail-page-mapview">
-            <nav>
-              <span>{this.props.trail.location}</span>
-              {/* <SearchComponent /> */}
-            </nav>
-            <div>
-              <h1>{this.props.trail.title}</h1>
-              <p className="trail-location">{this.props.trail.location}</p>
-              <p className={`dif-${this.props.trail.difficulty}`}>{props.trail.difficulty}</p>
-            </div>
-            <div className="trail-page-map">
-              <MapContainer trail={this.props.trail} />
-            </div>
-          </div>
-        )
+      return <div></div>
+      // if (this.state.mapView) {
+      //   prefix = "map-view"
+      //   return (
+      //     <div className="trail-page-mapview">
+      //       <nav>
+      //         <span>{this.props.trail.location}</span>
+      //         {/* <SearchComponent /> */}
+      //       </nav>
+      //       <div>
+      //         <h1>{this.props.trail.title}</h1>
+      //         <p className="trail-location">{this.props.trail.location}</p>
+      //         <p className={`dif-${this.props.trail.difficulty}`}>{props.trail.difficulty}</p>
+      //       </div>
+      //       <div className="trail-page-map">
+      //         <MapContainer trail={this.props.trail} />
+      //       </div>
+      //     </div>
+      //   )
       } else if (!this.state.mapView) {
         prefix = "standard-view"
         return (
@@ -150,22 +130,22 @@ class Trail extends React.Component {
                   <nav className={`${prefix}-content-left-nav`}>
                     <button 
                       className={`${prefix}-${reviewsBtn}`}
-                      onClick={this.navLeftContentToReviews}
+                      onClick={this.props.switchToReviews}
                     >Reviews</button>
                     <button 
                       className={`${prefix}-${photosBtn}`}
-                      onClick={this.navLeftContentToPhotos}
+                      onClick={this.props.switchToPhotos}
                       >Photos</button>
                   </nav>
-                  <div className={`${prefix}-${this.state.contentLeftNav}-content`}>
-                    {this.state.contentLeftNav === "reviews" ? (
+                  <div className={`${prefix}-${this.props.reviewsOrPhotos}-content`}>
+                    {this.props.reviewsOrPhotos === "reviews" ? (
                         <div>THIS IS A FAKE REVIEW THAT NEEDS TO BE REPLACED SO THAT I CAN STYLE THIS SECTION CORRECLTY I JUST NEEDED SOME TEXT TO SEE HOW IT WOULD LOOK IS ALL</div>
                       // <TrailReviews trailId={this.props.trail.id}/>
                     ) : null}
                     {/* {this.state.contentLeftNav === "waypoints" ? (
                       <TrailWaypoints trailId={this.props.trail.id}/>
                     ) : null} */}
-                    {this.state.contentLeftNav === "photos" ? (
+                    {this.props.reviewsOrPhotos === "photos" ? (
                       <TrailPhotosContainer 
                         prefix={prefix} 
                         trailId={this.props.trail.id}
@@ -190,20 +170,19 @@ class Trail extends React.Component {
                       zoom={12}
                       mapStyle="mapbox://styles/mapbox/outdoors-v11"
                       mapboxApiAccessToken={window.mapAPIKey}
-                      style={{borderRadius: "8px"}}
                     />
                     <FontAwesomeIcon
                       icon={faMapMarkerAlt}
                       style={{position: 'relative', top: "-55%", left: '47%', color: "blue"}}
                     />
                   </div>
-                  <button 
+                  {/* <button 
                     onClick={this.mapViewOn}
                     className={`${prefix}-map-view-on`}
-                  >View Full Map</button>
+                  >View Full Map</button> */}
                   {this.props.trails.map}
                   <div>
-                    <h1>Nearby Trails</h1>
+                    <TrailIndexContainer from="sidebar"/>
                   </div>
                 </div>
               </div>
