@@ -20,4 +20,8 @@ class Api::TrailsController < ApplicationController
       render json: ["We couldn't find the trail you're looking for."], status: 404
     end
   end
+
+  def search
+    @trails = Trail.where(title: "LIKE '%#{params[:search]}%'")
+  end
 end

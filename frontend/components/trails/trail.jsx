@@ -17,8 +17,6 @@ class Trail extends React.Component {
   
   }
 
-
-
   componentDidMount() { 
       this.props.fetchAllTrails();
       this.props.fetchTrailPhotos(this.props.currentTrail);
