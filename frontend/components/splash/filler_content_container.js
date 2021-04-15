@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import FillerContent from './filler_content';
 
 const mSTP = (state) => ({
-  ui: state.ui
+  window: state.ui.window
 })
 
 export default connect(mSTP, null)(FillerContent);

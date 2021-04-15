@@ -1,0 +1,65 @@
+
+.nav-icon {
+  size: 25px;
+  position: relative;
+  font-size: 25px;
+  color: blue;
+  background: none;
+  border: none;
+  cursor: pointer;
+  bottom: 0.5em;
+  right: 50%;
+}
+
+.nav-icon-popped {
+  size: 35px;
+  position: relative;
+  font-size: 35px;
+  color: red;
+  background: none;
+  border: none;
+  cursor: pointer;
+  bottom: 0.5em;
+  right: 50%;
+}
+
+.nav-icon:hover {
+  font: 35px;
+  font-size: 35px;
+}
+
+.marker-btn {
+  display: none;
+}
+
+.mapboxgl-popup-content {
+  background-color: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100px;
+  width: auto;
+  border-radius: 8px;
+  font-family: 'Montserrat', Sans-Serif;
+  color: rgb(117, 117, 117);
+  background-color: white;
+  border-radius: 8px;
+  padding: 8px;
+  
+  
+}
+
+.mapboxgl-popup-close-button {
+  font-size: 20px;
+  color: rgb(117, 117, 117);
+}
+
+// .mapboxgl-popup-content {
+
+// }
+
+// .marker-class {
+//   background-color: darkmagenta;
+//   // position: relative;
+//   height: 0;
+// }

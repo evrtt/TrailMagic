@@ -2,7 +2,7 @@ import {
   RECEIVE_ERRORS, 
   RECEIVE_CURRENT_USER,
   CLEAR_ERRORS
-} from '../actions/session_actions';
+} from '../../actions/session_actions';
 
 export default (oldState = {}, action) => {
   Object.freeze(oldState);

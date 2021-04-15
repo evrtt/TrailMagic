@@ -15,13 +15,14 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/env', '@babel/react']
+            presets: ['@babel/env', '@babel/react'],
+            // ignore: ['./node_modules/mapbox-gl/dist/mapbox-gl.js']
           }
         },
       }
     ]
   },
-  devtool: 'source-map',
+  devtool: 'eval',
   resolve: {
     extensions: ['.js', '.jsx', '*']
   }

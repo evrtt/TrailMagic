@@ -1,0 +1,290 @@
+// Place all the styles related to the api/trails controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// @import 'mapbox-gl/dist/mapbox-gl.css';
+
+.trails-index-page {
+  display: grid;
+  grid-template-columns: 400px auto;
+  max-height: 800px;
+}
+
+.trail-index-map {
+  display: grid;
+  height: inherit;
+  max-height: inherit
+}
+
+.trails-index-list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px 0 10px;
+  font-family: 'Montserrat', Sans-Serif;
+  color: rgb(143, 143, 143);
+  height: inherit;
+  max-height: inherit;
+  overflow: auto;
+}
+
+.trail-index-item-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 278px;
+  box-shadow: 0px 2px 8px -3px rgb(216, 216, 216);
+  margin: 10px 0 10px 0;
+  width: 350px;
+  border-radius: 8px;
+  
+  .trail-index-item-header-bottom{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 98px;
+    margin-left: 15px;
+  }
+
+  .trail-index-item-header-top{ 
+    height: 170px;
+    width: 100%;
+  }
+  
+  .trail-index-item-photo {
+    object-fit: cover;
+    object-position: center top 50%;
+    border-radius: 8px 8px 0 0;
+  }
+
+
+
+
+  h1{
+    font-weight: bold;
+  }
+
+  .trail-location {
+    min-width: max-content;
+    font-size: 14px;
+    padding: none;
+  }
+
+  p {
+    width: fit-content;
+    margin-bottom: 3px;
+    font-size: 12px;
+  }
+
+  span {
+    padding: 3px 0 3px 0;
+    font-size: 14px;
+  }
+}
+
+
+.dif-hard {
+  background-color: rgb(117, 117, 117);
+  color: white;
+  font-weight: 500;
+  border-radius: 3px;
+  padding: 3px;
+}
+
+.dif-easy {
+  background-color: rgb(106, 194, 106);
+  color: white;
+  font-weight: 500;
+  border-radius: 3px;
+  padding: 3px;
+
+}
+
+.dif-moderate {
+  background-color: rgb(97, 144, 214);
+  color: white;
+  font-weight: 500;
+  border-radius: 3px;
+  padding: 3px;
+}
+
+// POPUP STUFF BELOW
+
+.popup-trail-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  
+  h1{
+    font-weight: bold;
+  }
+  
+  .trail-location {
+    min-width: max-content;
+    font-size: 14px;
+    padding: none;
+  }
+  
+  p {
+    width: 65px;
+    font-size: 12px;
+    width: fit-content;
+    
+    .dif-hard {
+      background-color: rgb(117, 117, 117);
+      color: white;
+      font-weight: 500;
+      padding: 3px;
+      border-radius: 3px;
+      text-align: center;
+    }
+    
+    .dif-easy {
+      background-color: rgb(106, 194, 106);
+      color: white;
+      font-weight: 500;
+      padding: 3px;
+      border-radius: 3px;
+      text-align: center;
+    }
+    
+    .dif-moderate {
+      background-color: rgb(97, 144, 214);
+      color: white;
+      font-weight: 500;
+      padding: 3px;
+      border-radius: 3px;
+      text-align: center;
+    }
+  }
+  
+  span {
+    padding: 3px 0 3px 0;
+    font-size: 14px;
+  }
+
+  .popup-trail-item-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 90px;
+  }
+  
+  .popup-photo-container {
+    height: 90px;
+    width: 90px;
+  }
+}
+
+
+// SIDEBAR STUFF BELOW
+
+.trails-index-sidebar {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Montserrat', Sans-Serif;
+  color: rgb(143, 143, 143);
+  height: auto;
+  max-height: 800px;
+  min-height: 200px;
+  overflow: auto;
+  border-top: solid 1px lightgrey;
+  
+  span {
+    margin-top: 15px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+}
+
+
+.trail-index-item-sidebar {
+  width: auto;
+  height: auto;
+  padding: 10px 10px  10px 10px;
+
+}
+
+.trail-index-item-link-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px 1px rgb(216, 216, 216);
+
+    h1{
+    font-weight: bold;
+  }
+
+  .trail-location {
+    min-width: max-content;
+    font-size: 10px;
+    padding: none;
+  }
+
+  p {
+    width: fit-content;
+    margin-bottom: 3px;
+    font-size: 10px;
+  }
+
+  span {
+    padding: 3px 0 3px 0;
+    font-size: 10px;
+  }
+}
+
+.trail-index-item-header-top {
+  height: 7em;
+  width: 100%;
+}
+
+.trail-index-item-photo-sidebar {
+  object-fit: cover;
+  object-position: center top 50%;
+  border-radius: 8px 8px 0 0;
+}
+
+.trail-index-item-header-bottom-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 5em;
+  margin: 5px;
+}
+
+.dif-hard-sidebar {
+  background-color: rgb(117, 117, 117);
+  color: white;
+  font-weight: 500;
+  border-radius: 3px;
+  padding: 3px;
+  width: fit-content;
+}
+
+.dif-easy-sidebar {
+  background-color: rgb(106, 194, 106);
+  color: white;
+  font-weight: 500;
+  border-radius: 3px;
+  padding: 3px;
+  width: fit-content;
+
+}
+
+.dif-moderate-sidebar {
+  background-color: rgb(97, 144, 214);
+  color: white;
+  font-weight: 500;
+  border-radius: 3px;
+  padding: 3px;
+  width: fit-content;
+}

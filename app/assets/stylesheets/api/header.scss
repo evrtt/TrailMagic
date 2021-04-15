@@ -14,9 +14,16 @@
     color: rgb(117, 117, 117);
     font-weight: 600;
     font-size: 90%;
+  }
 
+  .explore-link {
+    
     span {
       margin-left: 10px;
+    }
+
+    span:hover {
+      color: forestgreen;
     }
   }
 
@@ -25,6 +32,7 @@
     font-family: 'Montserrat', Sans-Serif;
     width: 200px;
     text-align: center;
+    color: rgb(117, 117, 117)
   }
 
   .welcome-comp {
@@ -47,6 +55,7 @@
       width: 82px;
       height: 32px;
       margin: 5px;
+      color: rgb(117, 117, 117);
     }
     
     .signup-link {

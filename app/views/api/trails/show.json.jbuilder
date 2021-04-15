@@ -1,0 +1,1 @@
+json.extract! @trail, :id, :title, :route_coords, :difficulty, :location, :length, :description, :estimated_time, :route_type, :elevation_gain

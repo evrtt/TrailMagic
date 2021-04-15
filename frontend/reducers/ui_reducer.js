@@ -1,23 +1,13 @@
-import { WINDOW_RESIZE } from "../actions/ui_actions"
+import { combineReducers } from 'redux';
+import windowReducer from './window_reducer';
+import mapReducer from './map_reducer';
+import trailViewReducer from './trail_ui/trail_view_reducer';
 
-const preloadedState = {
-  width: typeof window === 'object' ? window.innerWidth : null,
-  height: typeof window === 'object' ? window.innerHeight : null
-}
 
-export default (state = preloadedState, action) => {
-  Object.freeze(state);
-  switch (action.type) {
-    case WINDOW_RESIZE:
-      return Object.assign(
-        {}, 
-        state, 
-        {
-          width: action.width, 
-          height: action.height
-        }
-      )
-    default:
-      return state;
-  }
-};
+const uiReducer = combineReducers({
+  window: windowReducer,
+  map: mapReducer,
+  trailView: trailViewReducer
+})
+
+export default uiReducer;

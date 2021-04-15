@@ -8,13 +8,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import HeaderLogo from './header_logo';
 import SplashContainer from './splash/splash_container';
+import TrailIndexContainer from './trails/trail_index_container';
+import TrailContainer from './trails/trail_container';
+
 
 
 export default () => (
   <section className="main">
     <header className="site-header">
         <nav className="header-nav">
-          <span>Explore</span>
+          <Link to="/trails" className="explore-link">
+            <span>Explore</span>
+          </Link>
         </nav>
         <HeaderLogo />
         <WelcomeContainer />
@@ -24,25 +29,28 @@ export default () => (
         <AuthRoute exact path='/signup' component={SignUpFormContainer} />
         <AuthRoute exact path='/login' component={LoginFormContainer} />
         <Route exact path='/' component={SplashContainer} />
+        <Route exact path='/trails' component={TrailIndexContainer} />
+        <Route path='/trails/:trailId' component={TrailContainer} />
       </Switch>
     </section>
     <footer className="footer">
-      <Link to="/" className="logo-link">
-        <img className="logo" src={window.logoURL} />
-        <span>TrailMagic</span>
-      </Link>
-      <div className="icons-container">
-        <span>Find me on</span>
-        <div className="icons">
-          <a href="https://www.linkedin.com/in/everett-smith-924798153">
-            <FontAwesomeIcon icon={faLinkedin} />
-          </a>
-          <a href="https://github.com/evrtt">
-            <FontAwesomeIcon icon={faGithub} />
-          </a>
+      <div className="footer-container">
+        <Link to="/" className="logo-link">
+          <img className="logo" src={window.logoURL} />
+          <span>TrailMagic</span>
+        </Link>
+        <div className="icons-container">
+          <span>Find me on</span>
+          <div className="icons">
+            <a href="https://www.linkedin.com/in/everett-smith-924798153">
+              <FontAwesomeIcon icon={faLinkedin} />
+            </a>
+            <a href="https://github.com/evrtt">
+              <FontAwesomeIcon icon={faGithub} />
+            </a>
+          </div>
         </div>
       </div>
-
     </footer>
   </section>
 );
