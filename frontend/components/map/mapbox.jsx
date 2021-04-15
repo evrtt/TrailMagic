@@ -5,6 +5,7 @@ import React from 'react';
 // import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import TrailIndexItem from '../trails/trail_index_item';
+import { Link } from 'react-router-dom';
 
 
 class Map extends React.Component {
@@ -74,21 +75,23 @@ class Map extends React.Component {
                   </Marker>
                 </div>
               ))}
-            {this.props.popup ? 
+            {this.props.popup ?
+            <Link to={`/trails/${this.props.popupTrailId}`}>
               <div className="popup-div">
-              <Popup
-                key={`popup-${this.props.popupTrailId}`}
-                latitude={this.props.trails[this.props.popupTrailId].routeCoords[0][0]}
-                longitude={this.props.trails[this.props.popupTrailId].routeCoords[0][1]}
-                onClose={this.props.closePopup}
-                className="popup"
-              >
-                <TrailIndexItem 
-                  from="popup" 
-                  trail={this.props.trails[this.props.popupTrailId]} 
-                />
-              </Popup> 
+                <Popup
+                  key={`popup-${this.props.popupTrailId}`}
+                  latitude={this.props.trails[this.props.popupTrailId].routeCoords[0][0]}
+                  longitude={this.props.trails[this.props.popupTrailId].routeCoords[0][1]}
+                  onClose={this.props.closePopup}
+                  className="popup"
+                  >
+                  <TrailIndexItem 
+                    from="popup" 
+                    trail={this.props.trails[this.props.popupTrailId]} 
+                    />
+                </Popup> 
               </div>
+            </Link>
             : null}
               {/* {this.state.popup ? (
                 <Popup

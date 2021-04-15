@@ -78,7 +78,7 @@ class Trail extends React.Component {
                     <span>{el.toString()}</span>
                   )}
                 </div>
-                <div>SEARCH COMPONENT HERE</div>
+                {/* <div>SEARCH COMPONENT HERE</div> */}
                 {/* <SearchComponent /> */}
               </nav>
               <div 
@@ -97,7 +97,7 @@ class Trail extends React.Component {
                 </div>
               </div>
               <div className={`${prefix}-green-bar`}>
-                <button>
+                {/* <button>
                   <FontAwesomeIcon icon={faCameraRetro} className={`${prefix}-icon`}/>
                   <p>Photos</p>
                 </button>
@@ -108,7 +108,7 @@ class Trail extends React.Component {
                 <button>
                     <FontAwesomeIcon icon={faPrint} className={`${prefix}-icon`}/>
                   <p>Print/PDF Map</p>
-                </button>
+                </button> */}
               </div>
               <div className={`${prefix}-trail-page-content`}>
                 <div className={`${prefix}-trail-page-content-left`}>
@@ -139,7 +139,7 @@ class Trail extends React.Component {
                   </nav>
                   <div className={`${prefix}-${this.props.reviewsOrPhotos}-content`}>
                     {this.props.reviewsOrPhotos === "reviews" ? (
-                        <div>THIS IS A FAKE REVIEW THAT NEEDS TO BE REPLACED SO THAT I CAN STYLE THIS SECTION CORRECLTY I JUST NEEDED SOME TEXT TO SEE HOW IT WOULD LOOK IS ALL</div>
+                      null // <div>THIS IS A FAKE REVIEW THAT NEEDS TO BE REPLACED SO THAT I CAN STYLE THIS SECTION CORRECLTY I JUST NEEDED SOME TEXT TO SEE HOW IT WOULD LOOK IS ALL</div>
                       // <TrailReviews trailId={this.props.trail.id}/>
                     ) : null}
                     {/* {this.state.contentLeftNav === "waypoints" ? (
@@ -182,7 +182,7 @@ class Trail extends React.Component {
                   >View Full Map</button> */}
                   {this.props.trails.map}
                   <div>
-                    <TrailIndexContainer from="sidebar"/>
+                    <TrailIndexContainer from="sidebar" currentTrailId={this.props.currentTrail}/>
                   </div>
                 </div>
               </div>
