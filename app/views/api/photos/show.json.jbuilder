@@ -1,3 +1,1 @@
-json.set! @trail.id do 
-  @photos.array!
-end
+json.photoURLs @photos.map {|file| url_for(file)}

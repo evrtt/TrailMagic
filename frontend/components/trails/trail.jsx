@@ -2,7 +2,7 @@ import React from 'react';
 import MapContainer from '../map/mapbox_container';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCameraRetro, faDirections, faMountain, faPrint } from '@fortawesome/free-solid-svg-icons';
-
+import TrailPhotosContainer from './trail_photos_container'
 
 
 class Trail extends React.Component {
@@ -167,8 +167,7 @@ class Trail extends React.Component {
                       <TrailWaypoints trailId={this.props.trail.id}/>
                     ) : null} */}
                     {this.state.contentLeftNav === "photos" ? (
-                      <div>PHOTOS GO HERE</div>
-                      // <TrailPhotos trailId={this.props.trail.id}/>
+                      <TrailPhotosContainer trailId={this.props.trail.id}/>
                     ) : null}
                   </div>
                 </div>
