@@ -16,8 +16,6 @@ class TrailIndexItem extends React.Component {
   }
   
   render() {
-    console.log(this.props.openPopup)
-    console.log(this.props.closePopup)
     if (this.props.from === "trailIndex") {
       return (
         <li

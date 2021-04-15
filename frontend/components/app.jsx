@@ -34,22 +34,23 @@ export default () => (
       </Switch>
     </section>
     <footer className="footer">
-      <Link to="/" className="logo-link">
-        <img className="logo" src={window.logoURL} />
-        <span>TrailMagic</span>
-      </Link>
-      <div className="icons-container">
-        <span>Find me on</span>
-        <div className="icons">
-          <a href="https://www.linkedin.com/in/everett-smith-924798153">
-            <FontAwesomeIcon icon={faLinkedin} />
-          </a>
-          <a href="https://github.com/evrtt">
-            <FontAwesomeIcon icon={faGithub} />
-          </a>
+      <div className="footer-container">
+        <Link to="/" className="logo-link">
+          <img className="logo" src={window.logoURL} />
+          <span>TrailMagic</span>
+        </Link>
+        <div className="icons-container">
+          <span>Find me on</span>
+          <div className="icons">
+            <a href="https://www.linkedin.com/in/everett-smith-924798153">
+              <FontAwesomeIcon icon={faLinkedin} />
+            </a>
+            <a href="https://github.com/evrtt">
+              <FontAwesomeIcon icon={faGithub} />
+            </a>
+          </div>
         </div>
       </div>
-
     </footer>
   </section>
 );

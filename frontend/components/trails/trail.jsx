@@ -1,8 +1,9 @@
 import React from 'react';
 import MapContainer from '../map/mapbox_container';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCameraRetro, faDirections, faMountain, faPrint } from '@fortawesome/free-solid-svg-icons';
-import TrailPhotosContainer from './trail_photos_container'
+import { faCameraRetro, faDirections, faMapMarkerAlt, faPrint } from '@fortawesome/free-solid-svg-icons';
+import TrailPhotosContainer from './trail_photos_container';
+import { StaticMap } from 'react-map-gl';
 
 
 class Trail extends React.Component {
@@ -24,6 +25,11 @@ class Trail extends React.Component {
 
   componentDidMount() { 
       this.props.fetchAllTrails();
+      this.props.fetchTrailPhotos(this.props.currentTrail);
+  }
+
+  componentWillUnmount() {
+    this.props.clearTrailPhotos();
   }
 
   mapViewOn(e) {
@@ -47,9 +53,6 @@ class Trail extends React.Component {
   }
 
   render () {
-    console.log(this.props)
-    console.log(JSON.stringify(this.props.trail)) 
-    console.log(JSON.stringify({}))
     let toggledcontent;
     let reviewsBtn;
     let photosBtn;
@@ -154,11 +157,7 @@ class Trail extends React.Component {
                       onClick={this.navLeftContentToPhotos}
                       >Photos</button>
                   </nav>
-                  <div className={`${prefix}-${toggledcontent}`}>
-
-                      WAYPOINTS HERE TOGGLED
-                      REVIEWS HERE TOGGLED
-                      PHOTOS HERE TOGGLED
+                  <div className={`${prefix}-${this.state.contentLeftNav}-content`}>
                     {this.state.contentLeftNav === "reviews" ? (
                         <div>THIS IS A FAKE REVIEW THAT NEEDS TO BE REPLACED SO THAT I CAN STYLE THIS SECTION CORRECLTY I JUST NEEDED SOME TEXT TO SEE HOW IT WOULD LOOK IS ALL</div>
                       // <TrailReviews trailId={this.props.trail.id}/>
@@ -167,12 +166,37 @@ class Trail extends React.Component {
                       <TrailWaypoints trailId={this.props.trail.id}/>
                     ) : null} */}
                     {this.state.contentLeftNav === "photos" ? (
-                      <TrailPhotosContainer trailId={this.props.trail.id}/>
-                    ) : null}
+                      <TrailPhotosContainer 
+                        prefix={prefix} 
+                        trailId={this.props.trail.id}
+                        visible={"visible"}
+                      />
+                      ) : (
+                      <TrailPhotosContainer 
+                        prefix={prefix} 
+                        trailId={this.props.trail.id}
+                        visible={"hidden"}
+                      />                      
+                    )}
                   </div>
                 </div>
                 <div className={`${prefix}-trail-page-content-right`}>
-                  <div className={`${prefix}-static-map`}>STATIC MAP HERE</div>
+                  <div className={`${prefix}-static-map`}>
+                    <StaticMap 
+                      width="100%"
+                      height="100%"
+                      latitude={this.props.trail.routeCoords[0][0]}
+                      longitude={this.props.trail.routeCoords[0][1]}
+                      zoom={12}
+                      mapStyle="mapbox://styles/mapbox/outdoors-v11"
+                      mapboxApiAccessToken={window.mapAPIKey}
+                      style={{borderRadius: "8px"}}
+                    />
+                    <FontAwesomeIcon
+                      icon={faMapMarkerAlt}
+                      style={{position: 'relative', top: "-55%", left: '47%', color: "blue"}}
+                    />
+                  </div>
                   <button 
                     onClick={this.mapViewOn}
                     className={`${prefix}-map-view-on`}

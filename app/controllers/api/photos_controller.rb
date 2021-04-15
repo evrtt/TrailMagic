@@ -1,11 +1,12 @@
 class Api::PhotosController < ApplicationController
 
-  def show
-    @trail = Trail.find_by(id: params[:id])
+  def index
+    @trail = Trail.find_by(id: params[:trail_id])
       if @trail
           @photos = @trail.photos
-          render "api/photos/show"
+          render "/api/photos/index"
       else
+        # render json: ["#{params[:id]}"], status: 403
         render json: ["The trail you are looking for does not exist."], status: 404
       end
   end

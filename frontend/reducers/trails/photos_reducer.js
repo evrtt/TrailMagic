@@ -1,11 +1,16 @@
-import { RECEIVE_TRAIL_PHOTOS } from '../../utils/trails_api_util';
+import { CLEAR_TRAIL_PHOTOS, RECEIVE_TRAIL_PHOTOS } from '../../actions/trails_actions';
 
-export default (state = {}, action) => {
+const photosReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_TRAIL_PHOTOS:
-      return action.photoURLs
+      return action.photoURLs.photoURLs
+    case CLEAR_TRAIL_PHOTOS:
+      return {}
     default:
       return state
   }
 }
+
+export default photosReducer;
+

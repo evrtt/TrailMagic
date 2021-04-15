@@ -231,10 +231,68 @@
 
 }
 
-.standard-view-reviews-content {
-  height: 300px;
-}
 
 .standard-view-photos-content {
-  height: 300px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+}
+
+
+// PHOTOS SECTION STANDARD VIEW
+
+.standard-view-photos-container-visible {
+  display: grid;
+  grid-template-columns: repeat(2, 48%);
+  grid-gap: 10px;
+  height: fit-content;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.standard-view-photos-container-hidden {
+  display: none;
+}
+
+.standard-view-photo-li {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+
+}
+
+.standard-view-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-fit: center;
+  border-radius: 8px;
+}
+
+
+// .map-view-photos-container-visible {
+//   display: inherit;
+//   grid-template-columns: 30% 30% 30%;
+//   grid-gap: ;
+// }
+// .map-view-photos-container-hidden {
+//   display: inherit;
+//   grid-template-columns: 30% 30% 30%;
+//   grid-gap: ;
+// }
+
+.standard-view-trail-page-content-right {
+  width: 95%;
+  aspect-ratio: 1;
+
+  .standard-view-static-map {
+    width: 95%;
+    height: 95%;
+    border-radius: 8px;
+  }
 }

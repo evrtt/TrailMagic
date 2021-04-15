@@ -1,4 +1,4 @@
-import { faMapMarked, faMapMarker, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from 'react';
 // import mapboxgl from 'mapbox-gl/dist/mapbox-gl-csp';
@@ -41,7 +41,6 @@ class Map extends React.Component {
       return <div></div>
     } else {
       if (JSON.stringify(this.props.trails) !== JSON.stringify({})) {
-        console.log("TRUUUUU")
         return (
           <div>
             <ReactMapGL
@@ -106,7 +105,6 @@ class Map extends React.Component {
           </div>
         )
       } else {
-        console.log("FALSE")
         return (
           <ReactMapGL
             {...this.state.viewport}

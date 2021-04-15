@@ -11,8 +11,10 @@ import Root from './components/root';
 import * as trailAPIUtil from './utils/trails_api_util';
 import {
   fetchAllTrails,
-  fetchCurrentTrail
+  fetchCurrentTrail,
+  fetchTrailPhotos
 } from './actions/trails_actions';
+// import { fetchTrailPhotos } from './utils/trails_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   
@@ -38,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.fetchCurrentTrail = fetchCurrentTrail;
   window.fetchAllTrails = fetchAllTrails;
+  window.fetchTrailPhotos = fetchTrailPhotos;
 
   window.signUp = signUp;
   window.login = login;

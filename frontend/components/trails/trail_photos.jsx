@@ -3,29 +3,27 @@ import React from 'react';
 class TrailPhotos extends React.Component {
   constructor(props) {
     super(props)
-  
-  }
-
-  componentDidMount() {
-    this.props.fetchTrailPhotos(this.props.trailId)
   }
 
   render() {
-
-    if(!this.props.photoURLs) { return (<div></div>) } else {
+    if(Object.values(this.props.photoURLs).length === 0) {
+      console.log("bad")
+      return (<div></div>) } else {
       return (
-        <ul>
+        <ul className={`${this.props.prefix}-photos-container-${this.props.visible}`}>
           {this.props.photoURLs.map((url, idx) => {
+            return (
             <li  
-              key={`trail-${this.props.trailId}-photo-${idx}`}
-              className="trail-photo-list-item"
+              key={`photo-${idx + 1}`}
+              className={`${this.props.prefix}-photo-li`}
             >
               <img 
                 src={url}
-                className="trail-photo"
+                className={`${this.props.prefix}-photo`}
               />
             </li>
-          })}
+          )})
+          }
         </ul>
       )
     }    
