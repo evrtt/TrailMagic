@@ -80,17 +80,16 @@
 
   p {
     text-align: center;
-    max-width: 60px;
-    width: 65px;
+    width: fit-content;
     padding: 3px;
-    font-size: 12px;
+    font-size: 16px;
     border-radius: 3px;
     margin-bottom: 5px;
   }
 
   .standard-view-trail-location {
     min-width: max-content;
-    font-size: 14px;
+    font-size: 16px;
     padding: none;
   }
 }
@@ -98,17 +97,22 @@
 .standard-view-dif-hard {
   background-color: rgb(117, 117, 117);
   font-weight: 500;
+  text-shadow: none;
+  width: fit-content;
 }
 
-// .standard-view-dif-easy {
-//   background-size: cover;
-//   background-position: center;
-//   background-repeat: no-repeat;  font-weight: 500;
-// }
+.standard-view-dif-easy {
+  background-color: rgb(106, 194, 106);  
+  font-weight: 500;
+  text-shadow: none;
+  width: fit-content;
+}
 
 .standard-view-dif-moderate {
   background-color: rgb(97, 144, 214);
   font-weight: 500;
+  text-shadow: none;
+  width: fit-content;
 }
 
 .standard-view-green-bar {

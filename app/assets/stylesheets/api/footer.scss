@@ -7,14 +7,16 @@
   width: auto;
   padding-left: 20px;
   padding-right: 20px;
-  height: 180px;
+  height: 130px;
   background-color: rgb(236, 236, 236);
-  display: block;
+  display: flex;
+  align-items: center;
 
   .footer-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
   }
 
   .logo-link {
