@@ -1,19 +1,18 @@
-# README
-
 # Trail Magic
 
 Welcome to Trail Magic, a clone of the app Alltrails, that makes it easy for users to explore the natural world (of Colorado). The website currently allows users to create their own account with username and password, explore a map of twelve trails in Colorado and see currated trailguides with information about, a map, and photos of each trail.  
 
-# Planned Features
+## Planned Features
 
 Features that are still in the works include the ability for users to search for trails by name on the splash page, write, edit and delete reviews of trails for all users to see, toggle between an information-specific-view and a map-view of each trail, upload, edit and delete their own photos of trails, and create waypoints with comments at points along a trail's route.
 
 
-# Where can I find the App?
+## Where can I find the App?
 
-Trail Magic is hosted live at https://trailmagic.herokuapp.com. The live site will be updated with the above planned functionality soon!
+Trail Magic is hosted live at https://trailmagic.herokuapp.com. 
+The live site will be updated with the above planned functionality soon!
 
-# Technologies
+## Technologies
 
 Trail Magic is a fullstack application developed with:
 
@@ -23,7 +22,7 @@ Trail Magic is a fullstack application developed with:
     * implementing Uber's React-Map-Gl libary
  * AWS S3 cloud stored photos
 
-# Highlited Features
+## Highlited Features
 
 ### Map Popups
 
