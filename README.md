@@ -9,8 +9,7 @@ Features that are still in the works include the ability for users to search for
 
 ## Where can I find the App?
 
-Trail Magic is hosted live at https://trailmagic.herokuapp.com. 
-The live site will be updated with the above planned functionality soon!
+A non-up-to-date version of Trail Magic is hosted live at https://trailmagic.herokuapp.com. We are working on getting the most up-to-date version of Trail Magic hosted on Heroku soon.
 
 ## Technologies
 
