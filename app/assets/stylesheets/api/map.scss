@@ -6,8 +6,7 @@
   color: blue;
   background: none;
   border: none;
-  cursor: pointer;
-  bottom: 0.5em;
+  bottom: 1em;
   right: 50%;
 }
 
@@ -18,13 +17,11 @@
   color: red;
   background: none;
   border: none;
-  cursor: pointer;
-  bottom: 0.5em;
+  bottom: 1em;
   right: 50%;
 }
 
 .nav-icon:hover {
-  font: 35px;
   font-size: 35px;
 }
 
@@ -53,13 +50,3 @@
   font-size: 20px;
   color: rgb(117, 117, 117);
 }
-
-// .mapboxgl-popup-content {
-
-// }
-
-// .marker-class {
-//   background-color: darkmagenta;
-//   // position: relative;
-//   height: 0;
-// }

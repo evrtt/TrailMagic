@@ -1,8 +1,7 @@
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from 'react';
-// import mapboxgl from 'mapbox-gl/dist/mapbox-gl-csp';
-// import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker';
+
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import TrailIndexItem from '../trails/trail_index_item';
 import { Link } from 'react-router-dom';
@@ -39,7 +38,7 @@ class Map extends React.Component {
   render() {
     let iconClass;
     if (this.props.trails.length < 12) {
-      return <div></div>
+      return null
     } else {
       if (JSON.stringify(this.props.trails) !== JSON.stringify({})) {
         return (
@@ -93,7 +92,7 @@ class Map extends React.Component {
               </div>
             </Link>
             : null}
-              {/* {this.state.popup ? (
+              {this.state.popup ? (
                 <Popup
                   latitude={this.props.trails[this.state.popupTrailId].routeCoords[0][0]}
                   longitude={this.props.trails[this.state.popupTrailId].routeCoords[0][1]}
@@ -101,7 +100,7 @@ class Map extends React.Component {
                   <TrailIndexItem from="popup" trail={this.props.trails[this.state.popupTrailId]} />
                 </Popup>
               ) : null
-              } */}
+              }
 
 
             </ReactMapGL>

@@ -2,8 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// @import 'mapbox-gl/dist/mapbox-gl.css';
-
 .trails-index-page {
   display: grid;
   grid-template-columns: 400px auto;
@@ -175,6 +173,8 @@
   .popup-photo-container {
     height: 90px;
     width: 90px;
+    
+    
   }
 }
 

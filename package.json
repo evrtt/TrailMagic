@@ -1,5 +1,5 @@
 {
-  "name": "TrailMagic",
+  "name": "trailmagic",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.13.14",

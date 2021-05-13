@@ -17,8 +17,6 @@ class Trail extends React.Component {
   
   }
 
-
-
   componentDidMount() { 
       this.props.fetchAllTrails();
       this.props.fetchTrailPhotos(this.props.currentTrail);
@@ -49,24 +47,6 @@ class Trail extends React.Component {
       let prefix;
       if (this.state.mapView) {
       return <div></div>
-      // if (this.state.mapView) {
-      //   prefix = "map-view"
-      //   return (
-      //     <div className="trail-page-mapview">
-      //       <nav>
-      //         <span>{this.props.trail.location}</span>
-      //         {/* <SearchComponent /> */}
-      //       </nav>
-      //       <div>
-      //         <h1>{this.props.trail.title}</h1>
-      //         <p className="trail-location">{this.props.trail.location}</p>
-      //         <p className={`dif-${this.props.trail.difficulty}`}>{props.trail.difficulty}</p>
-      //       </div>
-      //       <div className="trail-page-map">
-      //         <MapContainer trail={this.props.trail} />
-      //       </div>
-      //     </div>
-      //   )
       } else if (!this.state.mapView) {
         prefix = "standard-view"
         return (
@@ -78,8 +58,6 @@ class Trail extends React.Component {
                     <span>{el.toString()}</span>
                   )}
                 </div>
-                {/* <div>SEARCH COMPONENT HERE</div> */}
-                {/* <SearchComponent /> */}
               </nav>
               <div 
                 className={`${prefix}-trail-page-header`}
@@ -97,18 +75,6 @@ class Trail extends React.Component {
                 </div>
               </div>
               <div className={`${prefix}-green-bar`}>
-                {/* <button>
-                  <FontAwesomeIcon icon={faCameraRetro} className={`${prefix}-icon`}/>
-                  <p>Photos</p>
-                </button>
-                <button>
-                    <FontAwesomeIcon icon={faDirections} className={`${prefix}-icon`}/>
-                  <p>Directions</p>
-                </button>
-                <button>
-                    <FontAwesomeIcon icon={faPrint} className={`${prefix}-icon`}/>
-                  <p>Print/PDF Map</p>
-                </button> */}
               </div>
               <div className={`${prefix}-trail-page-content`}>
                 <div className={`${prefix}-trail-page-content-left`}>
@@ -139,12 +105,8 @@ class Trail extends React.Component {
                   </nav>
                   <div className={`${prefix}-${this.props.reviewsOrPhotos}-content`}>
                     {this.props.reviewsOrPhotos === "reviews" ? (
-                      null // <div>THIS IS A FAKE REVIEW THAT NEEDS TO BE REPLACED SO THAT I CAN STYLE THIS SECTION CORRECLTY I JUST NEEDED SOME TEXT TO SEE HOW IT WOULD LOOK IS ALL</div>
-                      // <TrailReviews trailId={this.props.trail.id}/>
+                      null
                     ) : null}
-                    {/* {this.state.contentLeftNav === "waypoints" ? (
-                      <TrailWaypoints trailId={this.props.trail.id}/>
-                    ) : null} */}
                     {this.props.reviewsOrPhotos === "photos" ? (
                       <TrailPhotosContainer 
                         prefix={prefix} 
@@ -176,10 +138,6 @@ class Trail extends React.Component {
                       style={{position: 'relative', top: "-55%", left: '47%', color: "blue"}}
                     />
                   </div>
-                  {/* <button 
-                    onClick={this.mapViewOn}
-                    className={`${prefix}-map-view-on`}
-                  >View Full Map</button> */}
                   {this.props.trails.map}
                   <div>
                     <TrailIndexContainer from="sidebar" currentTrailId={this.props.currentTrail}/>

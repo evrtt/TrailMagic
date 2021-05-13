@@ -4,11 +4,13 @@
     <title>TrailMagic</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= favicon_link_tag 'logo.png' %>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
     <script type="text/javascript">
       window.mapAPIKey = "<%=Rails.application.credentials.mapbox[:api_key]%>"
     </script>
+    <script type="text/javascript">
+      window.logoURL = "<%= image_url('logo.png') %>"
+    </script>
+
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
 

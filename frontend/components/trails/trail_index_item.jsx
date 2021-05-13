@@ -69,13 +69,6 @@ class TrailIndexItem extends React.Component {
                 marginRight: "10px"
               }}
               >
-              {/* <img 
-                src={this.props.trail.mainPhotoURL}
-                style={{
-                  objectFit: "cover",
-                  objectPosition: "center"
-                }} 
-              /> */}
             </div>
             <div className="popup-trail-item-content">
             <h1>{this.props.trail.title}</h1>

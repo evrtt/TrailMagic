@@ -7,7 +7,6 @@ class TrailPhotos extends React.Component {
 
   render() {
     if(Object.values(this.props.photoURLs).length === 0) {
-      console.log("bad")
       return (<div></div>) } else {
       return (
         <ul className={`${this.props.prefix}-photos-container-${this.props.visible}`}>

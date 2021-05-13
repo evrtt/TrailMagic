@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import MapBox from './/mapbox';
 import { openPopup, closePopup } from '../../actions/ui_actions';
+import { fetchAllTrails } from '../../actions/trails_actions';
 
 
 
