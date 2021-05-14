@@ -34,35 +34,40 @@ class TrailIndex extends React.Component {
     };
 
     if (this.props.from === "sidebar") {
-
-      return (
-        <div className="trails-index-sidebar">
-          <span>Nearby Trails</span>
-          <ul className="trails-index-list-sidebar">
-            {Object.values(this.props.trails).map( trail => {
-              if(`${trail.id}` === `${this.props.currentTrailId}`) {
-                 return null 
-              } else if(
-                  (haversineDistance(
-                    trail.routeCoords[0], 
-                    this.props.trails[this.props.currentTrailId - 1].routeCoords[0]
-                  )) > 35
-                ) {
-                return null
-              } else { 
-                return(
-                <div>
-                  <TrailIndexItemContainer 
-                    key={trail.id} 
-                    trail={trail}
-                    from={"sidebar"} 
-                  />
-                </div>
-              )}  
-            })}  
-          </ul>
-        </div>
-      )
+      if(this.props.trails.length > 0) {
+        return (
+          <div className="trails-index-sidebar">
+            <span>Nearby Trails</span>
+            <ul className="trails-index-list-sidebar">
+              {Object.values(this.props.trails).map( trail => {
+                console.log(trail)
+                console.log(this.props.trails[this.props.currentTrailId - 1])
+                if(`${trail.id}` === `${this.props.currentTrailId}`) {
+                   return null 
+                } else if(
+                    (haversineDistance(
+                      trail.routeCoords[0], 
+                      this.props.trails[this.props.currentTrailId - 1].routeCoords[0]
+                    )) > 35
+                  ) {
+                  return null
+                } else { 
+                  return(
+                  <div>
+                    <TrailIndexItemContainer 
+                      key={trail.id} 
+                      trail={trail}
+                      from={"sidebar"} 
+                    />
+                  </div>
+                )}  
+              })}  
+            </ul>
+          </div>
+        )
+      } else {
+        return <div></div>
+      }
     } else {
       return (
         <div className="trails-index-page">
