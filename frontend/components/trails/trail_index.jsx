@@ -23,7 +23,7 @@ class TrailIndex extends React.Component {
       const distanceLong = (coordsTwo[0] - coordsOne[0]) * Math.PI / 180;
 
       const strait = Math.sin(distanceLat / 2) * Math.sin(distanceLat / 2) +
-        Math.cos(toRadians(coordsOne[1])) * Math.cos(toRadians(coordsTwo[1])) *
+        Math.cos(coordsOne[1] * Math.PI / 180) * Math.cos(coordsTwo[1] * Math.PI / 180) *
         Math.sin(distanceLong / 2) * Math.sin(distanceLong / 2);
       const havDist = 2 * Math.atan2(Math.sqrt(strait), Math.sqrt(1 - strait));
       const miles = (3950 * havDist);
