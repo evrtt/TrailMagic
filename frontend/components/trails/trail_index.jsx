@@ -39,7 +39,9 @@ class TrailIndex extends React.Component {
           <div className="trails-index-sidebar">
             <span>Nearby Trails</span>
             <ul className="trails-index-list-sidebar">
-              {Object.values(this.props.trails).map( trail => {
+              {Object.values(this.props.trails).map( (trail, idx) => {
+                console.log(idx)
+                console.log(this.props.trails)
                 console.log(trail)
                 console.log(this.props.trails[this.props.currentTrailId - 1])
                 if(`${trail.id}` === `${this.props.currentTrailId}`) {

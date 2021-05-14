@@ -29,7 +29,6 @@ class Trail extends React.Component {
   }
 
   render () {
-    console.log(this.props.trail)
     let toggledcontent;
     let reviewsBtn;
     let photosBtn;
