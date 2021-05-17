@@ -1,6 +1,4 @@
 import React from 'react';
-import { searchTrails } from '../../utils/trails_api_util';
-
 
 class SearchForm extends React.Component {
 
