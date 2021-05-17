@@ -7,7 +7,7 @@ class SearchForm extends React.Component {
 
     this.state = {
       input: '',
-      output: []
+      trails: []
     }
     this.search = this.search.bind(this)
   }
@@ -17,6 +17,8 @@ class SearchForm extends React.Component {
       e => {
         e.preventDefault();
         this.props.searchTrails(e.currentTarget.value)
+          .then(trails => this.setState({trails}))
+          .catch(err => this.setState({trails: err.json}))
         this.setState({
           input: e.currentTarget.value
         })
@@ -26,13 +28,20 @@ class SearchForm extends React.Component {
 
   render() {
     return(
-      <div className="search-container">
-        <input 
-          type="text"
-          value={this.state.input} 
-          placeholder="Search by trail name"
-          onChange={this.search()}
-        />
+      <div className="search-dropdown">
+        <div className="search-container">
+          <input 
+            type="text"
+            value={this.state.input} 
+            placeholder="Search by trail name"
+            onChange={this.search()}
+            />
+        </div>
+        <div>
+          <ul>
+            {this.state.trails}
+          </ul>
+        </div>
       </div>
     )
   }
