@@ -8,7 +8,7 @@ class Api::TrailsController < ApplicationController
         render json: ["There aren't any trails."], status: 404
       end
     else 
-      render json: ["Our bad, something went wrong. Please try again."], status: 500
+      render json: ["Something went wrong. Please try again."], status: 500
     end
   end
 
@@ -23,5 +23,13 @@ class Api::TrailsController < ApplicationController
 
   def search
     @trails = Trail.where(title: "LIKE '%#{params[:search]}%'")
+    if @trails
+      unless @trails.empty?
+        render "/api/trails/search"
+      else
+        render json: ["We couldn't find anything matching #{params[:search]}"], status: 404
+    else
+      render json: ["Something went wrong. Please try again"], status: 500
+    end
   end
 end

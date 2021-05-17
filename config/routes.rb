@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :trails, only: [:index, :show] do
       resources :photos, only: [:index]
+      collection do 
+        get 'search'
+      end
     end
   end
 
