@@ -28,6 +28,7 @@ class Api::TrailsController < ApplicationController
         render "/api/trails/search"
       else
         render json: ["We couldn't find anything matching #{params[:search]}"], status: 404
+      end
     else
       render json: ["Something went wrong. Please try again"], status: 500
     end
