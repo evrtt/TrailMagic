@@ -6,7 +6,7 @@ import { searchTrails } from '../../utils/trails_api_util';
 // });
 
 const mDTP = (dispatch) => ({
-  searchTrails: (string) => searchTrails(string)
+  searchTrails
 });
 
 export default connect(null, mDTP)(SearchForm);

@@ -22,9 +22,10 @@ class Api::TrailsController < ApplicationController
   end
 
   def search
-    @trails = Trail.where("title LIKE '%#{params[:string]}%'")
+    string = params[:string].upcase
+    @trails = Trail.where("UPPER(title) LIKE '%#{string}%'")
     # @trails = Trail.all
-    debugger
+    # debugger
     if @trails
       unless @trails.empty?
         render "/api/trails/search"
