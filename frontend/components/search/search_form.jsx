@@ -23,6 +23,7 @@ class SearchForm extends React.Component {
     }
     this.search = this.search.bind(this);
     this.hideSearchList = this.hideSearchList.bind(this);
+    this.linkToTrail = this.linkToTrail.bind(this);
   }
 
   hideSearchList() {
@@ -31,11 +32,22 @@ class SearchForm extends React.Component {
     })
   }
 
-  // revealSearchList() {
-  //   this.setState({
-  //     searchListClass: 'visible'
-  //   })
-  // }
+  linkToTrail() {
+    return (
+      e => {
+        e.preventDefault()
+        if(this.state.trails.length === 0 || this.state.errors !== '') {
+          this.setState({
+            searchListClass: 'visible-search-list',
+            trails: [],
+            errors: 'Please search for a valid trail'
+          })
+        } else {
+          this.props.history.push(`/trails/${this.state.trails[0].id}`)
+        }
+      }
+    )
+  }
 
   search() {
     return(
@@ -68,45 +80,55 @@ class SearchForm extends React.Component {
   }
 
   render() {
+           
+    const searchForm = <form className="search-form">
+      <FontAwesomeIcon icon={faSearch} className="search-icon"/>
+      <div className="search-container">
+        <input
+          type="text"
+          value={this.state.input}
+          placeholder="Search by trail name"
+          onChange={this.search()}
+          onBlur={this.hideSearchList}
+        />
+      </div>            
+      <button>
+        <FontAwesomeIcon 
+          icon={faArrowCircleRight} 
+          onClick={this.linkToTrail()}  
+        />
+      </button>
+    </form>
+  
+    let searchList;
+    if(this.state.errors === '') {
+      searchList = 
+      <ul>
+        {this.state.trails.map(trail => {
+            return (
+              <li>
+                <Link to={`/trails/${trail.id}`} className="search-result-link">
+                  <FontAwesomeIcon icon={faMapSigns} className="trail-search-list-icon" />
+                  <div>
+                    <h5>{trail.title}</h5>
+                    <p>{trail.location}</p>
+                  </div>
+                </Link>
+              </li>
+            )
+          })}
+      </ul>  
+    } else {
+      searchList = <div className="search-errors">
+          <div className="search-error-li">{`${this.state.errors}`}</div>
+        </div>
+    }
 
     return(
-
-
-
       <div className="search-dropdown">
-        <form className="search-form">
-          <FontAwesomeIcon icon={faSearch} className="search-icon"/>
-          <div className="search-container">
-            <input
-              type="text"
-              value={this.state.input}
-              placeholder="Search by trail name"
-              onChange={this.search()}
-              onBlur={this.hideSearchList}
-            />
-          </div>            
-          <button>
-            <FontAwesomeIcon icon={faArrowCircleRight} />
-          </button>
-        </form>
+        {searchForm}
         <div className={this.state.searchListClass}>
-          <ul className="search-list">
-            {this.state.trails.map(trail => {
-              console.log(trail)
-              return(
-                <li>
-                  <Link to={`/trails/${trail.id}`} className="search-result-link">
-                    <FontAwesomeIcon icon={faMapSigns} className="trail-search-list-icon"/>
-                    <div>
-                      <h5>{trail.title}</h5>
-                      <p>{trail.location}</p>
-                    </div>
-                  </Link>
-                </li>
-              )
-            })}
-            <li className="search-error-li">{`${this.state.errors}`}</li>
-          </ul>
+          {searchList}
         </div>
       </div>
     )

@@ -17,8 +17,6 @@
     border: none;
     font-size: 200%;
   }
-
-  
 }
 
 .search-container {
@@ -32,7 +30,6 @@
     color: rgb(117, 117, 117);
     font-size: 16px;
   }
-
 }
 
 .search-icon {
@@ -44,12 +41,15 @@
 .visible-search-list {
   z-index: 1;
   background-color: white;
-  height: 350px;
+  height: 300px;
   width: 628px;
   overflow-y: auto;
   border-radius: 0 0 16px 16px;
   position: absolute;
   width: inherit;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 
   .search-list {
     height: 300px;
@@ -65,6 +65,16 @@
     border-radius: 60px;
     padding: 5px;
     color: green;
+    }
+  }
+
+  .search-errors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 628px;
+    .search-error-li {
+      font-size: 20px;
     }
   }
 }
