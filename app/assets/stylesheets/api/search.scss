@@ -42,55 +42,67 @@
   z-index: 1;
   background-color: white;
   height: 300px;
-  width: 628px;
+  width: 598px;
   overflow-y: auto;
   border-radius: 0 0 16px 16px;
   position: absolute;
-  width: inherit;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-content: center;
 
-  .search-list {
-    height: 300px;
-    width: 628px;
-  }
-
-  .search-result-link {
+  
+  .visible-search-result-link {
     height: 75px;
     display: flex;
     flex-direction: row;
+    align-items: center;
   
-    .trail-search-list-icon {
+    .visible-trail-search-list-icon {
     border-radius: 60px;
     padding: 5px;
     color: green;
     }
+
+    .visible-search-result-link-content{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+    }
   }
 
-  .search-errors {
+  .visible-search-errors {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 628px;
-    .search-error-li {
-      font-size: 20px;
-    }
+  }
+  .visible-search-error-li {
+    font-size: 20px;
   }
 }
+
+
+
 
 .hidden-search-list {
   display: none;
 
-  .search-list {
+  .hidden-search-list {
     display: none;
   }
 
-  .search-result-link {
+  .hidden-search-result-link {
     display: none;
   
-    .trail-search-list-icon {
-      display: none;
+    .hidden-trail-search-list-icon {
+    display: none;
     }
+  }
+
+  .hidden-search-errors {
+    display: none;
+    .hidden-search-error-li {
+      display: none;    }
   }
 }

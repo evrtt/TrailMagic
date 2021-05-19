@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleRight, faSearch } from '@fortawesome/free-solid-svg-icons';
 import FillerContentContainer from './filler_content_container'
-import SearchFormContainer from '../search/search_form_container';
+import SplashSearchContainer from '../search/splash_search_container';
 
 
 class Splash extends React.Component {
@@ -21,7 +21,7 @@ class Splash extends React.Component {
       <section className="splash-container">
         <div className="search-bar-container">
           <h1>Find a new adventure</h1>
-          <SearchFormContainer />
+          <SplashSearchContainer />
         </div>
         <FillerContentContainer />
 
