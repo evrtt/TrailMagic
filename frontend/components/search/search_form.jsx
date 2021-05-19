@@ -5,6 +5,8 @@ import {
   faArrowCircleRight, 
   faSearch 
   } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -16,10 +18,24 @@ class SearchForm extends React.Component {
     this.state = {
       input: '',
       trails: [],
-      errors: ''
+      errors: '',
+      searchListClass: 'hidden-search-list'
     }
-    this.search = this.search.bind(this)
+    this.search = this.search.bind(this);
+    this.hideSearchList = this.hideSearchList.bind(this);
   }
+
+  hideSearchList() {
+    this.setState({
+      searchListClass: 'hidden-search-list'
+    })
+  }
+
+  // revealSearchList() {
+  //   this.setState({
+  //     searchListClass: 'visible'
+  //   })
+  // }
 
   search() {
     return(
@@ -28,6 +44,11 @@ class SearchForm extends React.Component {
         this.setState({
           input: e.currentTarget.value
         })
+        if(this.state.searchListClass === 'hidden-search-list') {
+          this.setState({
+            searchListClass: 'visible-search-list'
+          })
+        }
         console.log(this.props.searchTrails)
         this.props.searchTrails(e.currentTarget.value)
           .then(
@@ -48,15 +69,9 @@ class SearchForm extends React.Component {
 
   render() {
 
-    // let view;
-    // if(this.state.trails.length > 0) {
-    //   view = "visible"
-    // } else {
-    //   view = "hidden"
-    // }
-    console.log(this.state)
-
     return(
+
+
 
       <div className="search-dropdown">
         <form className="search-form">
@@ -67,20 +82,26 @@ class SearchForm extends React.Component {
               value={this.state.input}
               placeholder="Search by trail name"
               onChange={this.search()}
+              onBlur={this.hideSearchList}
             />
           </div>            
           <button>
             <FontAwesomeIcon icon={faArrowCircleRight} />
           </button>
         </form>
-        <div className="search-list-container">
+        <div className={this.state.searchListClass}>
           <ul className="search-list">
             {this.state.trails.map(trail => {
               console.log(trail)
               return(
-                <li className="search-result-li">
-                  <FontAwesomeIcon icon={faMapSigns}/>
-                  <div>{trail.title}</div>
+                <li>
+                  <Link to={`/trails/${trail.id}`} className="search-result-link">
+                    <FontAwesomeIcon icon={faMapSigns} className="trail-search-list-icon"/>
+                    <div>
+                      <h5>{trail.title}</h5>
+                      <p>{trail.location}</p>
+                    </div>
+                  </Link>
                 </li>
               )
             })}
@@ -90,7 +111,6 @@ class SearchForm extends React.Component {
       </div>
     )
   }
-
 }
 
 export default SearchForm;

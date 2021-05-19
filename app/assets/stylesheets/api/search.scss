@@ -1,0 +1,86 @@
+.search-form {
+  align-items: center;
+  display: flex;
+  font-family: 'Montserrat', Sans-Serif;
+  background-color: white;
+  padding: 18px;
+  padding-right: 10px;
+  border-radius: 100px;
+  width: 600px;
+  max-width: 100%;
+  height: auto;
+  border: none;
+  
+  button {
+    color: forestgreen;
+    background-color: transparent;
+    border: none;
+    font-size: 200%;
+  }
+
+  
+}
+
+.search-container {
+  width: 570px;
+  max-width: 100%;
+  margin-left: 5px;
+  z-index: 2;
+
+  input {
+    border: none;
+    color: rgb(117, 117, 117);
+    font-size: 16px;
+  }
+
+}
+
+.search-icon {
+  color: rgb(117, 117, 117);
+  font-weight: 10%;
+  font-size: small;
+}
+
+.visible-search-list {
+  z-index: 1;
+  background-color: white;
+  height: 350px;
+  width: 628px;
+  overflow-y: auto;
+  border-radius: 0 0 16px 16px;
+  position: absolute;
+  width: inherit;
+
+  .search-list {
+    height: 300px;
+    width: 628px;
+  }
+
+  .search-result-link {
+    height: 75px;
+    display: flex;
+    flex-direction: row;
+  
+    .trail-search-list-icon {
+    border-radius: 60px;
+    padding: 5px;
+    color: green;
+    }
+  }
+}
+
+.hidden-search-list {
+  display: none;
+
+  .search-list {
+    display: none;
+  }
+
+  .search-result-link {
+    display: none;
+  
+    .trail-search-list-icon {
+      display: none;
+    }
+  }
+}
