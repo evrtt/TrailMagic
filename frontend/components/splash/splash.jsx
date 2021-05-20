@@ -56,6 +56,7 @@ class Splash extends React.Component {
           })
         } else {
           this.props.history.push(`/trails/${this.state.trails[0].id}`)
+          this.hideSearchList()
         }
       }
     )

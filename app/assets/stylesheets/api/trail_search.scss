@@ -117,7 +117,9 @@
 }
 
 .visible-trailpage-search-errors {
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hidden-trailpage-search-errors {
@@ -125,7 +127,12 @@
 }
 
 .visible-trailpage-search-error-li {
-
+  text-align: center;
+  width: 400px;
+  background-color: white;
+  font-size: 18px;
+  color: red;
+  padding: 16px 0 16px 0;
 }
 
 .hidden-trailpage-search-error-li {

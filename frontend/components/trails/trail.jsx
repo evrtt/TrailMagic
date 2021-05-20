@@ -154,15 +154,24 @@ class Trail extends React.Component {
       } else if (!this.state.mapView) {
         prefix = "standard-view"
         return (
-          <div className={`${prefix}-grey-background`}>
+          <div 
+            className={`${prefix}-grey-background`}
+            onClick={this.hideSearchList}
+          >
             <div className={`${prefix}-trail-page-no-map`}>
               <nav className={`${prefix}-trail-page-nav`}>
-                <div className={`${prefix}-nav-spans`}>
+                <div 
+                  className={`${prefix}-nav-spans`}
+                  onClick={this.hideSearchList}
+                >
                   {this.props.trail.location.split(',').map( el =>
                     <span>{el.toString()}</span>
                   )}
                 </div>
-                <div className="trailpage-search-container">
+                <div 
+                  className="trailpage-search-container"
+                  onClick={e => e.stopPropagation()}
+                >
                   <form>
                     <input 
                       type="text"
@@ -170,7 +179,9 @@ class Trail extends React.Component {
                       placeholder="Search by trail name"
                       onChange={this.search()}
                     />
-                    <button>
+                    <button
+                      onClick={this.linkToTrail()}
+                    >
                       <FontAwesomeIcon icon={faSearch}/>
                     </button>
                   </form>
@@ -187,6 +198,7 @@ class Trail extends React.Component {
                   backgroundPosition: "center top 50%",
                   backgroundRepeat: "no-repeat"
                 }}
+                onClick={this.hideSearchList}
               >
                 <div className={`${prefix}-trail-page-header-content`}>
                   <h1>{this.props.trail.title}</h1>
@@ -194,9 +206,15 @@ class Trail extends React.Component {
                   <p className={`${prefix}-trail-location`}>{this.props.trail.location.split(",")[0].toString()}</p>
                 </div>
               </div>
-              <div className={`${prefix}-green-bar`}>
+              <div 
+                className={`${prefix}-green-bar`}
+                onClick={this.hideSearchList}
+              >
               </div>
-              <div className={`${prefix}-trail-page-content`}>
+              <div 
+                className={`${prefix}-trail-page-content`}
+                onClick={this.hideSearchList}
+              >
                 <div className={`${prefix}-trail-page-content-left`}>
                   <p className={`${prefix}-description`}>{this.props.trail.description}</p>
                   <div className={`${prefix}-content-spans`}>
