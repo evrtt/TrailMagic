@@ -1,6 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowCircleRight, faSearch } from '@fortawesome/free-solid-svg-icons';
 import FillerContentContainer from './filler_content_container'
 import SplashSearchContainer from '../search/splash_search_container';
 
@@ -20,8 +18,10 @@ class Splash extends React.Component {
     return (
       <section className="splash-container">
         <div className="search-bar-container">
-          <h1>Find a new adventure</h1>
-          <SplashSearchContainer />
+          <div className="search-bar">
+            <h1>Find a new adventure</h1>
+            <SplashSearchContainer />
+          </div>
         </div>
         <FillerContentContainer />
 

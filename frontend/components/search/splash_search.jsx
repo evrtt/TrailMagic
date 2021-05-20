@@ -23,13 +23,20 @@ class SplashSearch extends React.Component {
     this.linkToTrail = this.linkToTrail.bind(this);
   }
 
-  hideSearchList() {
-    this.setState({
-      prefix: 'hidden',
-      input: '',
-      trails: [],
-      errors: ''
-    })
+  hideSearchList(action) {
+    return (
+      e => {
+        console.log(e.relatedTarget)
+        if(e.relatedTarget === 0) {
+          this.setState({
+            prefix: 'hidden',
+            input: '',
+            trails: [],
+            errors: ''
+          })
+        }
+      }
+    )
   }
 
   linkToTrail() {
@@ -84,15 +91,14 @@ class SplashSearch extends React.Component {
     console.log(this.state.errors)    
     console.log(this.state.prefix)    
     console.log(this.state.input)    
-    const searchForm = <form className="search-form">
+    const searchForm = <form className={`${this.state.prefix}-search-form`}>
         <FontAwesomeIcon icon={faSearch} className="search-icon"/>
-        <div className="search-container">
+        <div className="search-input">
           <input
             type="text"
             value={this.state.input}
             placeholder="Search by trail name"
             onChange={this.search()}
-            onBlur={this.hideSearchList}
             />
         </div>            
         <button>
@@ -111,18 +117,20 @@ class SplashSearch extends React.Component {
             return (
               <li>
                 <Link 
-                  to={`/trails/${trail.id}`} 
+                  to={`/trails/${trail.id}`}
+                  onClick={this.hideSearchList('link')}
                   className={`${this.state.prefix}-search-result-link`}
+                  value="link"
                 >
                   <FontAwesomeIcon 
                     icon={faMapSigns} 
                     className={`${this.state.prefix}-trail-search-list-icon`}
-                  />
+                    />
                   <div className={`${this.state.prefix}-search-result-link-content`}>
                     <h5>{trail.title}</h5>
                     <p>{trail.location}</p>
                   </div>
-                </Link>
+                </Link> 
               </li>
             )
           })}
@@ -136,7 +144,10 @@ class SplashSearch extends React.Component {
     }
 
     return(
-      <div className="search-container">
+      <div 
+        className="search-container"
+        onBlur={this.hideSearchList()}
+      >
         {searchForm}
         <div className={`${this.state.prefix}-search-list`}>
           {searchList}
