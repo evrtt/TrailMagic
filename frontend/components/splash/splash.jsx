@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMapSigns,
   faArrowCircleRight,
-  faSearch
+  faSearch,
+  prefix
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
@@ -31,16 +32,12 @@ class Splash extends React.Component {
 
   hideSearchList() {
     return (
-      e => {
-        console.log(e.target, "target")
-        console.log(e.currentTarget, "currentTarget")
-        console.log(e.relatedTarget, "relatedTarget")
-        this.setState({
-          prefix: 'hidden',
-          input: '',
-          errors: ''
-        }), 1000
-      }
+      this.setState({
+        prefix: 'hidden',
+        input: '',
+        trails: [],
+        errors: ''
+      })
     )
   }
 
@@ -48,9 +45,15 @@ class Splash extends React.Component {
     return (
       e => {
         e.preventDefault()
-        if (this.state.trails.length === 0 || this.state.errors !== '') {
+        if (this.state.trails.length === 0) {
           this.setState({
-            errors: 'Please search for a valid trail'
+            errors: 'Please search for a valid trail',
+            prefix: 'visible'
+          })
+        } else if (this.state.errors === '') {
+          this.setState({
+            errors: 'Please search for a valid trail',
+            prefix: 'visible'
           })
         } else {
           this.props.history.push(`/trails/${this.state.trails[0].id}`)
@@ -124,18 +127,18 @@ class Splash extends React.Component {
     return (
       <section 
         className="splash-container"
-        onClick={this.hideSearchList()}
+        onClick={this.hideSearchList}
       >
         <div 
           className="search-bar-container"
-          onClick={this.hideSearchList()}
+          onClick={this.hideSearchList}
         >
           <div 
             className="search-bar"
-            onClick={this.hideSearchList()}
+            onClick={this.hideSearchList}
           >
             <h1
-              onClick={this.hideSearchList()}
+              onClick={this.hideSearchList}
             >Find a new adventure</h1>
             <div
               className="search-container"
@@ -164,7 +167,7 @@ class Splash extends React.Component {
             </div>
           </div>
         </div>
-        <FillerContentContainer onClick={this.hideSearchList()}/>
+        <FillerContentContainer onClick={this.hideSearchList}/>
       </section>
     )
   }
