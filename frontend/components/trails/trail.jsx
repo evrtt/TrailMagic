@@ -1,20 +1,34 @@
 import React from 'react';
 import MapContainer from '../map/mapbox_container';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCameraRetro, faDirections, faMapMarkerAlt, faPrint } from '@fortawesome/free-solid-svg-icons';
+import { 
+  faCameraRetro, 
+  faDirections, 
+  faMapMarkerAlt, 
+  faPrint,
+  faMapSigns,
+  faSearch
+} from '@fortawesome/free-solid-svg-icons';
 import TrailPhotosContainer from './trail_photos_container';
 import { StaticMap } from 'react-map-gl';
 import TrailIndexContainer from '../trails/trail_index_container';
-
+import { Link } from 'react-router-dom';
 
 class Trail extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      mapView: false
+      mapView: false,
+      input: '',
+      trails: [],
+      errors: '',
+      prefix: 'hidden'
     }
-  
+
+    this.search = this.search.bind(this);
+    this.hideSearchList = this.hideSearchList.bind(this);
+    this.linkToTrail = this.linkToTrail.bind(this);
   }
 
   componentDidMount() { 
@@ -28,7 +42,97 @@ class Trail extends React.Component {
     this.props.clearTrailPhotos();
   }
 
+  hideSearchList() {
+    return (
+      this.setState({
+        prefix: 'hidden',
+        input: '',
+        trails: [],
+        errors: ''
+      })
+    )
+  }
+
+  linkToTrail() {
+    return (
+      e => {
+        e.preventDefault()
+        if (this.state.trails.length === 0) {
+          this.setState({
+            errors: 'Please search for a valid trail',
+            prefix: 'visible'
+          })
+        } else if (this.state.errors === '') {
+          this.setState({
+            errors: 'Please search for a valid trail',
+            prefix: 'visible'
+          })
+        } else {
+          this.props.history.push(`/trails/${this.state.trails[0].id}`)
+        }
+      }
+    )
+  }
+
+  search() {
+    return (
+      e => {
+        e.preventDefault();
+        this.setState({
+          input: e.currentTarget.value
+        })
+        if (this.state.prefix === 'hidden') {
+          this.setState({
+            prefix: 'visible',
+          })
+        }
+        console.log(this.props.searchTrails)
+        this.props.searchTrails(e.currentTarget.value)
+          .then(
+            res => {
+              this.setState({ trails: Object.values(res) })
+              this.setState({ errors: '' })
+            },
+            err => {
+              this.setState({ trails: [] })
+              this.setState({ errors: err.responseJSON })
+            }
+          )
+      }
+    )
+  }
+
   render () {
+    let searchList;
+    if (this.state.errors === '') {
+      searchList =
+        <ul>
+          {this.state.trails.map(trail => {
+            return (
+              <Link
+                className={`${this.state.prefix}-trailpage-search-link`}
+                key={`trail-page-search-${trail.id}`}
+                to={`/trails/${trail.id}`}
+              >
+                <FontAwesomeIcon
+                  icon={faMapSigns}
+                  className={`${this.state.prefix}-trailpage-search-icon`}
+                />
+                <div className={`${this.state.prefix}-trailpage-search-link-content`}>
+                  <h5>{trail.title}</h5>
+                  <p>{trail.location}</p>
+                </div>
+              </Link>
+            )
+          })}
+        </ul>
+    } else {
+      searchList = <div className={`${this.state.prefix}-trailpage-search-errors`}>
+        <div className={`${this.state.prefix}-trailpage-search-error-li`}>
+          {`${this.state.errors}`}
+        </div>
+      </div>
+    }
     let toggledcontent;
     let reviewsBtn;
     let photosBtn;
@@ -57,6 +161,22 @@ class Trail extends React.Component {
                   {this.props.trail.location.split(',').map( el =>
                     <span>{el.toString()}</span>
                   )}
+                </div>
+                <div className="trailpage-search-container">
+                  <form>
+                    <input 
+                      type="text"
+                      value={this.state.input}
+                      placeholder="Search by trail name"
+                      onChange={this.search()}
+                    />
+                    <button>
+                      <FontAwesomeIcon icon={faSearch}/>
+                    </button>
+                  </form>
+                  <div className={`${this.state.prefix}-trailpage-search-list`}>
+                    {searchList}
+                  </div>
                 </div>
               </nav>
               <div 

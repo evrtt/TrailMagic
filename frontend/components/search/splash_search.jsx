@@ -146,7 +146,6 @@ class SplashSearch extends React.Component {
               value={this.state.input}
               placeholder="Search by trail name"
               onChange={this.search()}
-              ref={inputEl => { this.inputEl = inputEl }}
             />
           </div>
           <button>

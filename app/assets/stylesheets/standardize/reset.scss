@@ -32,7 +32,10 @@ ol, ul {
 button,
 input[type="submit"] {
   cursor: pointer;
+}
 
+input[type="text"] {
+  padding: none;
 }
 
 img {

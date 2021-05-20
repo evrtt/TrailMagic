@@ -4,8 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMapSigns,
   faArrowCircleRight,
-  faSearch,
-  prefix
+  faSearch
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
@@ -106,7 +105,7 @@ class Splash extends React.Component {
                 <FontAwesomeIcon
                   icon={faMapSigns}
                   className={`${this.state.prefix}-trail-search-list-icon`}
-                  />
+                />
                 <div className={`${this.state.prefix}-search-result-link-content`}>
                   <h5>{trail.title}</h5>
                   <p>{trail.location}</p>
