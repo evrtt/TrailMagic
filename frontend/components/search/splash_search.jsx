@@ -21,20 +21,36 @@ class SplashSearch extends React.Component {
     this.search = this.search.bind(this);
     this.hideSearchList = this.hideSearchList.bind(this);
     this.linkToTrail = this.linkToTrail.bind(this);
+    this.link = this.link.bind(this);
   }
 
-  hideSearchList(action) {
+  hideSearchList() {
     return (
       e => {
-        console.log(e.relatedTarget)
-        if(e.relatedTarget === 0) {
+          console.log(e.target, "target")
+          console.log(e.currentTarget, "currentTarget")
+          console.log(e.relatedTarget, "relatedTarget")
           this.setState({
             prefix: 'hidden',
             input: '',
-            trails: [],
             errors: ''
-          })
-        }
+          }), 1000
+      }
+    )
+  }
+
+  link(trailId, trails) {
+    return (
+      e => {
+        this.inputEl.focus()
+        console.log(e.target)
+        console.log(trailId)
+        e.preventDefault();
+        this.setState({
+          prefix: 'visible',
+          trails: trails,
+        })
+        this.props.history.push(`/trails/${trailId}`)
       }
     )
   }
@@ -72,12 +88,10 @@ class SplashSearch extends React.Component {
         this.props.searchTrails(e.currentTarget.value)
           .then(
             res => {
-              console.log(res)
               this.setState({trails: Object.values(res)})
               this.setState({errors: ''})
             },
             err => {
-              console.log(err.responseJSON)
               this.setState({trails: []})
               this.setState({errors: err.responseJSON})
             }
@@ -86,55 +100,31 @@ class SplashSearch extends React.Component {
     )
   }
 
-  render() {
-    console.log(this.state.trails)    
-    console.log(this.state.errors)    
-    console.log(this.state.prefix)    
-    console.log(this.state.input)    
-    const searchForm = <form className={`${this.state.prefix}-search-form`}>
-        <FontAwesomeIcon icon={faSearch} className="search-icon"/>
-        <div className="search-input">
-          <input
-            type="text"
-            value={this.state.input}
-            placeholder="Search by trail name"
-            onChange={this.search()}
-            />
-        </div>            
-        <button>
-          <FontAwesomeIcon 
-            icon={faArrowCircleRight} 
-            onClick={this.linkToTrail()}  
-            />
-        </button>
-      </form>
+  render() {  
 
     let searchList;
     if(this.state.errors === '') {
       searchList = 
-        <ul>
+        <form>
         {this.state.trails.map(trail => {
             return (
-              <li>
-                <Link 
-                  to={`/trails/${trail.id}`}
-                  onClick={this.hideSearchList('link')}
-                  className={`${this.state.prefix}-search-result-link`}
-                  value="link"
-                >
-                  <FontAwesomeIcon 
-                    icon={faMapSigns} 
-                    className={`${this.state.prefix}-trail-search-list-icon`}
-                    />
-                  <div className={`${this.state.prefix}-search-result-link-content`}>
-                    <h5>{trail.title}</h5>
-                    <p>{trail.location}</p>
-                  </div>
-                </Link> 
+              <li
+                className={`${this.state.prefix}-search-result-link`}
+                onClick={this.link(trail.id, this.state.trails)}
+              >
+                <FontAwesomeIcon 
+                  icon={faMapSigns} 
+                  className={`${this.state.prefix}-trail-search-list-icon`}
+                  />
+                <input type="text"/>
+                <div className={`${this.state.prefix}-search-result-link-content`}>
+                  <h5>{trail.title}</h5>
+                  <p>{trail.location}</p>
+                </div>
               </li>
             )
           })}
-      </ul>  
+      </form>  
     } else {
       searchList = <div className={`${this.state.prefix}-search-errors`}>
         <div className={`${this.state.prefix}-search-error-li`}>
@@ -148,7 +138,24 @@ class SplashSearch extends React.Component {
         className="search-container"
         onBlur={this.hideSearchList()}
       >
-        {searchForm}
+        <form className={`${this.state.prefix}-search-form`}>
+          <FontAwesomeIcon icon={faSearch} className="search-icon" />
+          <div className="search-input">
+            <input
+              type="text"
+              value={this.state.input}
+              placeholder="Search by trail name"
+              onChange={this.search()}
+              ref={inputEl => { this.inputEl = inputEl }}
+            />
+          </div>
+          <button>
+            <FontAwesomeIcon
+              icon={faArrowCircleRight}
+              onClick={this.linkToTrail()}
+            />
+          </button>
+        </form>
         <div className={`${this.state.prefix}-search-list`}>
           {searchList}
         </div>
