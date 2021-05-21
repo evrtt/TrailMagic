@@ -24,8 +24,6 @@ class Api::TrailsController < ApplicationController
   def search
     string = params[:string].upcase
     @trails = Trail.where("UPPER(title) LIKE '%#{string}%'")
-    # @trails = Trail.all
-    # debugger
     if @trails
       unless @trails.empty?
         render "/api/trails/search"

@@ -11,3 +11,4 @@ end
 #     json.mainPhotoURL url_for(trail.photos[0])
 #   end
 # end
+d
