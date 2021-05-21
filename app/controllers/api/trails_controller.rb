@@ -22,12 +22,15 @@ class Api::TrailsController < ApplicationController
   end
 
   def search
-    @trails = Trail.where(title: "LIKE '%#{params[:search]}%'")
+    string = params[:string].upcase
+    @trails = Trail.where("UPPER(title) LIKE '%#{string}%'")
+    # @trails = Trail.all
+    # debugger
     if @trails
       unless @trails.empty?
         render "/api/trails/search"
       else
-        render json: ["We couldn't find anything matching #{params[:search]}"], status: 404
+        render json: ["We couldn't find '#{params[:string]}'"], status: 480
       end
     else
       render json: ["Something went wrong. Please try again"], status: 500

@@ -11,52 +11,24 @@
   height: 538px;
   display: flex;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
+}
+
+.search-bar {
   
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   h1 {
     color: rgb(245, 245, 245);
     font-size: 330%;
-    font-weight: 600;
+    font-weight: 570px;
     margin-bottom: 30px;
+    text-align: center;
+    width: 600px;
   }
-}
-.search-form {
-  position: relative;
-  display: flex;
-  align-items: center;
-  font-family: 'Montserrat', Sans-Serif;
-  background-color: white;
-  padding: 18px;
-  padding-right: 10px;
-  border-radius: 100px;
-  width: 600px;
-  max-width: 100%;
-  height: auto;
-  border: none;
-  
-  button {
-    color: forestgreen;
-    background-color: transparent;
-    border: none;
-    font-size: 200%;
-  }
-
-  input {
-    width: 570px;
-    max-width: 100%;
-    border: none;
-    margin-left: 5px;
-    color: rgb(117, 117, 117);
-    font-size: 16px;
-  }
-
-}
-
-.search-icon {
-  color: rgb(117, 117, 117);
-  font-weight: 10%;
-  font-size: small;
 }
 
 .resize-big {

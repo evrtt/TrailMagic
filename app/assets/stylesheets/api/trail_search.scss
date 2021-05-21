@@ -1,0 +1,143 @@
+.trailpage-search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  position: relative;
+
+
+  form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 401px;
+
+    input {
+      height: 36px;
+      background-color: white;
+      font-size: 16px;
+      width: 340px;
+      border: none;
+      border-radius: 8px 0 0 8px;
+      margin: none;
+      padding-left: 10px;
+      border: 1px lightgrey solid;
+      border-right: none;
+    }
+
+    button {
+      width: 46px;
+      border: none;
+      background-color: green;
+      color: white;
+      font-weight: lighter;
+      height: 40px;
+      border-radius: 0 8px 8px 0;
+      margin: none;
+      font-size: 20px;
+    }
+
+  }
+}
+
+.visible-trailpage-search-list {
+  position: absolute;
+  top: 40px;
+
+  ul {
+    max-height: 309px;
+    height: fit-content;
+    overflow-y: scroll;
+    width: 360px;
+    background-color: white;
+    width: 400px;
+    z-index: 2;
+  } 
+
+}
+
+.hidden-trailpage-search-list {
+  display: none;
+}
+
+.visible-trailpage-search-link {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 4px 0 4px 0;
+  border-bottom: 1px solid lightgrey;
+}
+
+.hidden-trailpage-search-link {
+  display: none;
+}
+
+.visible-trailpage-search-link:hover {
+  background-color: rgb(242, 242, 242);
+
+  .visible-trailpage-search-icon {
+    background-color: rgb(4, 147, 4);
+    color: rgb(242, 242, 242);
+  }
+}
+
+.visible-trailpage-search-icon {
+  padding: 10px;
+  border-radius: 2px;
+  background-color: green;
+  color: white;
+  margin: 0 8px 0 8px;
+}
+
+.hidden-trailpage-search-icon {
+  display: none;
+}
+
+.visible-trailpage-search-link-content {
+  
+  h5 {
+    font-size: 19px;
+    margin-bottom: 2px;
+  }
+  
+  p {
+    font-size: 13px;
+    margin-top: 2px;
+  }
+}
+
+
+
+.hidden-trailpage-search-link-content {
+  display: none;
+}
+
+.visible-trailpage-search-errors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden-trailpage-search-errors {
+  display: none;
+}
+
+.visible-trailpage-search-error-li {
+  text-align: center;
+  width: 400px;
+  background-color: white;
+  font-size: 18px;
+  color: red;
+  padding: 16px 0 16px 0;
+}
+
+.hidden-trailpage-search-error-li {
+  display: none;
+}
+
+
+
