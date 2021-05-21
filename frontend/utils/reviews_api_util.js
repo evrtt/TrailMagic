@@ -1,4 +1,4 @@
-export const createReview = (review, trailId) => (
+export const postReview = (review, trailId) => (
   $.ajax({
     url: `/api/trails/${trailId}/reviews`,
     method: 'POST',
@@ -6,7 +6,7 @@ export const createReview = (review, trailId) => (
   })
 )
 
-export const updateReview = (review, trailId) => (
+export const patchReview = (review, trailId) => (
   $.ajax({
     url: `/api/trails/${trailId}/reviews/${review.id}`,
     method: 'PATCH',
@@ -14,7 +14,7 @@ export const updateReview = (review, trailId) => (
   })
 )
 
-export const deleteReview = (review, trailId) => (
+export const destroyReview = (review, trailId) => (
   $.ajax({
     url: `/api/trails/${trailId}/reviews/${review.id}`,
     method: 'DELETE',
