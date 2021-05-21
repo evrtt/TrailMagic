@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :trails, only: [:index, :show] do
       resources :photos, only: [:index]
-      resources :reviews, only: [:create, :destroy, :update]
+      resources :reviews, only: [:create, :destroy, :update, :index]
       collection do 
         get 'search'
       end

@@ -28,7 +28,7 @@ class Api::TrailsController < ApplicationController
       unless @trails.empty?
         render "/api/trails/search"
       else
-        render json: ["We couldn't find '#{params[:string]}'"], status: 480
+        render json: ["We couldn't find '#{params[:string]}'"], status: 404
       end
     else
       render json: ["Something went wrong. Please try again"], status: 500

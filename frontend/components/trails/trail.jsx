@@ -243,8 +243,18 @@ class Trail extends React.Component {
                   </nav>
                   <div className={`${prefix}-${this.props.reviewsOrPhotos}-content`}>
                     {this.props.reviewsOrPhotos === "reviews" ? (
-                      null
-                    ) : null}
+                      <TrailReviewsContainer 
+                        prefix={prefix}
+                        trailId={this.props.trail}
+                        visible={"visible"}
+                      />
+                    ) : (
+                      <TrailReviewsContainer
+                        prefix={prefix}
+                        trailId={this.props.trail}
+                        visible={"hidden"}
+                      />
+                    )}
                     {this.props.reviewsOrPhotos === "photos" ? (
                       <TrailPhotosContainer 
                         prefix={prefix} 

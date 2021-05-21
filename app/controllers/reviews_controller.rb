@@ -13,6 +13,15 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def index
+    @reviews = Review.find_by(trail_id: params[:trail_id])
+    if @reviews
+      render "api/reviews/index"
+    else
+      render json: ["This trail has no reviews"], status: 404
+    end
+  end
+
   def create
     @review = Review.new(review_params)
     if @review.save

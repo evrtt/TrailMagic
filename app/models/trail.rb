@@ -12,9 +12,9 @@ class Trail < ApplicationRecord
 
   has_many_attached :photos
 
-  # has_many :reviews,
-  #   primary_key: :id,
-  #   foreign_key: :trail_id,
-  #   class_name: :Review
+  has_many :reviews,
+    primary_key: :id,
+    foreign_key: :trail_id,
+    class_name: :Review
   
 end

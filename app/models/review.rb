@@ -7,9 +7,9 @@ class Review < ApplicationRecord
     foreign_key: :author_id,
     class_name: :User
 
-  # belongs_to :trail,
-  #   primary_key: :id,
-  #   foreign_key: :trail_id,
-  #   class_name: :Trail
+  belongs_to :trail,
+    primary_key: :id,
+    foreign_key: :trail_id,
+    class_name: :Trail
 
 end
