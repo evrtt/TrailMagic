@@ -13,6 +13,7 @@ import TrailPhotosContainer from './trail_photos_container';
 import { StaticMap } from 'react-map-gl';
 import TrailIndexContainer from '../trails/trail_index_container';
 import { Link } from 'react-router-dom';
+import TrailReviewsContainer from '../reviews/reviews_container'
 
 class Trail extends React.Component {
   constructor(props) {
@@ -50,6 +51,20 @@ class Trail extends React.Component {
         trails: [],
         errors: ''
       })
+    )
+  }
+
+  switchTrails(trailId) {
+    return (
+      () => {
+        this.props.switchToReviews();
+        this.props.clearTrailReviews();
+        this.props.fetchTrailReviews(trailId);
+        this.props.clearTrailPhotos();
+        this.props.fetchTrailPhotos(trailId);
+        window.scrollTo(0, 0);
+        this.hideSearchList();
+      }
     )
   }
 
@@ -113,6 +128,7 @@ class Trail extends React.Component {
                 className={`${this.state.prefix}-trailpage-search-link`}
                 key={`trail-page-search-${trail.id}`}
                 to={`/trails/${trail.id}`}
+                onClick={this.switchTrails(trailId)}
               >
                 <FontAwesomeIcon
                   icon={faMapSigns}
