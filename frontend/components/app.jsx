@@ -15,6 +15,7 @@ import TrailContainer from './trails/trail_container';
 
 export default () => (
   <section className="main">
+    <ModalContainer />
     <header className="site-header">
         <nav className="header-nav">
           <Link to="/trails" className="explore-link">

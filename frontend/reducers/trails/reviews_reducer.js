@@ -1,7 +1,7 @@
 import { 
   CLEAR_TRAIL_REVIEWS, 
   RECEIVE_TRAIL_REVIEWS 
-} from '../../actions/trails_actions';
+} from '../../actions/review_actions';
 
 const reviewsReducer = (state = {}, action) => {
   Object.freeze(state);

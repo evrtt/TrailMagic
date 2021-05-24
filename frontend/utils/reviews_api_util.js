@@ -21,3 +21,17 @@ export const destroyReview = (review, trailId) => (
     data: { review }
   })
 )
+
+export const getReview = (reviewId) => (
+  $.ajax({
+    url: `/api/reviews/${review.id}`,
+    method: 'GET'
+  })
+)
+
+export const getTrailReviews = (trailId) => (
+  $.ajax({
+    url: `/api/trails/${trailId}/reviews`,
+    method: 'GET'
+  })
+)

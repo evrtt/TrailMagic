@@ -24,8 +24,14 @@ export const clearTrailReviews = () => dispatch => ({
   type: CLEAR_TRAIL_REVIEWS
 })
 
+export const fetchReview = (reviewId) => dispatch => {
+  reviewsAPIUtil.getReview(reviewId)
+    .then(reviews => dispatch(receiveReview(review)))
+    .catch(err => dispatch(receiveErrors(err)))
+}
+
 export const fetchTrailReviews = (trailId) => dispatch => {
-  reviewsAPITUtil.getTrailReviews(trailId)
+  reviewsAPIUtil.getTrailReviews(trailId)
     .then(reviews => dispatch(receiveTrailReviews(reviews)))
     .catch(err => dispatch(receiveErrors(err)))
 }

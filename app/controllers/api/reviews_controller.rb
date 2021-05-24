@@ -22,6 +22,15 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def show
+    @review = Review.find_by(review_id: params[:review_id])
+    if @review
+      render "api/reviews/show"
+    else
+      render json: ["We couldn't find that review"], status: 404
+    end
+  end
+
   def create
     @review = Review.new(review_params)
     if @review.save

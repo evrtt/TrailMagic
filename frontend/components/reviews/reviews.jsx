@@ -1,4 +1,5 @@
 import React from 'react';
+// import CreateReviewFormContainer from './create_review_form_container'
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -17,13 +18,13 @@ class Reviews extends React.Component {
               >
               Be the first to leave a review on this trail!
             </div>
-            <ReviewFormContainer />
+            {/* <ReviewFormContainer /> */}
           </div>
         )
       } else {
         return (
           <div>
-            <ReviewFormContainer />
+            {/* <ReviewFormContainer /> */}
             <ul className={`${this.props.prefix}-reviews-container-${this.props.visible}`}>
               {this.props.reviews.map((review, idx) => {
                 return (

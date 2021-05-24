@@ -12,6 +12,7 @@ Rails.application.routes.draw do
         get 'search'
       end
     end
+    # resources :reviews, only: [:show]
   end
 
   root "static_pages#root"
