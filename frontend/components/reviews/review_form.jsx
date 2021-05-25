@@ -1,12 +1,24 @@
 import React from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      rating: this.props.review
+      tempRating: null,
+      rating: this.props.rating,
+      body: this.props.body,
+      authorId: this.props.authorId,
+      trailId: this.props.trailId,
     }
+
+    this.setRating = this.setRating.bind(this);
+    this.setTempRating = this.setTempRating.bind(this);
+    this.clearTempRating = this.clearTempRating.bind(this);
+    this.setBody = this.setBody.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -19,11 +31,24 @@ class ReviewForm extends React.Component {
     return (
       e => {
         e.preventDefault();
-        this.setState({
-          rating
-        })
+        this.setState({ rating })
       }
     )
+  }
+
+  setTempRating(rating) {
+    return (
+      e => {
+        console.log(rating)
+        e.preventDefault();
+        this.setState({ tempRating: rating })
+      }
+    )
+  }
+
+  clearTempRating() {
+    console.log('null')
+    this.setState({tempRating: null})
   }
 
   setBody(body) {
@@ -38,33 +63,65 @@ class ReviewForm extends React.Component {
   }
 
   handleSubmit() {
-    this.props.
+    this.props.action(this.state.review)
   }
 
   render() {
 
-    let stars = Array(5)
-    stars.map((star, idx) => {
-      let star;
-      if (this.state.review.rating && this.state.review.rating < i) {
-        star = <li>
-          <FontAwesomeIcon
-            icon={faStar}
-            className='empty-star'
-            onClick={this.setRating(idx + 1)}
-          />
-        </li>;
-      } else {
-        star = <li>
-          <FontAwesomeIcon
-            icon={faStar}
-            className='full-star'
-            onClick={this.setRating(idx + 1)}
-          />
-        </li>;
-      }
-      return star
-    })
+    const arr = (new Array(null, null, null, null, null))
+    console.log(arr)
+    let tempRating = this.state.tempRating
+    let rating = this.state.rating
+    const stars = <ul className="form-stars-list">
+      {arr.map((star, idx) => {
+        // console.log(this.state.tempRating)
+        // console.log(this.state.tempRating < idx)
+        if(!tempRating){
+          console.log(typeof rating === 'undefined')
+          if (typeof rating === 'undefined' || rating < idx + 1) {
+            star = <li className='form-empty-star' >
+              <FontAwesomeIcon
+                icon={faStar}
+                onClick={this.setRating(idx + 1)}
+                onMouseOver={this.setTempRating(idx + 1)}
+                onMouseOut={this.clearTempRating}              
+              />
+            </li>;
+          } else {
+            star = <li className='form-full-star' >
+              <FontAwesomeIcon
+                icon={faStar}
+                onClick={this.setRating(idx + 1)}
+                onMouseOver={this.setTempRating(idx + 1)}
+                onMouseOut={this.clearTempRating}
+              />
+            </li>;
+          }
+          return star
+        } else {
+          console.log(tempRating, '=== TempRating')
+          if (tempRating < idx + 1) {
+            star = <li className='form-empty-star' >
+              <FontAwesomeIcon
+                icon={faStar}
+                onClick={this.setRating(idx + 1)}
+                onMouseOver={this.setTempRating(idx + 1)}
+                onMouseOut={this.clearTempRating}              />
+            </li>;
+          } else {
+            star = <li className='form-full-star' >
+              <FontAwesomeIcon
+                icon={faStar}
+                onClick={this.setRating(idx + 1)}
+                onMouseOver={this.setTempRating(idx + 1)}
+                onMouseOut={this.clearTempRating}
+              />
+            </li>;
+          }
+          return star
+        }
+      })}
+    </ul> 
 
 
     return(
@@ -72,10 +129,7 @@ class ReviewForm extends React.Component {
         {stars}
         <form>
           <textarea 
-            name="" 
-            id="" 
-            cols="200" 
-            rows="80"
+            className="create-review-body"
             placeholder="Share your experience"
           >
 

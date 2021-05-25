@@ -13,7 +13,7 @@ const mSTP = (state, ownProps) => ({
 })
 
 const mDTP = (dispatch) => ({
-  createReview: (trailId) => dispatch(createReview(review, trailId))
+  action: (review) => dispatch(createReview(review))
 })
 
 export default connect(mSTP, mDTP)(ReviewForm)

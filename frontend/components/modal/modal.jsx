@@ -2,7 +2,7 @@ import React from 'react';
 import CreateReviewFormContainer from '../reviews/create_review_form_container';
 import UpdateReviewFormContainer from '../reviews/update_review_form_containter';
 
-const Modal = ({modal, package}) => {
+const Modal = ({modal, data, closeModal}) => {
   if (!modal) {
     return null;
   }
@@ -13,7 +13,7 @@ const Modal = ({modal, package}) => {
       component = <CreateReviewFormContainer/>;
       break;
     case 'editReview':
-      component = <UpdateReviewFormContainer review={package.review}/>;
+      component = <UpdateReviewFormContainer review={data.review}/>;
       break;
     default:
       return null;

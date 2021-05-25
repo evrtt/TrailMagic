@@ -1,0 +1,36 @@
+.form-stars-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-empty-star {
+  svg {
+    color: rgb(227, 227, 227);
+    font-size: 40px;
+    padding: 10px;
+  }
+}
+
+.form-empty-star:hover {
+  svg {
+   font-size: 50px;
+   padding: 5px
+  }
+}
+
+.form-full-star {
+  svg {
+    color: yellow;
+    font-size: 40px;
+    padding: 10px
+  }
+}
+
+.form-full-star:hover {
+  svg {
+    font-size: 50px;
+    padding: 5px;
+  }
+}

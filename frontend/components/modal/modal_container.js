@@ -4,7 +4,7 @@ import { closeModal } from '../../actions/modal_actions';
 
 const mSTP = (state, ownProps) => ({
   modal: state.ui.modal,
-  package: ownProps
+  data: ownProps
 })
 
 const mDTP = (dispatch) => ({

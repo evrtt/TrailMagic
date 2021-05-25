@@ -1,9 +1,6 @@
 import { connect } from 'react-redux';
 import ReviewForm from './review_form';
-import {
-  deleteReview,
-  updateReview
-} from '../../actions/review_actions';
+import { updateReview } from '../../actions/review_actions';
 
 const mSTP = (state, ownProps) => ({
   formType: 'update',
@@ -17,9 +14,7 @@ const mSTP = (state, ownProps) => ({
 })
 
 const mDTP = (dispatch) => ({
-  deleteReview: (trailId) => dispatch(deleteReview(trailId)),
-  updateReview: (trailId) => dispatch(updateReview(review, trailId)),
-  fetchReview: (reviewId) => dispatch(fetchReview(reviewId))
+  action: (trailId) => dispatch(updateReview(review, trailId)),
 })
 
 export default connect(mSTP, mDTP)(ReviewForm)
