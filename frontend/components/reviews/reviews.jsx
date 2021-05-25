@@ -9,6 +9,7 @@ class Reviews extends React.Component {
   }
 
   handleClick() {
+    console.log('createReview')
     this.props.openModal('createReview')
   }
 

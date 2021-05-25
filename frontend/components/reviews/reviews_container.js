@@ -3,7 +3,9 @@ import Reviews from './reviews';
 import {
   fetchTrailReviews
 } from '../../actions/review_actions';
-
+import {
+  openModal
+} from '../../actions/modal_actions';
 const mSTP = (state, ownProps) => ({
   reviews: state.entities.reviews,
   prefix: ownProps.prefix,
@@ -13,7 +15,8 @@ const mSTP = (state, ownProps) => ({
 })
 
 const mDTP = (dispatch) => ({
-  fetchTrailReviews: (trailId) => dispatch(fetchTrailReviews(trailId))
+  fetchTrailReviews: (trailId) => dispatch(fetchTrailReviews(trailId)),
+  openModal: (modal) => dispatch(openModal(modal))
 })
 
 export default connect(mSTP, mDTP)(Reviews)

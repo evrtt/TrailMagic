@@ -5,22 +5,22 @@ export const REMOVE_REVIEW = 'REMOVE_REVIEW';
 export const CLEAR_TRAIL_REVIEWS = 'CLEAR_TRAIL_REVIEWS';
 export const RECEIVE_TRAIL_REVIEWS = 'RECEIVE_TRAIL_REVIEWS';
 
-const insertReview = (review) => dispatch => ({
+const insertReview = (review) => ({
   type: INSERT_REVIEW,
   review
 })
 
-const removeReview = (review) => dispatch => ({
+const removeReview = (review) => ({
   type: REMOVE_REVIEW,
   review
 })
 
-const receiveTrailReviews = (reviews) => dispatch => ({
+const receiveTrailReviews = (reviews) => ({
   type: RECEIVE_TRAIL_REVIEWS,
   reviews
 })
 
-export const clearTrailReviews = () => dispatch => ({
+export const clearTrailReviews = () => ({
   type: CLEAR_TRAIL_REVIEWS
 })
 

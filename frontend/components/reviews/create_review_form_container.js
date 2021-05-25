@@ -1,17 +1,18 @@
 import { connect } from 'react-redux';
-import ReviewForm from './reviews';
-import { 
-  createReview,
-  fetchReview
- } from '../../actions/review_actions';
+import ReviewForm from './review_form';
+import { createReview } from '../../actions/review_actions';
 
 const mSTP = (state, ownProps) => ({
-  reviewId: ownProps.reviewId,
-  formType: 'create'
+  formType: 'create',
+  review: {
+    body: null,
+    rating: null,
+    authorId: null,
+    trailId: ownProps.trailId
+  }
 })
 
 const mDTP = (dispatch) => ({
-  fetchReview: (reviewId) => dispatch(fetchReview(reviewId)),
   createReview: (trailId) => dispatch(createReview(review, trailId))
 })
 
