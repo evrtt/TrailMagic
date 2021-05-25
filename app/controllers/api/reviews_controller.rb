@@ -1,10 +1,10 @@
-class ReviewsController < ApplicationController
+class Api::ReviewsController < ApplicationController
 
   def update
     @review = Review.find_by(id: params[:id])
     if @review
       if @review.update(review_params)
-        render "api/review/show"
+        render "api/reviews/show"
       else
         render json: @review.errors.full_messages, status: 400
       end
@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
   end
 
   def index
+    # debugger
     @reviews = Review.find_by(trail_id: params[:trail_id])
     if @reviews
       render "api/reviews/index"

@@ -6,7 +6,6 @@ class Api::PhotosController < ApplicationController
           @photos = @trail.photos
           render "/api/photos/index"
       else
-        # render json: ["#{params[:id]}"], status: 403
         render json: ["The trail you are looking for does not exist."], status: 404
       end
   end

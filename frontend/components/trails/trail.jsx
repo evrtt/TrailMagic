@@ -251,23 +251,23 @@ class Trail extends React.Component {
                     <button 
                       className={`${prefix}-${reviewsBtn}`}
                       onClick={this.props.switchToReviews}
-                    >Reviews</button>
+                    >{`Reviews(${this.props.reviewsCount})`}</button>
                     <button 
                       className={`${prefix}-${photosBtn}`}
                       onClick={this.props.switchToPhotos}
-                      >Photos</button>
+                    >{`Photos(${this.props.photosCount})`}</button>
                   </nav>
                   <div className={`${prefix}-${this.props.reviewsOrPhotos}-content`}>
                     {this.props.reviewsOrPhotos === "reviews" ? (
                       <TrailReviewsContainer 
                         prefix={prefix}
-                        trailId={this.props.trail}
+                        trailId={this.props.trail.id}
                         visible={"visible"}
                       />
                     ) : (
                       <TrailReviewsContainer
                         prefix={prefix}
-                        trailId={this.props.trail}
+                        trailId={this.props.trail.id}
                         visible={"hidden"}
                       />
                     )}

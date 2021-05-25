@@ -26,30 +26,41 @@ export const clearTrailReviews = () => dispatch => ({
 
 export const fetchReview = (reviewId) => dispatch => {
   reviewsAPIUtil.getReview(reviewId)
-    .then(reviews => dispatch(receiveReview(review)))
-    .catch(err => dispatch(receiveErrors(err)))
+    .then(
+      review => dispatch(receiveReview(review)),
+      err => dispatch(receiveErrors(err))
+    )
 }
 
 export const fetchTrailReviews = (trailId) => dispatch => {
   reviewsAPIUtil.getTrailReviews(trailId)
-    .then(reviews => dispatch(receiveTrailReviews(reviews)))
-    .catch(err => dispatch(receiveErrors(err)))
+    .then(
+      reviews => dispatch(receiveTrailReviews(reviews)),
+      err => console.log(err)
+      // err => dispatch(receiveErrors(err))
+    )
 }
 
 export const createReview = (review, trailId) => dispatch => {
   reviewsAPIUtil.postReview(review, trailId)
-    .then(review => dispatch(insertReview(review)))
-    .catch(err => dispatch(receiveErrors(err)))
+    .then(
+      review => dispatch(insertReview(review)),
+      err => dispatch(receiveErrors(err))
+    )
 }
 
 export const updateReview = (review, trailId) => dispatch => {
   reviewsAPIUtil.patchReview(review, trailId)
-    .then(review => dispatch(insertReview(review)))
-    .catch(err => dispatch(receiveErrors(err)))
+    .then(
+      review => dispatch(insertReview(review)),
+      err => dispatch(receiveErrors(err))
+    )
 }
 
 export const deleteReview = (review, trailId) => dispatch => {
   reviewsAPIUtil.destroyReview(review, trailId)
-    .then(review => dispatch(removeReview(review)))
-    .catch(err => dispatch(receiveErrors(err)))
+    .then(
+      review => dispatch(removeReview(review)),
+      err => dispatch(receiveErrors(err))
+    )
 }

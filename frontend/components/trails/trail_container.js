@@ -23,7 +23,9 @@ const mSTP = (state, ownProps) => ({
   popup: ownProps.popup,
   popupTrailId: ownProps.popupTrailId,
   update: ownProps.update,
-  reviewsOrPhotos: state.ui.trailView.reviewsOrPhotos
+  reviewsOrPhotos: state.ui.trailView.reviewsOrPhotos,
+  reviewsCount: Object.keys(state.entities.reviews).length,
+  photosCount: Object.keys(state.entities.photoURLs).length
 });
 
 const mDTP = (dispatch) => ({
