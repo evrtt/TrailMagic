@@ -4,12 +4,11 @@ import { createReview } from '../../actions/review_actions';
 
 const mSTP = (state, ownProps) => ({
   formType: 'create',
-  review: {
-    body: null,
-    rating: null,
-    authorId: null,
-    trailId: ownProps.trailId
-  }
+  body: null,
+  rating: null,
+  authorId: state.session.id,
+  trailId: ownProps.trailId
+  
 })
 
 const mDTP = (dispatch) => ({

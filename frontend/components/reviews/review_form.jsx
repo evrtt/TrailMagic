@@ -22,9 +22,7 @@ class ReviewForm extends React.Component {
   }
 
   componentDidMount() {
-    if(this.props.formType === 'edit') {
-      this.props.fetchReview(this.props.reviewId)
-    }
+    console.log(this.props.authorId, "AUTHORID", this.props.trailId, "TRAILID")
   }
 
   setRating(rating) {
@@ -47,23 +45,35 @@ class ReviewForm extends React.Component {
   }
 
   clearTempRating() {
-    console.log('null')
     this.setState({tempRating: null})
   }
 
-  setBody(body) {
+  setBody() {
     return (
       e => {
         e.preventDefault();
         this.setState({
-          body
+          body: e.currentTarget.value
         })
       }
     )
   }
 
   handleSubmit() {
-    this.props.action(this.state.review)
+
+    console.log({
+      rating: this.state.rating,
+      body: this.state.body,
+      authorId: this.state.authorId,
+      trailId: this.state.trailId
+    })
+
+    this.props.action({
+      rating: this.state.rating,
+      body: this.state.body,
+      authorId: this.state.authorId,
+      trailId: this.state.trailId
+    })
   }
 
   render() {
@@ -131,8 +141,10 @@ class ReviewForm extends React.Component {
           <textarea 
             className="create-review-body"
             placeholder="Share your experience"
+            onChange={this.setBody()}
+            value={this.state.body}
           >
-
+        
           </textarea>
         </form>
         <button

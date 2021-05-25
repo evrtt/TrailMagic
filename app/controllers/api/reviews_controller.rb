@@ -4,7 +4,7 @@ class Api::ReviewsController < ApplicationController
     @review = Review.find_by(id: params[:id])
     if @review
       if @review.update(review_params)
-        render "api/reviews/show"
+        render "/api/reviews/show"
       else
         render json: @review.errors.full_messages, status: 400
       end
@@ -14,19 +14,18 @@ class Api::ReviewsController < ApplicationController
   end
 
   def index
-    # debugger
     @reviews = Review.find_by(trail_id: params[:trail_id])
     if @reviews
-      render "api/reviews/index"
+      render "/api/reviews/index"
     else
       render json: ["This trail has no reviews"], status: 404
     end
   end
 
   def show
-    @review = Review.find_by(review_id: params[:review_id])
+    @review = Review.find_by(id: params[:id])
     if @review
-      render "api/reviews/show"
+      render "/api/reviews/show"
     else
       render json: ["We couldn't find that review"], status: 404
     end
@@ -34,8 +33,9 @@ class Api::ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    debugger
     if @review.save
-      render "api/review/show"
+      render "/api/reviews/show"
     else
       render json: @review.errors.full_messages, status: 400
     end
@@ -45,7 +45,7 @@ class Api::ReviewsController < ApplicationController
     @review = Review.find_by(id: params[:id])
     if @review
       @review.destroy
-      render "api/review/show"
+      render "/api/reviews/show"
     else
       render json: ["We couldn't find that review"], status: 404
     end

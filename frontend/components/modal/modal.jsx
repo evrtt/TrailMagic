@@ -10,10 +10,10 @@ const Modal = ({modal, data, closeModal}) => {
   
   switch (modal) {
     case 'createReview':
-      component = <CreateReviewFormContainer/>;
+      component = <CreateReviewFormContainer trailId={data}/>;
       break;
     case 'editReview':
-      component = <UpdateReviewFormContainer review={data.review}/>;
+      component = <UpdateReviewFormContainer review={data}/>;
       break;
     default:
       return null;

@@ -1,31 +1,31 @@
-export const postReview = (review, trailId) => (
+export const postReview = (review) => (
   $.ajax({
-    url: `/api/trails/${trailId}/reviews`,
+    url: `/api/trails/${review.trailId}/reviews`,
     method: 'POST',
-    data: { review }
+    data: {
+      review: {
+        rating: review.rating,
+        body: review.body,
+        author_id: review.authorId,
+        trail_id: review.trailId
+      }
+    }
   })
 )
 
-export const patchReview = (review, trailId) => (
+export const patchReview = review => (
   $.ajax({
-    url: `/api/trails/${trailId}/reviews/${review.id}`,
+    url: `/api/trails/${review.trailId}/reviews/${review.id}`,
     method: 'PATCH',
     data: { review }
   })
 )
 
-export const destroyReview = (review, trailId) => (
+export const destroyReview = review => (
   $.ajax({
-    url: `/api/trails/${trailId}/reviews/${review.id}`,
+    url: `/api/trails/${review.trailId}/reviews/${review.id}`,
     method: 'DELETE',
     data: { review }
-  })
-)
-
-export const getReview = (reviewId) => (
-  $.ajax({
-    url: `/api/reviews/${reviewId}`,
-    method: 'GET'
   })
 )
 

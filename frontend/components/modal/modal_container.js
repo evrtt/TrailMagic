@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import Modal from './modal';
 import { closeModal } from '../../actions/modal_actions';
 
-const mSTP = (state, ownProps) => ({
-  modal: state.ui.modal,
-  data: ownProps
+const mSTP = (state) => ({
+  modal: state.ui.modal.type,
+  data: state.ui.modal.data
 })
 
 const mDTP = (dispatch) => ({

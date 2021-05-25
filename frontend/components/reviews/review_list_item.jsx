@@ -11,7 +11,7 @@ class ReviewListItem extends React.Component {
   }
 
   update() {
-    this.props.openModal('updateReview')
+    this.props.openModal({type: 'updateReview', data: this.props.review})
   }
 
   delete(review, trailId) {
