@@ -128,7 +128,7 @@ class Trail extends React.Component {
                 className={`${this.state.prefix}-trailpage-search-link`}
                 key={`trail-page-search-${trail.id}`}
                 to={`/trails/${trail.id}`}
-                onClick={this.switchTrails(trailId)}
+                onClick={this.switchTrails(trail.id)}
               >
                 <FontAwesomeIcon
                   icon={faMapSigns}
