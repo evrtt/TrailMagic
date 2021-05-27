@@ -35,27 +35,26 @@ export const fetchReview = (reviewId) => dispatch => {
 export const fetchTrailReviews = (trailId) => dispatch => {
   reviewsAPIUtil.getTrailReviews(trailId)
     .then(
-      reviews => dispatch(receiveTrailReviews(reviews)),
-      err => console.log(err)
-    )
-}
-
-export const createReview = (review) => dispatch => {
-  console.log(review, "sending")
-  reviewsAPIUtil.postReview(review)
-    .then(
-      review => {
-        console.log(review, "receiving 200")
+      reviews => {
+        console.log(reviews, "success!")
         return (
-          dispatch(insertReview(review))
+          dispatch(receiveTrailReviews(reviews))
         )
       },
       err => {
-        console.log(err, "receiving 400")
+        console.log(err, "failure!")
         return (
           dispatch(receiveErrors(err))
         )
       }
+    )
+}
+
+export const createReview = (review) => dispatch => {
+  reviewsAPIUtil.postReview(review)
+    .then(
+      review => dispatch(insertReview(review)),
+      err => dispatch(receiveErrors(err))
     )
 }
 

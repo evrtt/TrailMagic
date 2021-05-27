@@ -7,8 +7,8 @@ const mSTP = (state, ownProps) => ({
   body: null,
   rating: null,
   authorId: state.session.id,
-  trailId: ownProps.trailId
-  
+  trailId: ownProps.data.trailId,
+  trailTitle: ownProps.data.trailTitle
 })
 
 const mDTP = (dispatch) => ({

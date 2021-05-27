@@ -5,16 +5,17 @@ import { updateReview } from '../../actions/review_actions';
 const mSTP = (state, ownProps) => ({
   formType: 'update',
   review: {
-    id: ownProps.review.id,
-    body: ownProps.review.body,
-    rating: ownProps.review.rating,
-    trailId: ownProps.review.trailId,
-    authorId: ownProps.review.authorId
+    id: ownProps.data.review.id,
+    body: ownProps.data.review.body,
+    rating: ownProps.data.review.rating,
+    trailId: ownProps.data.review.trailId,
+    authorId: ownProps.data.review.authorId,
+    trailTitle: ownProps.data.trailTitle
   }
 })
 
 const mDTP = (dispatch) => ({
-  action: (trailId) => dispatch(updateReview(review, trailId)),
+  action: (review) => dispatch(updateReview(review)),
 })
 
 export default connect(mSTP, mDTP)(ReviewForm)

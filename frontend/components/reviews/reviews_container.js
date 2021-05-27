@@ -11,6 +11,7 @@ const mSTP = (state, ownProps) => ({
   prefix: ownProps.prefix,
   visible: ownProps.visible,
   trailId: ownProps.trailId,
+  trailTitle: ownProps.trailTitle,
   loggedIn: !!state.session.id
 })
 

@@ -136,6 +136,9 @@ class ReviewForm extends React.Component {
 
     return(
       <div>
+        <h2>
+          {this.props.trailTitle}
+        </h2>
         {stars}
         <form>
           <textarea 

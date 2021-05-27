@@ -14,7 +14,8 @@ class Api::ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.find_by(trail_id: params[:trail_id])
+    debugger
+    @reviews = Review.where(trail_id: params[:trail_id]).includes(:user)
     if @reviews
       render "/api/reviews/index"
     else

@@ -10,7 +10,15 @@ class Reviews extends React.Component {
 
   handleClick() {
     console.log('createReview')
-    this.props.openModal({type: 'createReview', data: this.props.trailId})
+    this.props.openModal(
+      {
+        type: 'createReview', 
+        data: {
+          trailId: this.props.trailId, 
+          trailTitle: this.props.trailTitle
+        }
+      }
+    )
   }
 
   componentDidMount() {

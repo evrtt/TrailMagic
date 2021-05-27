@@ -17,7 +17,10 @@ export default (state = preState, action) => {
         data: action.modal.data
       })
     case CLOSE_MODAL:
-      return null;
+      return {
+        type: null,
+        data: null
+      };
     default:
       return state;
   }
