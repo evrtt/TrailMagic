@@ -25,7 +25,7 @@ class Reviews extends React.Component {
   }
 
   render() {
-
+    console.log(this.props.prefix)
     console.log(this.props.reviews)
 
     if (this.props.visible === 'hidden') {
@@ -33,35 +33,39 @@ class Reviews extends React.Component {
     } else {
       let reviews;
       if (Object.values(this.props.reviews).length === 0) {
-        reviews = <div>
-          <div
-            className="empty-reviews"
-          >
-            Be the first to leave a review on this trail!
-            </div>
+        reviews = <div className="empty-reviews">
+          Be the first to leave a review on this trail!
         </div>
       } else {
-        reviews = <div>
-          <ul className={`${this.props.prefix}-reviews-container-${this.props.visible}`}>
-            {this.props.reviews.map((review, idx) => (
-                <li
-                  key={`review-${idx + 1}`}
-                  className={`${this.props.prefix}-reviews-li`}
-                >
-                  <ReviewListItemContainer review={review}/>
-                </li>
-            ))}
-          </ul>
-        </div>
+        reviews = <ul className={`${this.props.prefix}-reviews-container-${this.props.visible}`}>
+          {this.props.reviews.map((review, idx) => (
+            <ReviewListItemContainer 
+              review={review}
+              key={`review-${idx + 1}`}
+            />
+          ))}
+        </ul>
       }
       if(this.props.loggedIn) {
        return <div>
-          <button
-            onClick={this.handleClick}
-            className="write-review-button"
-          >
-            Write review
-          </button>
+          <div className="trail-ratings">
+            <ul>
+              {/* {verticalRatings} */}
+            </ul>
+            <div>
+              <h6>RATING</h6>
+              <ul>
+                
+              </ul>
+              <div>numreviews</div>
+            </div>
+            <button
+              onClick={this.handleClick}
+              className="write-review-button"
+            >
+              Write review
+            </button>
+          </div>
           {reviews}
         </div> 
       } else {

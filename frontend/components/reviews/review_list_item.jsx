@@ -72,33 +72,35 @@ class ReviewListItem extends React.Component {
 
     return (
 
-      <div className="review-list-item">
-        <p>{this.props.review.authorName}</p>
-        <div>
+      <li className='review-li'>
+        <div className='author-name'>{this.props.review.authorName}</div>
+        <div className='stars-date'>
           <ul className="stars-list">
             {stars}
           </ul>
-          <p>
+          <div>
             {createdAt}
-          </p>
+          </div>
         </div>
-        <p>
+        <div className='review-li-div'>
           {this.props.review.body}
-        </p>
-        <div>
+        </div>
+        <div className='edit-delete-buttons-container'>
           <button
             onClick={this.update}
+            className='edit-button'
           >
             edit
           </button> 
-          <p>  |  </p>
+          <div className='review-li-div'>  |  </div>
           <button 
             onClick={this.delete(this.props.review, this.props.trailId)}
+            className='delete-button'
           >
             delete
           </button>
         </div>
-      </div>
+      </li>
     )
   }
 }

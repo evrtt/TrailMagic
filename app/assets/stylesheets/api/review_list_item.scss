@@ -1,0 +1,54 @@
+.review-li {
+
+  height: fit-content;
+  margin: 0 20px 0 20px;
+  padding: 12px 0 12px 0;
+  border-bottom: lightgrey 1px solid;
+
+  .author-name {
+    margin: 5px 0 5px 0;
+    font-weight: 600;
+    color: rgb(66, 66, 66);
+  }
+
+  .edit-delete-buttons-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 5px 0 5px 0;
+
+    .delete-button {
+      color: green;
+      margin: 0 0 0 10px;
+      background-color: white;
+      border: none;
+      padding: 0 0 0 0;
+    }
+
+    .edit-button {
+      color: green;
+      margin: 0 10px 0 0;
+      background-color: white;
+      border: none;
+      padding: 0 0 0 0;
+    }
+
+    div {
+      color: green;
+    }
+  }
+
+  .stars-date {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    div {
+      color: rgb(111, 111, 111);
+      font-size: 12px;
+      margin: 5px 0 5px 0;
+    }
+  }
+}
