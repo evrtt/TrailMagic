@@ -49,7 +49,7 @@ class Splash extends React.Component {
             errors: 'Please search for a valid trail',
             prefix: 'visible'
           })
-        } else if (this.state.errors === '') {
+        } else if (this.state.errors !== '') {
           this.setState({
             errors: 'Please search for a valid trail',
             prefix: 'visible'
@@ -162,7 +162,6 @@ class Splash extends React.Component {
               </form>
               <div 
                 className={`${this.state.prefix}-search-list`}
-                onClick={e => e.stopPropagation()}
               >
                 {searchList}
               </div>
