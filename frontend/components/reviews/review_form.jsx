@@ -126,7 +126,7 @@ class ReviewForm extends React.Component {
         <form>
           <textarea 
             className="create-review-body"
-            placeholder="Share your experience"
+            placeholder={`Share your experience on ${this.props.trailTitle}. Your review helps others know what to expect.`}
             onChange={this.setBody()}
             value={this.state.body}
           >

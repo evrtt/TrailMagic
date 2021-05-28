@@ -36,13 +36,13 @@ export const fetchTrailReviews = (trailId) => dispatch => {
   reviewsAPIUtil.getTrailReviews(trailId)
     .then(
       reviews => {
-        console.log(reviews, "success!")
+        // console.log(reviews, "success!")
         return (
           dispatch(receiveTrailReviews(reviews))
         )
       },
       err => {
-        console.log(err, "failure!")
+        // console.log(err, "failure!")
         return (
           dispatch(receiveErrors(err))
         )
@@ -58,11 +58,21 @@ export const createReview = (review) => dispatch => {
     )
 }
 
-export const updateReview = (review) => dispatch => {
+export const updateReview = (review, trailId) => dispatch => {
   reviewsAPIUtil.patchReview(review)
     .then(
-      review => dispatch(insertReview(review)),
-      err => dispatch(receiveErrors(err))
+      review => {
+        console.log(review, 'updated')
+        return (
+          fetchTrailReviews(trailId)
+        )
+      },
+      err => {
+        console.log(err)
+        return(
+          dispatch(receiveErrors(err))
+        )
+      }
     )
 }
 
