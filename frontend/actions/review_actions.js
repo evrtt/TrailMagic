@@ -4,14 +4,20 @@ export const INSERT_REVIEW = 'INSERT_REVIEW';
 export const REMOVE_REVIEW = 'REMOVE_REVIEW';
 export const CLEAR_TRAIL_REVIEWS = 'CLEAR_TRAIL_REVIEWS';
 export const RECEIVE_TRAIL_REVIEWS = 'RECEIVE_TRAIL_REVIEWS';
+export const EDIT_REVIEW = 'EDIT_REVIEW'
 
 const insertReview = (review) => ({
   type: INSERT_REVIEW,
   review
 })
 
-const removeReview = (review) => ({
+const removeReview = (reviewId) => ({
   type: REMOVE_REVIEW,
+  reviewId
+})
+
+const editReview = (review) => ({
+  type: EDIT_REVIEW,
   review
 })
 
@@ -35,18 +41,8 @@ export const fetchReview = (reviewId) => dispatch => {
 export const fetchTrailReviews = (trailId) => dispatch => {
   reviewsAPIUtil.getTrailReviews(trailId)
     .then(
-      reviews => {
-        // console.log(reviews, "success!")
-        return (
-          dispatch(receiveTrailReviews(reviews))
-        )
-      },
-      err => {
-        // console.log(err, "failure!")
-        return (
-          dispatch(receiveErrors(err))
-        )
-      }
+      reviews => dispatch(receiveTrailReviews(reviews)),
+      err => dispatch(receiveErrors(err))
     )
 }
 
@@ -59,20 +55,10 @@ export const createReview = (review) => dispatch => {
 }
 
 export const updateReview = (review, trailId) => dispatch => {
-  reviewsAPIUtil.patchReview(review)
+  reviewsAPIUtil.patchReview(review, trailId)
     .then(
-      review => {
-        console.log(review, 'updated')
-        return (
-          fetchTrailReviews(trailId)
-        )
-      },
-      err => {
-        console.log(err)
-        return(
-          dispatch(receiveErrors(err))
-        )
-      }
+      review => dispatch(editReview(review)),
+      err => dispatch(receiveErrors(err))
     )
 }
 

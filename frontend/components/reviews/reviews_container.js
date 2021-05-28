@@ -11,7 +11,9 @@ const mSTP = (state, ownProps) => {
   console.log(state.entities.reviews)
     return (
       {
-      reviews: Object.values(state.entities.reviews),
+      reviews: Object.values(state.entities.reviews).sort(
+        (a, b) => a.id < b.id ? 1 : -1
+      ),
       prefix: ownProps.prefix,
       visible: ownProps.visible,
       trailId: ownProps.trailId,

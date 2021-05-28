@@ -55,18 +55,23 @@ class ReviewForm extends React.Component {
   }
 
   handleSubmit() {
-
-    this.props.action({
-      rating: this.state.rating,
-      body: this.state.body,
-      authorId: this.state.authorId,
-      trailId: this.state.trailId
-    })
+    if(this.props.formType === 'update') {
+      this.props.action(
+        {rating: this.state.rating, body: this.state.body}, this.state.trailId)
+    } else if (this.props.formType === 'create') {
+      this.props.action({
+        rating: this.state.rating,
+        body: this.state.body,
+        authorId: this.state.authorId,
+        trailId: this.state.trailId
+      })
+    }
     this.props.closeModal()
   }
 
   render() {
-
+    console.log(this.props)
+    console.log(this.props.trailId, 'THIS ONESSS')
     const arr = (new Array(null, null, null, null, null))
     let tempRating = this.state.tempRating
     let rating = this.state.rating
