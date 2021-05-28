@@ -71,19 +71,22 @@ class Trail extends React.Component {
   linkToTrail() {
     return (
       e => {
+        console.log(this.state.trails.length)
+        console.log(this.state.errors)
         e.preventDefault()
         if (this.state.trails.length === 0) {
           this.setState({
             errors: 'Please search for a valid trail',
             prefix: 'visible'
           })
-        } else if (this.state.errors === '') {
+        } else if (this.state.errors !== '') {
           this.setState({
             errors: 'Please search for a valid trail',
             prefix: 'visible'
           })
         } else {
           this.props.history.push(`/trails/${this.state.trails[0].id}`)
+          this.hideSearchList()
         }
       }
     )
