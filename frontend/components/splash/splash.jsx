@@ -160,7 +160,10 @@ class Splash extends React.Component {
                   />
                 </button>
               </form>
-              <div className={`${this.state.prefix}-search-list`}>
+              <div 
+                className={`${this.state.prefix}-search-list`}
+                onClick={e => e.stopPropagation()}
+              >
                 {searchList}
               </div>
             </div>
