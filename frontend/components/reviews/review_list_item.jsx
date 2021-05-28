@@ -93,21 +93,23 @@ class ReviewListItem extends React.Component {
         <div className='review-li-div'>
           {this.props.review.body}
         </div>
-        <div className='edit-delete-buttons-container'>
-          <button
-            onClick={this.update}
-            className='edit-button'
-          >
-            edit
-          </button> 
-          <div className='review-li-div'>  |  </div>
-          <button 
-            onClick={this.delete(this.props.review, this.props.trailId)}
-            className='delete-button'
-          >
-            delete
-          </button>
-        </div>
+        {this.props.isAuthor ? 
+          <div className='edit-delete-buttons-container'>
+            <button
+              onClick={this.update}
+              className='edit-button'
+            >
+              edit
+            </button> 
+            <div className='review-li-div'>  |  </div>
+            <button 
+              onClick={this.delete(this.props.review, this.props.trailId)}
+              className='delete-button'
+            >
+              delete
+            </button>
+          </div>
+          : null}
       </li>
     )
   }

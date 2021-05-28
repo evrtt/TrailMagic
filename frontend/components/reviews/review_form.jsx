@@ -62,6 +62,7 @@ class ReviewForm extends React.Component {
       authorId: this.state.authorId,
       trailId: this.state.trailId
     })
+    this.props.closeModal()
   }
 
   render() {

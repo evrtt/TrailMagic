@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import ReviewForm from './review_form';
 import { updateReview } from '../../actions/review_actions';
+import { closeModal } from '../../actions/modal_actions';
+
 
 const mSTP = (state, ownProps) => ({
   formType: 'update',
@@ -14,6 +16,7 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = (dispatch) => ({
   action: (review) => dispatch(updateReview(review)),
+  closeModal: () => dispatch(closeModal())
 })
 
 export default connect(mSTP, mDTP)(ReviewForm)

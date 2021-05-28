@@ -13,7 +13,8 @@ const reviewsReducer = (state = {}, action) => {
     case CLEAR_TRAIL_REVIEWS:
       return {};
     case INSERT_REVIEW:
-      let newState = Object.assign({}, state, action.review)
+      let newState = Object.assign({}, state)
+      newState[action.review.id] = action.review
       return newState;
     default:
       return state
