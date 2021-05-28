@@ -6,7 +6,9 @@ import ReviewListItem from './review_list_item';
 
 const mSTP = (state, ownProps) => ({
   review: ownProps.review,
-  loggedIn: !!state.session.id
+  loggedIn: !!state.session.id,
+  trailTitle: ownProps.trailTitle
+
 })
 
 const mDTP = (dispatch) => ({

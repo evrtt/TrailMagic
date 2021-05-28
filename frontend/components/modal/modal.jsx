@@ -8,11 +8,13 @@ const Modal = ({modal, data, closeModal}) => {
   }
   let component;
   
+  console.log(data, 'data')
+
   switch (modal) {
     case 'createReview':
       component = <CreateReviewFormContainer data={data}/>;
       break;
-    case 'editReview':
+    case 'updateReview':
       component = <UpdateReviewFormContainer data={data}/>;
       break;
     default:

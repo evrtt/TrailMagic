@@ -4,14 +4,12 @@ import { updateReview } from '../../actions/review_actions';
 
 const mSTP = (state, ownProps) => ({
   formType: 'update',
-  review: {
-    id: ownProps.data.review.id,
-    body: ownProps.data.review.body,
-    rating: ownProps.data.review.rating,
-    trailId: ownProps.data.review.trailId,
-    authorId: ownProps.data.review.authorId,
-    trailTitle: ownProps.data.trailTitle
-  }
+  id: ownProps.data.id,
+  body: ownProps.data.body,
+  rating: ownProps.data.rating,
+  trailId: ownProps.data.trailId,
+  authorId: ownProps.data.authorId,
+  trailTitle: ownProps.data.trailTitle
 })
 
 const mDTP = (dispatch) => ({

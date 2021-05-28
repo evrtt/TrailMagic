@@ -21,9 +21,6 @@ class ReviewForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // componentDidMount() {
-  // }
-
   setRating(rating) {
     return (
       e => {
@@ -121,7 +118,7 @@ class ReviewForm extends React.Component {
 
 
     return(
-      <div>
+      <div className='review-form-container'>
         <h2>
           {this.props.trailTitle}
         </h2>
@@ -136,11 +133,13 @@ class ReviewForm extends React.Component {
         
           </textarea>
         </form>
-        <button
-          onClick={this.handleSubmit}
-        >
-          Post
-        </button>
+        <div>
+          <button
+            onClick={this.handleSubmit}
+          >
+            {this.props.formType === 'update' ? 'Update' : 'Post'}
+          </button>
+        </div>
       </div>
     )
   }

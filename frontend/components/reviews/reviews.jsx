@@ -41,6 +41,7 @@ class Reviews extends React.Component {
           {this.props.reviews.map((review, idx) => (
             <ReviewListItemContainer 
               review={review}
+              trailTitle={this.props.trailTitle}
               key={`review-${idx + 1}`}
             />
           ))}
