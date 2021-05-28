@@ -10,11 +10,13 @@ import HeaderLogo from './header_logo';
 import SplashContainer from './splash/splash_container';
 import TrailIndexContainer from './trails/trail_index_container';
 import TrailContainer from './trails/trail_container';
+import ModalContainer from './modal/modal_container';
 
 
 
 export default () => (
   <section className="main">
+    <ModalContainer />
     <header className="site-header">
         <nav className="header-nav">
           <Link to="/trails" className="explore-link">

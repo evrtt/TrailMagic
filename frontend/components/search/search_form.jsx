@@ -35,7 +35,11 @@ class SearchForm extends React.Component {
   linkToTrail() {
     return (
       e => {
+        console.log("hit")
+        console.log(this.state.trails)
+        console.log(this.state.errors)
         e.preventDefault()
+        e.stopPropagation()
         if(this.state.trails.length === 0 || this.state.errors !== '') {
           this.setState({
             searchListClass: 'visible-search-list',
@@ -61,16 +65,13 @@ class SearchForm extends React.Component {
             searchListClass: 'visible-search-list'
           })
         }
-        console.log(this.props.searchTrails)
         this.props.searchTrails(e.currentTarget.value)
           .then(
             res => {
-              console.log(res)
               this.setState({trails: Object.values(res)})
               this.setState({errors: ''})
             },
             err => {
-              console.log(err.responseJSON)
               this.setState({trails: []})
               this.setState({errors: err.responseJSON})
             }
@@ -89,7 +90,7 @@ class SearchForm extends React.Component {
           value={this.state.input}
           placeholder="Search by trail name"
           onChange={this.search()}
-          onBlur={this.hideSearchList}
+          // onBlur={this.hideSearchList}
         />
       </div>            
       <button>
@@ -125,7 +126,9 @@ class SearchForm extends React.Component {
     }
 
     return(
-      <div className="search-dropdown">
+      <div 
+        className="search-dropdown"
+      >
         {searchForm}
         <div className={this.state.searchListClass}>
           {searchList}

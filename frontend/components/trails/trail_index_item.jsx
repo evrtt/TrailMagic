@@ -19,6 +19,9 @@ class TrailIndexItem extends React.Component {
   handleClick(trailId) {
     return(
       () => {
+        this.props.clearTrailReviews();
+        this.props.fetchTrailReviews(trailId)
+        this.props.fetchTrailPhotos(trailId);
         this.props.clearTrailPhotos();
         this.props.fetchTrailPhotos(trailId);
         this.props.switchToReviews();

@@ -13,6 +13,7 @@ import TrailPhotosContainer from './trail_photos_container';
 import { StaticMap } from 'react-map-gl';
 import TrailIndexContainer from '../trails/trail_index_container';
 import { Link } from 'react-router-dom';
+import TrailReviewsContainer from '../reviews/reviews_container'
 
 class Trail extends React.Component {
   constructor(props) {
@@ -53,22 +54,39 @@ class Trail extends React.Component {
     )
   }
 
+  switchTrails(trailId) {
+    return (
+      () => {
+        this.props.switchToReviews();
+        this.props.clearTrailReviews();
+        this.props.fetchTrailReviews(trailId);
+        this.props.clearTrailPhotos();
+        this.props.fetchTrailPhotos(trailId);
+        window.scrollTo(0, 0);
+        this.hideSearchList();
+      }
+    )
+  }
+
   linkToTrail() {
     return (
       e => {
+        console.log(this.state.trails.length)
+        console.log(this.state.errors)
         e.preventDefault()
         if (this.state.trails.length === 0) {
           this.setState({
             errors: 'Please search for a valid trail',
             prefix: 'visible'
           })
-        } else if (this.state.errors === '') {
+        } else if (this.state.errors !== '') {
           this.setState({
             errors: 'Please search for a valid trail',
             prefix: 'visible'
           })
         } else {
           this.props.history.push(`/trails/${this.state.trails[0].id}`)
+          this.hideSearchList()
         }
       }
     )
@@ -86,7 +104,6 @@ class Trail extends React.Component {
             prefix: 'visible',
           })
         }
-        console.log(this.props.searchTrails)
         this.props.searchTrails(e.currentTarget.value)
           .then(
             res => {
@@ -113,6 +130,7 @@ class Trail extends React.Component {
                 className={`${this.state.prefix}-trailpage-search-link`}
                 key={`trail-page-search-${trail.id}`}
                 to={`/trails/${trail.id}`}
+                onClick={this.switchTrails(trail.id)}
               >
                 <FontAwesomeIcon
                   icon={faMapSigns}
@@ -235,16 +253,28 @@ class Trail extends React.Component {
                     <button 
                       className={`${prefix}-${reviewsBtn}`}
                       onClick={this.props.switchToReviews}
-                    >Reviews</button>
+                    >{`Reviews(${this.props.reviewsCount})`}</button>
                     <button 
                       className={`${prefix}-${photosBtn}`}
                       onClick={this.props.switchToPhotos}
-                      >Photos</button>
+                    >{`Photos(${this.props.photosCount})`}</button>
                   </nav>
                   <div className={`${prefix}-${this.props.reviewsOrPhotos}-content`}>
                     {this.props.reviewsOrPhotos === "reviews" ? (
-                      null
-                    ) : null}
+                      <TrailReviewsContainer 
+                        prefix={prefix}
+                        trailId={this.props.trail.id}
+                        trailTitle={this.props.trail.title}
+                        visible={"visible"}
+                      />
+                    ) : (
+                      <TrailReviewsContainer
+                        prefix={prefix}
+                        trailId={this.props.trail.id}
+                        trailTitle={this.props.trail.title}
+                        visible={"hidden"}
+                      />
+                    )}
                     {this.props.reviewsOrPhotos === "photos" ? (
                       <TrailPhotosContainer 
                         prefix={prefix} 

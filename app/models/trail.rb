@@ -11,5 +11,10 @@ class Trail < ApplicationRecord
   validates :elevation_gain, presence: true
 
   has_many_attached :photos
+
+  has_many :reviews,
+    primary_key: :id,
+    foreign_key: :trail_id,
+    class_name: :Review
   
 end

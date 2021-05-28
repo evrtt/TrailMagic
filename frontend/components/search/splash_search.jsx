@@ -27,9 +27,6 @@ class SplashSearch extends React.Component {
   hideSearchList() {
     return (
       e => {
-          console.log(e.target, "target")
-          console.log(e.currentTarget, "currentTarget")
-          console.log(e.relatedTarget, "relatedTarget")
           this.setState({
             prefix: 'hidden',
             input: '',
@@ -43,12 +40,10 @@ class SplashSearch extends React.Component {
     return (
       e => {
         this.inputEl.focus()
-        console.log(e.target)
-        console.log(trailId)
         e.preventDefault();
         this.setState({
-          prefix: 'visible',
-          trails: trails,
+          prefix: 'hidden',
+          trails: [],
         })
         this.props.history.push(`/trails/${trailId}`)
       }
@@ -58,6 +53,9 @@ class SplashSearch extends React.Component {
   linkToTrail() {
     return (
       e => {
+        console.log("hit")
+        console.log(this.state.trails.length)
+        console.log(this.state.errors)
         e.preventDefault()
         if(this.state.trails.length === 0 || this.state.errors !== '') {
           this.setState({

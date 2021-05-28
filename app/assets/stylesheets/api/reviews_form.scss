@@ -1,0 +1,105 @@
+.review-form-container {
+  height: 460px;
+  width: 500px;
+  border-radius: 8px;
+  background-color: white;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  h2 {
+    font-size: 36px;
+    font-weight: 600;
+    color: rgb(81, 81, 81);
+    font-family: 'Montserrat', Sans-Serif;  }
+
+  form {
+
+    textarea {
+      width: 460px;
+      height: 210px;
+      resize: none;
+      padding: 20px;
+      overflow-y: auto;
+    }
+  }
+
+  ul {
+    margin: 10px 0 10px 0;
+  }
+
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 500px;
+
+    button {
+      padding: 10px 30px 10px 30px;
+      background-color: green;
+      border-radius: 8px;
+      border: none;
+      color: white;
+      font-size: 18px;
+      font-weight: 500;
+      font-family: 'Montserrat', Sans-Serif;
+      margin-top: 40px;
+    }
+
+    button:hover {
+      background-color: rgb(1, 149, 1);
+    }
+
+    span {
+      padding: 10px 30px 10px 30px;
+      background-color: rgb(130, 183, 130);
+      border-radius: 8px;
+      border: none;
+      color: white;
+      font-size: 18px;
+      font-weight: 500;
+      font-family: 'Montserrat', Sans-Serif;
+      margin-top: 40px;
+    }
+
+  }
+}
+
+.form-stars-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-empty-star {
+  svg {
+    color: rgb(227, 227, 227);
+    font-size: 40px;
+    padding: 10px;
+  }
+}
+
+.form-empty-star:hover {
+  svg {
+   font-size: 50px;
+   padding: 5px
+  }
+}
+
+.form-full-star {
+  svg {
+    color: yellow;
+    font-size: 40px;
+    padding: 10px
+  }
+}
+
+.form-full-star:hover {
+  svg {
+    font-size: 50px;
+    padding: 5px;
+  }
+}
+

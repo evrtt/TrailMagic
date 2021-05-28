@@ -1,9 +1,20 @@
 import { connect } from 'react-redux';
 import Trail from './trail';
-import { fetchAllTrails, fetchCurrentTrail, clearTrailPhotos, fetchTrailPhotos } from '../../actions/trails_actions';
-import { switchToPhotos, switchToReviews } from '../../actions/ui_actions';
+import { fetchAllTrails, 
+  fetchCurrentTrail, 
+  clearTrailPhotos, 
+  fetchTrailPhotos 
+} from '../../actions/trails_actions';
+import { 
+  switchToPhotos, 
+  switchToReviews 
+} from '../../actions/ui_actions';
 import { searchTrails } from '../../utils/trails_api_util';
 import { withRouter } from 'react-router-dom';
+import { 
+  clearTrailReviews, 
+  fetchTrailReviews 
+} from '../../actions/review_actions';
 
 const mSTP = (state, ownProps) => ({
   trail: state.entities.trails[ownProps.match.params.trailId],
@@ -12,7 +23,9 @@ const mSTP = (state, ownProps) => ({
   popup: ownProps.popup,
   popupTrailId: ownProps.popupTrailId,
   update: ownProps.update,
-  reviewsOrPhotos: state.ui.trailView.reviewsOrPhotos
+  reviewsOrPhotos: state.ui.trailView.reviewsOrPhotos,
+  reviewsCount: Object.keys(state.entities.reviews).length,
+  photosCount: Object.keys(state.entities.photoURLs).length
 });
 
 const mDTP = (dispatch) => ({
@@ -22,7 +35,9 @@ const mDTP = (dispatch) => ({
   clearTrailPhotos: () => dispatch(clearTrailPhotos()),
   switchToReviews: () => dispatch(switchToReviews()),
   switchToPhotos: () => dispatch(switchToPhotos()),
-  searchTrails
+  searchTrails,
+  clearTrailReviews: () => dispatch(clearTrailReviews()),
+  fetchTrailReviews: (trailId) => dispatch(fetchTrailReviews(trailId))
 })
 
 export default withRouter(connect(mSTP, mDTP)(Trail));

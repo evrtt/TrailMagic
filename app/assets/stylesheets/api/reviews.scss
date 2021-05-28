@@ -1,0 +1,29 @@
+.standard-view-reviews-container-visible {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 20px 0;
+}
+
+.trail-ratings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 160px;
+  border-bottom: solid lightgrey 1px;
+  margin: 0 20px 0 20px;
+
+
+  button {
+    background-color: green;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 40px 10px 40px;
+    font-size: 18px;
+  }
+
+  button:hover {
+    background-color: rgb(0, 152, 0);
+  }
+}

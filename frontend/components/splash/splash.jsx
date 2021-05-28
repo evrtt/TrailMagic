@@ -49,7 +49,7 @@ class Splash extends React.Component {
             errors: 'Please search for a valid trail',
             prefix: 'visible'
           })
-        } else if (this.state.errors === '') {
+        } else if (this.state.errors !== '') {
           this.setState({
             errors: 'Please search for a valid trail',
             prefix: 'visible'
@@ -74,7 +74,6 @@ class Splash extends React.Component {
             prefix: 'visible',
           })
         }
-        console.log(this.props.searchTrails)
         this.props.searchTrails(e.currentTarget.value)
           .then(
             res => {
@@ -161,7 +160,9 @@ class Splash extends React.Component {
                   />
                 </button>
               </form>
-              <div className={`${this.state.prefix}-search-list`}>
+              <div 
+                className={`${this.state.prefix}-search-list`}
+              >
                 {searchList}
               </div>
             </div>
