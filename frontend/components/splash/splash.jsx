@@ -74,7 +74,6 @@ class Splash extends React.Component {
             prefix: 'visible',
           })
         }
-        console.log(this.props.searchTrails)
         this.props.searchTrails(e.currentTarget.value)
           .then(
             res => {

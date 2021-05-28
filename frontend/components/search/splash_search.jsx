@@ -27,9 +27,6 @@ class SplashSearch extends React.Component {
   hideSearchList() {
     return (
       e => {
-          console.log(e.target, "target")
-          console.log(e.currentTarget, "currentTarget")
-          console.log(e.relatedTarget, "relatedTarget")
           this.setState({
             prefix: 'hidden',
             input: '',
@@ -43,8 +40,6 @@ class SplashSearch extends React.Component {
     return (
       e => {
         this.inputEl.focus()
-        console.log(e.target)
-        console.log(trailId)
         e.preventDefault();
         this.setState({
           prefix: 'visible',

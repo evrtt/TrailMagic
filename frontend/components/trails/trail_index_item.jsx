@@ -20,6 +20,7 @@ class TrailIndexItem extends React.Component {
     return(
       () => {
         this.props.clearTrailReviews();
+        this.props.fetchTrailReviews(trailId)
         this.props.fetchTrailPhotos(trailId);
         this.props.clearTrailPhotos();
         this.props.fetchTrailPhotos(trailId);

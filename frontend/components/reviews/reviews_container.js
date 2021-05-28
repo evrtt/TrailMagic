@@ -6,14 +6,20 @@ import {
 import {
   openModal
 } from '../../actions/modal_actions';
-const mSTP = (state, ownProps) => ({
-  reviews: state.entities.reviews,
-  prefix: ownProps.prefix,
-  visible: ownProps.visible,
-  trailId: ownProps.trailId,
-  trailTitle: ownProps.trailTitle,
-  loggedIn: !!state.session.id
-})
+const mSTP = (state, ownProps) => {
+  
+  console.log(state.entities.reviews)
+    return (
+      {
+      reviews: Object.values(state.entities.reviews),
+      prefix: ownProps.prefix,
+      visible: ownProps.visible,
+      trailId: ownProps.trailId,
+      trailTitle: ownProps.trailTitle,
+      loggedIn: !!state.session.id
+      }
+    )
+  }
 
 const mDTP = (dispatch) => ({
   fetchTrailReviews: (trailId) => dispatch(fetchTrailReviews(trailId)),

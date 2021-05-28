@@ -61,16 +61,13 @@ class SearchForm extends React.Component {
             searchListClass: 'visible-search-list'
           })
         }
-        console.log(this.props.searchTrails)
         this.props.searchTrails(e.currentTarget.value)
           .then(
             res => {
-              console.log(res)
               this.setState({trails: Object.values(res)})
               this.setState({errors: ''})
             },
             err => {
-              console.log(err.responseJSON)
               this.setState({trails: []})
               this.setState({errors: err.responseJSON})
             }

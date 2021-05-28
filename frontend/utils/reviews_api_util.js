@@ -30,7 +30,6 @@ export const destroyReview = review => (
 )
 
 export const getTrailReviews = (trailId) => {
-  console.log(trailId)
   return (
     $.ajax({
       url: `/api/trails/${trailId}/reviews`,

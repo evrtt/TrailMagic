@@ -21,9 +21,8 @@ class ReviewForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    console.log(this.props.authorId, "AUTHORID", this.props.trailId, "TRAILID")
-  }
+  // componentDidMount() {
+  // }
 
   setRating(rating) {
     return (
@@ -37,7 +36,6 @@ class ReviewForm extends React.Component {
   setTempRating(rating) {
     return (
       e => {
-        console.log(rating)
         e.preventDefault();
         this.setState({ tempRating: rating })
       }
@@ -61,13 +59,6 @@ class ReviewForm extends React.Component {
 
   handleSubmit() {
 
-    console.log({
-      rating: this.state.rating,
-      body: this.state.body,
-      authorId: this.state.authorId,
-      trailId: this.state.trailId
-    })
-
     this.props.action({
       rating: this.state.rating,
       body: this.state.body,
@@ -79,15 +70,11 @@ class ReviewForm extends React.Component {
   render() {
 
     const arr = (new Array(null, null, null, null, null))
-    console.log(arr)
     let tempRating = this.state.tempRating
     let rating = this.state.rating
     const stars = <ul className="form-stars-list">
       {arr.map((star, idx) => {
-        // console.log(this.state.tempRating)
-        // console.log(this.state.tempRating < idx)
         if(!tempRating){
-          console.log(typeof rating === 'undefined')
           if (typeof rating === 'undefined' || rating < idx + 1) {
             star = <li className='form-empty-star' >
               <FontAwesomeIcon
@@ -109,7 +96,6 @@ class ReviewForm extends React.Component {
           }
           return star
         } else {
-          console.log(tempRating, '=== TempRating')
           if (tempRating < idx + 1) {
             star = <li className='form-empty-star' >
               <FontAwesomeIcon

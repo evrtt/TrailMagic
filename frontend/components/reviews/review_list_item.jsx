@@ -25,55 +25,81 @@ class ReviewListItem extends React.Component {
   }
 
   render() {
-    let stars = []
-    for(i = 0; i < 5; i++) {
-      let star;
-      if(this.props.review.rating < i) {
+    const arr = (new Array(null, null, null, null, null))
+    let stars = arr.map((star, idx) => {
+      if(this.props.review.rating >= idx) {
         star = <li>
-          <FontAwesomeIcon
-            icon={faStar}
-            className='full-star'
-          />
-        </li>;
-      } else {
-        star = <li>
-          <FontAwesomeIcon
-            icon={faStar}
-            className='empty-star'
-          />
-        </li>;
-      }
-      stars.push(star)
+            <FontAwesomeIcon
+              icon={faStar}
+              className='li-full-star'
+              />
+          </li>;
+        } else {
+          star = <li>
+            <FontAwesomeIcon
+              icon={faStar}
+              className='li-empty-star'
+              />
+          </li>;
+        }
+      })
+      
+    const month = (num) => {
+      
+      let numArr = num.split("")
+      numArr[0] === "0" ? num = parseInt(numArr[1]) - 1 : num = parseInt(num) - 1
+
+      return (
+        [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December'
+        ][num]
+      )
     }
+    
+    const dateArr = this.props.review.createdAt.split("-")
+    const createdAt = `${month(dateArr[1])} ${dateArr[2].split("T")[0]}, ${dateArr[0]}`
 
+    return (
 
-    <div className="review-list-item">
-      <p>{this.props.review.author}</p>
-      <div>
-        <ul className="stars-list">
-          {stars}
-        </ul>
+      <div className="review-list-item">
+        <p>{this.props.review.authorName}</p>
+        <div>
+          <ul className="stars-list">
+            {stars}
+          </ul>
+          <p>
+            {createdAt}
+          </p>
+        </div>
         <p>
-          {this.props.review.created_at}
+          {this.props.review.body}
         </p>
+        <div>
+          <button
+            onClick={this.update}
+          >
+            edit
+          </button> 
+          <p>  |  </p>
+          <button 
+            onClick={this.delete(this.props.review, this.props.trailId)}
+          >
+            delete
+          </button>
+        </div>
       </div>
-      <p>
-        {this.props.review.body}
-      </p>
-      <div>
-        <button
-          onClick={this.update}
-        >
-          edit
-        </button> 
-        <p>  |  </p>
-        <button 
-          onClick={this.delete(this.props.review, this.props.trailId)}
-        >
-          delete
-        </button>
-      </div>
-    </div>
+    )
   }
 }
 

@@ -13,7 +13,7 @@ class Api::TrailsController < ApplicationController
   end
 
   def show
-    @trail = Trail.find_by(id: params[:id])
+    @trail = Trail.find_by(id: params[:id]).includes(:reviews)
     if @trail
       render "/api/trails/show"
     else

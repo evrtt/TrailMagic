@@ -9,7 +9,6 @@ class Reviews extends React.Component {
   }
 
   handleClick() {
-    console.log('createReview')
     this.props.openModal(
       {
         type: 'createReview', 
@@ -26,6 +25,8 @@ class Reviews extends React.Component {
   }
 
   render() {
+
+    console.log(this.props.reviews)
 
     if (this.props.visible === 'hidden') {
       return null

@@ -14,7 +14,6 @@ class Api::ReviewsController < ApplicationController
   end
 
   def index
-    debugger
     @reviews = Review.where(trail_id: params[:trail_id]).includes(:user)
     if @reviews
       render "/api/reviews/index"
@@ -34,7 +33,6 @@ class Api::ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    debugger
     if @review.save
       render "/api/reviews/show"
     else
