@@ -45,11 +45,22 @@
       font-weight: 500;
       font-family: 'Montserrat', Sans-Serif;
       margin-top: 40px;
-      text-align: right;
     }
 
     button:hover {
       background-color: rgb(1, 149, 1);
+    }
+
+    span {
+      padding: 10px 30px 10px 30px;
+      background-color: rgb(130, 183, 130);
+      border-radius: 8px;
+      border: none;
+      color: white;
+      font-size: 18px;
+      font-weight: 500;
+      font-family: 'Montserrat', Sans-Serif;
+      margin-top: 40px;
     }
 
   }

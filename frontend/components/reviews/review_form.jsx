@@ -134,11 +134,17 @@ class ReviewForm extends React.Component {
           </textarea>
         </form>
         <div>
-          <button
-            onClick={this.handleSubmit}
-          >
-            {this.props.formType === 'update' ? 'Update' : 'Post'}
-          </button>
+          {this.state.rating ? 
+            <button
+              onClick={this.handleSubmit}
+            >
+              {this.props.formType === 'update' ? 'Update' : 'Post'}
+            </button>
+          :
+            <span>
+              {this.props.formType === 'update' ? 'Update' : 'Post'}
+            </span>
+          }
         </div>
       </div>
     )
