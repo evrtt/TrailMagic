@@ -1,0 +1,20 @@
+.rating-stars-full-star {
+  svg {
+    color: yellow;
+  }
+}
+
+.rating-stars-empty-star {
+  svg {
+    color: rgb(224, 224, 224);
+  }
+}
+
+.rating-stars-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: none;
+  width: 120px;
+}

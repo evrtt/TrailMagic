@@ -35,20 +35,23 @@
     }
 
     div {
-      color: green;
+      color: darkgrey;
     }
   }
+}
 
-  .stars-date {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
+.review-created-at {
+  font-size: 12px;
+}
 
-    div {
-      color: rgb(111, 111, 111);
-      font-size: 12px;
-      margin: 5px 0 5px 0;
-    }
-  }
+.review-name-and-date {
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-li-div {
+  margin-top: 5px;
 }

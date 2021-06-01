@@ -1,14 +1,14 @@
 import React from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
-const RatingPercentages = ({ rating, reviewCount }) => {
-
+const RatingPercentages = ({ reviews, reviewCount }) => {
 
 
 
   return (
-    <div>
-
-    </div>
+    <ul>
+    </ul>
   )
 }
 
