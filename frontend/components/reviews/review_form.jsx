@@ -143,13 +143,16 @@ class ReviewForm extends React.Component {
           {this.state.rating ? 
             <button
               onClick={this.handleSubmit}
+              className="clickable"
             >
               {this.props.formType === 'update' ? 'Update' : 'Post'}
             </button>
           :
-            <span>
+            <button
+              className="non-clickable"
+            >
               {this.props.formType === 'update' ? 'Update' : 'Post'}
-            </span>
+            </button>
           }
         </div>
       </div>

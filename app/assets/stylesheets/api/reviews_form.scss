@@ -37,7 +37,6 @@
 
     button {
       padding: 10px 30px 10px 30px;
-      background-color: green;
       border-radius: 8px;
       border: none;
       color: white;
@@ -51,16 +50,21 @@
       background-color: rgb(1, 149, 1);
     }
 
-    span {
-      padding: 10px 30px 10px 30px;
-      background-color: rgb(130, 183, 130);
-      border-radius: 8px;
-      border: none;
-      color: white;
-      font-size: 18px;
-      font-weight: 500;
-      font-family: 'Montserrat', Sans-Serif;
-      margin-top: 40px;
+    .clickable {
+      background-color: green;
+    }
+
+    .clickable:hover {
+      background-color: rgb(1, 141, 1);
+    }
+    
+    .non-clickable {
+      background-color: rgb(137, 189, 137);
+      cursor: default;
+    }
+
+    .non-clickable:hover {
+      background-color: rgb(137, 189, 137);
     }
 
   }
