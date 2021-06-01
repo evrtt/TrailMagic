@@ -51,12 +51,12 @@ class Reviews extends React.Component {
       }
       let trailRating;
       if(this.props.loggedIn) {
-        trailRating = <div className="trail-ratings">
+        trailRating = <div className="reviews-header">
           <RatingPercentages
-            rating={this.props.rating}
+            reviews={this.props.reviews}
             reviewCount={this.props.reviewCount}
           />
-          <div>
+          <div className="trail-ratings-container">
             <h6>{this.props.rating}</h6>
             <RatingStars rating={this.props.rating} />
             <div>{`${this.props.reviewCount} Reviews`}</div>
@@ -69,12 +69,12 @@ class Reviews extends React.Component {
           </button>
         </div>
       } else {
-        trailRating = <div className="trail-ratings">
+        trailRating = <div className="reviews-header">
           <RatingPercentages 
-            rating={this.props.rating}
+            reviews={this.props.reviews}
             reviewCount={this.props.reviewCount}
           />
-          <div>
+          <div className="trail-ratings-container">
             <h6>{this.props.rating}</h6>
             <RatingStars rating={this.props.rating} />
             <div>{`${this.props.reviewCount} Reviews`}</div>
