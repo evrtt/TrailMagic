@@ -49,8 +49,18 @@ export const fetchTrailReviews = (trailId) => dispatch => {
 export const createReview = (review) => dispatch => {
   reviewsAPIUtil.postReview(review)
     .then(
-      review => dispatch(insertReview(review)),
-      err => dispatch(receiveErrors(err))
+      review => {
+        console.log(review)
+        return (
+          dispatch(insertReview(review))
+        )
+      },
+      err => {
+        console.log(err)
+        return (
+          dispatch(receiveErrors(err))
+        )
+      }
     )
 }
 

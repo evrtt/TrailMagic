@@ -1,6 +1,6 @@
 .rating-stars-full-star {
   svg {
-    color: yellow;
+    color: rgb(255, 219, 0);
   }
 }
 
@@ -17,4 +17,23 @@
   align-items: center;
   color: none;
   width: 120px;
+}
+
+.half-full-star {
+  position: relative;
+  top: 8px;
+  z-index: 2;
+  overflow-x: hidden;
+  svg {
+    color: rgb(255, 219, 0);
+  }
+}
+
+.half-empty-star {
+  z-index: 1;
+  position: relative;
+  top: -8px;
+  svg {
+    color: rgb(224, 224, 224);
+  }
 }

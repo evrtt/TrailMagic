@@ -4,6 +4,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 const RatingStars = ({rating}) => {
 
+
   const arr = new Array(null, null, null, null, null)
   let stars = arr.map((star, idx) => {
     if (rating >= idx + 1) {
@@ -19,13 +20,27 @@ const RatingStars = ({rating}) => {
         />
       </li>;
     } else {
-      return <li
-        
-      >
-        <FontAwesomeIcon
-          icon={faStar}
-        />
-      </li>;
+      let partialWidth = Math.round((rating - idx) * 18)
+      console.log(partialWidth)
+      console.log(rating)
+      console.log()
+      return( 
+        <li>
+          <div 
+            className="half-full-star"
+            style={{ width: `${partialWidth}px` }}
+          >
+            <FontAwesomeIcon
+              icon={faStar}
+            />
+          </div>
+          <div className="half-empty-star">
+            <FontAwesomeIcon
+              icon={faStar}
+            />
+          </div>
+        </li>
+      )
     }
   })
 
