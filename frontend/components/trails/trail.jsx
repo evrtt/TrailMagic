@@ -13,7 +13,8 @@ import TrailPhotosContainer from './trail_photos_container';
 import { StaticMap } from 'react-map-gl';
 import TrailIndexContainer from '../trails/trail_index_container';
 import { Link } from 'react-router-dom';
-import TrailReviewsContainer from '../reviews/reviews_container'
+import TrailReviewsContainer from '../reviews/reviews_container';
+import RatingStars from '../ratings/rating_stars';
 
 class Trail extends React.Component {
   constructor(props) {
@@ -120,6 +121,17 @@ class Trail extends React.Component {
   }
 
   render () {
+
+    let rating;
+    if (Object.values(this.props.reviews).length === 0) {
+      rating = 0;
+    } else {  
+      let sum = 0;
+      Object.values(this.props.reviews).forEach(
+        review => sum += review.rating
+      )
+      rating = (sum / this.props.reviewsCount).toFixed(1);
+    }
     let searchList;
     if (this.state.errors === '') {
       searchList =
@@ -220,7 +232,11 @@ class Trail extends React.Component {
               >
                 <div className={`${prefix}-trail-page-header-content`}>
                   <h1>{this.props.trail.title}</h1>
-                  <p className={`${prefix}-dif-${this.props.trail.difficulty}`}>{this.props.trail.difficulty}</p>
+                  <div>
+                    <p className={`${prefix}-dif-${this.props.trail.difficulty}`}>{this.props.trail.difficulty}</p>
+                    <RatingStars rating={rating} />
+                    <p>{`(${this.props.reviewsCount})`}</p>
+                  </div>
                   <p className={`${prefix}-trail-location`}>{this.props.trail.location.split(",")[0].toString()}</p>
                 </div>
               </div>
@@ -253,11 +269,11 @@ class Trail extends React.Component {
                     <button 
                       className={`${prefix}-${reviewsBtn}`}
                       onClick={this.props.switchToReviews}
-                    >{`Reviews(${this.props.reviewsCount})`}</button>
+                    >{`Reviews (${this.props.reviewsCount})`}</button>
                     <button 
                       className={`${prefix}-${photosBtn}`}
                       onClick={this.props.switchToPhotos}
-                    >{`Photos(${this.props.photosCount})`}</button>
+                    >{`Photos (${this.props.photosCount})`}</button>
                   </nav>
                   <div className={`${prefix}-${this.props.reviewsOrPhotos}-content`}>
                     {this.props.reviewsOrPhotos === "reviews" ? (
@@ -266,6 +282,8 @@ class Trail extends React.Component {
                         trailId={this.props.trail.id}
                         trailTitle={this.props.trail.title}
                         visible={"visible"}
+                        rating={rating}
+                        reviewCount={this.props.reviewsCount}
                       />
                     ) : (
                       <TrailReviewsContainer
@@ -273,6 +291,9 @@ class Trail extends React.Component {
                         trailId={this.props.trail.id}
                         trailTitle={this.props.trail.title}
                         visible={"hidden"}
+                        rating={rating}
+                        reviewCount={this.props.reviewsCount}
+
                       />
                     )}
                     {this.props.reviewsOrPhotos === "photos" ? (
