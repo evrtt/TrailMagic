@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import RatingStars from '../ratings/rating_stars';
 
 class ReviewListItem extends React.Component {
   constructor(props) {
@@ -32,26 +33,7 @@ class ReviewListItem extends React.Component {
     }
   }
 
-  render() {
-    const arr = (new Array(null, null, null, null, null))
-    let stars = arr.map((star, idx) => {
-      if(this.props.review.rating >= idx) {
-        star = <li>
-            <FontAwesomeIcon
-              icon={faStar}
-              className='li-full-star'
-              />
-          </li>;
-        } else {
-          star = <li>
-            <FontAwesomeIcon
-              icon={faStar}
-              className='li-empty-star'
-              />
-          </li>;
-        }
-      })
-      
+  render() { 
     const month = (num) => {
       
       let numArr = num.split("")
@@ -81,15 +63,13 @@ class ReviewListItem extends React.Component {
     return (
 
       <li className='review-li'>
-        <div className='author-name'>{this.props.review.authorName}</div>
-        <div className='stars-date'>
-          <ul className="stars-list">
-            {stars}
-          </ul>
-          <div>
+        <div className="review-name-and-date">
+          <div className='author-name'>{this.props.review.authorName}</div>
+          <div className="review-created-at">
             {createdAt}
           </div>
         </div>
+        <RatingStars rating={this.props.review.rating} />
         <div className='review-li-div'>
           {this.props.review.body}
         </div>
@@ -101,7 +81,7 @@ class ReviewListItem extends React.Component {
             >
               edit
             </button> 
-            <div className='review-li-div'>  |  </div>
+            <div>  |  </div>
             <button 
               onClick={this.delete(this.props.review, this.props.trailId)}
               className='delete-button'

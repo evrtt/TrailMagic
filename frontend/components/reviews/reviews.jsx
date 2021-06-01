@@ -1,5 +1,7 @@
 import React from 'react';
 import ReviewListItemContainer from './review_list_item_container';
+import RatingStars from '../ratings/rating_stars';
+import RatingPercentages from '../ratings/rating_percentages';
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -47,31 +49,42 @@ class Reviews extends React.Component {
           ))}
         </ul>
       }
+      let trailRating;
       if(this.props.loggedIn) {
-       return <div>
-          <div className="trail-ratings">
-            <ul>
-              {/* {verticalRatings} */}
-            </ul>
-            <div>
-              <h6>RATING</h6>
-              <ul>
-                
-              </ul>
-              <div>numreviews</div>
-            </div>
-            <button
-              onClick={this.handleClick}
-              className="write-review-button"
-            >
-              Write review
-            </button>
+        trailRating = <div className="reviews-header">
+          <RatingPercentages
+            reviews={this.props.reviews}
+            reviewCount={this.props.reviewCount}
+          />
+          <div className="trail-ratings-container">
+            <h6>{this.props.rating}</h6>
+            <RatingStars rating={this.props.rating} />
+            <div>{`${this.props.reviewCount} Reviews`}</div>
           </div>
-          {reviews}
-        </div> 
+          <button
+            onClick={this.handleClick}
+            className="write-review-button"
+          >
+            Write review
+          </button>
+        </div>
       } else {
-        return reviews
+        trailRating = <div className="reviews-header">
+          <RatingPercentages 
+            reviews={this.props.reviews}
+            reviewCount={this.props.reviewCount}
+          />
+          <div className="trail-ratings-container">
+            <h6>{this.props.rating}</h6>
+            <RatingStars rating={this.props.rating} />
+            <div>{`${this.props.reviewCount} Reviews`}</div>
+          </div>
+        </div>
       }
+      return <div>
+        {trailRating}
+        {reviews}
+      </div> 
     }
   }
 }

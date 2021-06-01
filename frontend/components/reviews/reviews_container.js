@@ -18,7 +18,9 @@ const mSTP = (state, ownProps) => {
       visible: ownProps.visible,
       trailId: ownProps.trailId,
       trailTitle: ownProps.trailTitle,
-      loggedIn: !!state.session.id
+      loggedIn: !!state.session.id,
+      rating: ownProps.rating,
+      reviewCount: ownProps.reviewCount
       }
     )
   }
