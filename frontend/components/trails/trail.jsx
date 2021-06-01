@@ -235,7 +235,7 @@ class Trail extends React.Component {
                   <div>
                     <p className={`${prefix}-dif-${this.props.trail.difficulty}`}>{this.props.trail.difficulty}</p>
                     <RatingStars rating={rating} />
-                    <p>{`(${this.props.reviewsCount})`}</p>
+                    <p className="num-ratings-p">{`(${this.props.reviewsCount})`}</p>
                   </div>
                   <p className={`${prefix}-trail-location`}>{this.props.trail.location.split(",")[0].toString()}</p>
                 </div>
