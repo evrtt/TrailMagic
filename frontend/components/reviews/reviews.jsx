@@ -34,6 +34,7 @@ class Reviews extends React.Component {
       return null
     } else {
       let reviews;
+      let rating;
       if (Object.values(this.props.reviews).length === 0) {
         reviews = <div className="empty-reviews">
           Be the first to leave a review on this trail!
@@ -48,10 +49,7 @@ class Reviews extends React.Component {
             />
           ))}
         </ul>
-      }
-      let trailRating;
-      if(this.props.loggedIn) {
-        trailRating = <div className="reviews-header">
+        rating = <div className="reviews-header-content">
           <RatingPercentages
             reviews={this.props.reviews}
             reviewCount={this.props.reviewCount}
@@ -61,30 +59,25 @@ class Reviews extends React.Component {
             <RatingStars rating={this.props.rating} />
             <div>{`${this.props.reviewCount} Reviews`}</div>
           </div>
-          <button
-            onClick={this.handleClick}
-            className="write-review-button"
-          >
-            Write review
-          </button>
-        </div>
-      } else {
-        trailRating = <div className="reviews-header">
-          <RatingPercentages 
-            reviews={this.props.reviews}
-            reviewCount={this.props.reviewCount}
-          />
-          <div className="trail-ratings-container">
-            <h6>{this.props.rating}</h6>
-            <RatingStars rating={this.props.rating} />
-            <div>{`${this.props.reviewCount} Reviews`}</div>
-          </div>
         </div>
       }
-      return <div>
-        {trailRating}
-        {reviews}
-      </div> 
+      let trailRating;
+      if(this.props.loggedIn) {
+         return <div>
+          <div className="reviews-header">
+            {rating}
+            <button onClick={this.handleClick}> Write review </button>
+          </div>
+          {reviews}
+        </div>  
+      } else {
+        return <div>
+          <div className="reviews-header">
+            {rating}
+          </div>
+          {reviews}
+        </div>       
+      }
     }
   }
 }
