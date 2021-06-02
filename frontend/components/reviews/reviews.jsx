@@ -38,7 +38,7 @@ class Reviews extends React.Component {
       if (Object.values(this.props.reviews).length === 0) {
         reviews = <div className="empty-reviews">
           <span>
-            Be the first to leave a review on this trail!
+            Be the first to leave a review on this trail.
           </span>
         </div>
       } else {
