@@ -11,11 +11,13 @@ const mSTP = (state, ownProps) => ({
   rating: ownProps.data.rating,
   trailId: ownProps.data.trailId,
   authorId: ownProps.data.authorId,
-  trailTitle: ownProps.data.trailTitle
+  trailTitle: ownProps.data.trailTitle,
+  id: ownProps.data.id,
+  authorName: Object.values(state.entities.users)[0].username
 })
 
 const mDTP = (dispatch) => ({
-  action: (review) => dispatch(updateReview(review)),
+  action: (review, authorName) => dispatch(updateReview(review, authorName)),
   closeModal: () => dispatch(closeModal())
 })
 

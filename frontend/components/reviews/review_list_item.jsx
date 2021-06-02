@@ -1,6 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from '@fortawesome/free-solid-svg-icons';
 import RatingStars from '../ratings/rating_stars';
 
 class ReviewListItem extends React.Component {
@@ -18,7 +16,9 @@ class ReviewListItem extends React.Component {
       data: Object.assign(
         {}, 
         this.props.review, 
-        {trailTitle: this.props.trailTitle}
+        {
+          trailTitle: this.props.trailTitle,
+        }
       )
     })
   }
@@ -56,8 +56,7 @@ class ReviewListItem extends React.Component {
         ][num]
       )
     }
-    
-    const dateArr = this.props.review.createdAt.split("-")
+    const dateArr = this.props.review.updatedAt.split("-")
     const createdAt = `${month(dateArr[1])} ${dateArr[2].split("T")[0]}, ${dateArr[0]}`
 
     return (
