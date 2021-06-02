@@ -16,7 +16,8 @@ const reviewsReducer = (state = {}, action) => {
       return {};
     case INSERT_REVIEW:
       let newState = Object.assign({}, state)
-      newState[action.review.id] = action.review
+      newState[action.data.review.id] = action.data.review
+      newState[action.data.review.id]['authorName'] = action.data.authorName
       return newState;
     case REMOVE_REVIEW:
       newState = Object.assign({}, state)

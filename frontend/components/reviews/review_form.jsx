@@ -11,7 +11,7 @@ class ReviewForm extends React.Component {
       rating: this.props.rating,
       body: this.props.body,
       authorId: this.props.authorId,
-      trailId: this.props.trailId,
+      trailId: this.props.trailId
     }
 
     this.setRating = this.setRating.bind(this);
@@ -59,12 +59,15 @@ class ReviewForm extends React.Component {
       this.props.action(
         {rating: this.state.rating, body: this.state.body}, this.state.trailId)
     } else if (this.props.formType === 'create') {
-      this.props.action({
-        rating: this.state.rating,
-        body: this.state.body,
-        authorId: this.state.authorId,
-        trailId: this.state.trailId
-      })
+      this.props.action(
+        {
+          rating: this.state.rating,
+          body: this.state.body,
+          authorId: this.state.authorId,
+          trailId: this.state.trailId,
+        },
+        this.props.authorName
+      )
     }
     this.props.closeModal()
   }
