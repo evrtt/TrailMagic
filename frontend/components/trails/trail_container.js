@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
 import Trail from './trail';
 import { fetchAllTrails, 
-  fetchCurrentTrail, 
-  clearTrailPhotos, 
-  fetchTrailPhotos 
+  fetchCurrentTrail
 } from '../../actions/trails_actions';
+import {
+  clearTrailPhotos,
+  fetchTrailPhotos
+} from '../../actions/photo_actions';
 import { 
   switchToPhotos, 
   switchToReviews 

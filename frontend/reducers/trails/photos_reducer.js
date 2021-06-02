@@ -1,4 +1,7 @@
-import { CLEAR_TRAIL_PHOTOS, RECEIVE_TRAIL_PHOTOS } from '../../actions/trails_actions';
+import { 
+  CLEAR_TRAIL_PHOTOS, 
+  RECEIVE_TRAIL_PHOTOS 
+} from '../../actions/photo_actions';
 
 const photosReducer = (state = {}, action) => {
   Object.freeze(state);
