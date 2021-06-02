@@ -13,12 +13,18 @@ export const postReview = (review) => (
   })
 )
 
-export const patchReview = (review, trailId) => {
+export const patchReview = (review) => {
   return (
     $.ajax({
-      url: `/api/trails/${trailId}/reviews/${review.id}`,
+      url: `/api/trails/${review.trailId}/reviews/${review.id}`,
       method: 'PATCH',
-      data: { review }
+      data: 
+        { review: 
+          {
+            body: review.body,
+            rating: review.rating
+          } 
+        }   
     })
   )
 }

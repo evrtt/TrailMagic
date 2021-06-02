@@ -11,7 +11,8 @@ class ReviewForm extends React.Component {
       rating: this.props.rating,
       body: this.props.body,
       authorId: this.props.authorId,
-      trailId: this.props.trailId
+      trailId: this.props.trailId,
+      id: this.props.id
     }
 
     this.setRating = this.setRating.bind(this);
@@ -19,6 +20,7 @@ class ReviewForm extends React.Component {
     this.clearTempRating = this.clearTempRating.bind(this);
     this.setBody = this.setBody.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    console.log(this.props)
   }
 
   setRating(rating) {
@@ -56,8 +58,17 @@ class ReviewForm extends React.Component {
 
   handleSubmit() {
     if(this.props.formType === 'update') {
+      
+      console.log(this.state.id)
       this.props.action(
-        {rating: this.state.rating, body: this.state.body}, this.state.trailId)
+        {
+          rating: this.state.rating, 
+          body: this.state.body, 
+          trailId: this.state.trailId,
+          id: this.state.id
+        },
+        this.props.authorName
+      )
     } else if (this.props.formType === 'create') {
       this.props.action(
         {

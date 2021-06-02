@@ -12,7 +12,7 @@ const mSTP = (state, ownProps) => {
     return (
       {
       reviews: Object.values(state.entities.reviews).sort(
-        (a, b) => a.id < b.id ? 1 : -1
+        (a, b) => Date.parse(a.updatedAt) < Date.parse(b.updatedAt) ? 1 : -1
       ),
       prefix: ownProps.prefix,
       visible: ownProps.visible,

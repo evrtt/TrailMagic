@@ -16,9 +16,9 @@ const removeReview = (reviewId) => ({
   reviewId
 })
 
-const editReview = (review) => ({
+const editReview = (review, authorName) => ({
   type: EDIT_REVIEW,
-  review
+  data: {review, authorName}
 })
 
 const receiveTrailReviews = (reviews) => ({
@@ -49,10 +49,18 @@ export const fetchTrailReviews = (trailId) => dispatch => {
 export const createReview = (review, authorName) => dispatch => {
   reviewsAPIUtil.postReview(review)
     .then(
+      review => dispatch(insertReview(review, authorName)),
+      err => dispatch(receiveErrors(err))
+    )
+}
+
+export const updateReview = (review, authorName) => dispatch => {
+  reviewsAPIUtil.patchReview(review)
+    .then(
       review => {
         console.log(review)
         return (
-          dispatch(insertReview(review, authorName))
+          dispatch(editReview(review, authorName))
         )
       },
       err => {
@@ -61,14 +69,6 @@ export const createReview = (review, authorName) => dispatch => {
           dispatch(receiveErrors(err))
         )
       }
-    )
-}
-
-export const updateReview = (review, trailId) => dispatch => {
-  reviewsAPIUtil.patchReview(review, trailId)
-    .then(
-      review => dispatch(editReview(review)),
-      err => dispatch(receiveErrors(err))
     )
 }
 

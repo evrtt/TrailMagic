@@ -9,7 +9,6 @@ const mSTP = (state, ownProps) => ({
   loggedIn: !!state.session.id,
   isAuthor: state.session.id === ownProps.review.authorId,
   trailTitle: ownProps.trailTitle
-
 })
 
 const mDTP = (dispatch) => ({
