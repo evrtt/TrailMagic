@@ -37,7 +37,9 @@ class Reviews extends React.Component {
       let rating;
       if (Object.values(this.props.reviews).length === 0) {
         reviews = <div className="empty-reviews">
-          Be the first to leave a review on this trail!
+          <span>
+            Be the first to leave a review on this trail!
+          </span>
         </div>
       } else {
         reviews = <ul className={`${this.props.prefix}-reviews-container-${this.props.visible}`}>
@@ -61,15 +63,23 @@ class Reviews extends React.Component {
           </div>
         </div>
       }
-      let trailRating;
       if(this.props.loggedIn) {
-         return <div>
-          <div className="reviews-header">
-            {rating}
-            <button onClick={this.handleClick}> Write review </button>
-          </div>
-          {reviews}
-        </div>  
+         if(rating) {
+          return <div>
+            <div className="reviews-header">
+              {rating}
+              <button onClick={this.handleClick}> Write review </button>
+            </div>
+            {reviews}
+          </div>  
+         } else {
+           return <div>
+             <div className="button-only-header">
+               <button onClick={this.handleClick}> Write review </button>
+             </div>
+             {reviews}
+           </div>
+         }
       } else {
         return <div>
           <div className="reviews-header">
