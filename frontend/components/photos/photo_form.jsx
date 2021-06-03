@@ -98,9 +98,9 @@ class PhotosForm extends React.Component {
       );
       browseFiles = (
         <button onClick={this.openFile} className="browse-files-container">
-          <FontAwesomeIcon icon={faCamera} className="inner-camera" />
+          <FontAwesomeIcon icon={faCamera} className="browse-camera" />
           <span>
-            Browse files
+            Choose a file to upload
           </span>
           <p>
             PNG, JPG, or JPEG
