@@ -1,5 +1,88 @@
 .upload-photos-form {
   background-color: white;
-  width: 300px;
-  height: 400px;
+  width: 400px;
+  height: 600px;
+  padding: 40px 30px 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+
+  label {
+    width: 100%;
+    text-align: left;
+    font-size: 32px;
+    font-weight: 600;
+    color: rgb(122, 122, 122);
+    font-family: 'Montserrat', Sans-Serif;
+    margin-top: 20px;
+  }
+
+  input {
+    border: solid 1px lightgrey;
+    background-color: none;
+    padding: 30px 58px 30px 58px ;
+    border-radius: 8px;
+  }
+
+}
+
+.photos-buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  
+}
+
+.photos-button-cancel {
+  border: none;
+  background: none;
+  color: green;
+  font-family: 'Montserrat', Sans-Serif;
+  margin: 10px 30px 10px 30px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.photos-button-cancel:hover {
+  color: rgb(136, 196, 136);
+}
+
+.photos-button-ready {
+  border: none;
+  background-color: green;
+  color: white;
+  font-family: 'Montserrat', Sans-Serif;
+  padding: 10px 30px 10px 30px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.photos-button-ready:hover {
+  background-color: rgb(0, 153, 0);
+}
+
+.photos-button-not-ready {
+  border: none;
+  background-color: rgb(136, 196, 136);
+  color: white;
+  font-family: 'Montserrat', Sans-Serif;
+  padding: 10px 30px 10px 30px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: auto;
+}
+
+.image-preview {
+  img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
 }

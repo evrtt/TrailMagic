@@ -47,7 +47,7 @@ class PhotosForm extends React.Component {
   render() {
     let preview;
     if(this.state.photoURL) {
-      preview = <div>
+      preview = <div className="image-preview">
         <img src={this.state.photoURL}/> 
       </div>
     } else {
@@ -84,6 +84,7 @@ class PhotosForm extends React.Component {
         <input
           type="file"
           onChange={this.handleFile}
+          style={{display: "hidden"}}
         />
         {submitButton}
       </form>
