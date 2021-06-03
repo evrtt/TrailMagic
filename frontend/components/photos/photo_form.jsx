@@ -8,50 +8,53 @@ class PhotosForm extends React.Component {
 
     this.state = {
       trailId: this.props.trailId,
-      photoFile: null
+      photoFile: null,
+      photoURL: null
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
-
+    this.clearAddedPhotos = this.clearAddedPhotos.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('photo[photoFile]')
-    this.props.
+    formData.append('photo', this.state.photoFile)
+    this.props.action(formData, this.props.trailId)
     this.props.closeModal()
   }
 
   handleFile(e) {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
+    debugger
     fileReader.onloadend = () => {
-      this.setState
+      this.setState({photoFile: file, photoURL: fileReader.result})
     }
-    this.setState({
-      photoFiles: file
-    })
+    if(file) {
+      fileReader.readAsDataURL(file);
+    }
   }
 
   clearAddedPhotos() {
     this.setState({
-      photoFiles: []
+      photoFile: null,
+      photoURL: null
     })
   }
 
   render() {
-    console.log(this.state.photoFiles.length === 0)
-    let submitButton;
-    if(this.state.photoFiles.length === 0) {
-      submitButton = <div className='photos-buttons-container'>
-        <button className='photos-button-not-ready'>
-          Upload 
-        </button>
+    let preview;
+    if(this.state.photoURL) {
+      preview = <div>
+        <img src={this.state.photoURL}/> 
       </div>
-      
     } else {
+      preview = null
+    }
+    let submitButton;
+    if(this.state.photoFile) {
       submitButton = <div className='photos-buttons-container'>
         <button
           className='photos-button-cancel'
@@ -63,15 +66,22 @@ class PhotosForm extends React.Component {
           className='photos-button-ready'
           onClick={this.handleSubmit}
         >
-          {`Upload (${this.state.photoFiles.length})`}
+          Upload
+        </button>
+      </div>
+    } else {
+      submitButton = <div className='photos-buttons-container'>
+        <button className='photos-button-not-ready'>
+          Upload 
         </button>
       </div>
       
     }
     return (
       <form className="upload-photos-form">
-        <label>Upload photos</label>
-        <input 
+        <label>Upload photo</label>
+        {preview}
+        <input
           type="file"
           onChange={this.handleFile}
         />

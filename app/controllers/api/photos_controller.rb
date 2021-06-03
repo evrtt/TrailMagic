@@ -13,7 +13,7 @@ class Api::PhotosController < ApplicationController
   def create
     @trail = Trail.find_by(id: params[:trail_id])
       if @trail
-        @trail.photos.attach(params[:photos])
+        @trail.photos.attach(params[:photo])
         @photo = @trail.photos.last
         render "/api/photos/show"
       else
