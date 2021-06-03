@@ -1,8 +1,8 @@
 .upload-photos-form {
   background-color: white;
   width: 400px;
-  height: 600px;
-  padding: 40px 30px 40px 30px;
+  height: 640px;
+  padding: 10px 40px 10px 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -16,14 +16,15 @@
     font-weight: 600;
     color: rgb(122, 122, 122);
     font-family: 'Montserrat', Sans-Serif;
-    margin-top: 20px;
+    margin: 20px 0 20px 0;
   }
 
   input {
     border: solid 1px lightgrey;
     background-color: none;
-    padding: 30px 58px 30px 58px ;
+    padding: 12px 73px 12px 73px ;
     border-radius: 8px;
+    margin-top: 10px;
   }
 
 }
@@ -34,7 +35,8 @@
   justify-content: flex-end;
   align-items: center;
   width: 100%;
-  
+  margin: 20px 0 20px 0;
+
 }
 
 .photos-button-cancel {

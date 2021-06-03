@@ -14,12 +14,12 @@
   height: fit-content;
   
   .reviews-header-content {
-    height: 160px;
+    height: 120px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 60%;
+    width: 58%;
   }
 
 
@@ -69,12 +69,12 @@
   span {
     background-color: rgb(245, 245, 245);
     border-radius: 8px;
-    margin: 20px 0 20px 0;
-    font-size: 14px;
-    font-family: 'Montserrat', Sans-Serif;
+    margin: 40px 0 40px 0;
+    font-size: 18px;
     width: fit-content;
     padding: 15px;
     border: solid 1px lightgrey;
+    font-family: Arial, Helvetica, sans-serif;
   }
 }
 
@@ -84,7 +84,7 @@
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  height: 80px;
+  height: 120px;
   margin: 0 20px 0 20px;
   border-bottom: lightgrey solid 1px;
 
@@ -100,4 +100,33 @@
   button:hover {
     background-color: rgb(0, 152, 0);
   }
+}
+
+.empty-reviews-link {
+  color: green;
+}
+
+.empty-reviews-link:hover {
+  color: rgb(0, 189, 0);
+}
+
+.full-reviews-logged-out {
+  padding: 10px;
+  background-color: rgb(235, 235, 235);
+  border-radius: 8px;
+  border: solid 1px lightgrey;
+  color: rgb(83, 83, 83);
+  font-size: 18px;
+  font-weight: 500;
+  width: 150px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 20px;
+}
+
+.full-reviews-link {
+  color: green;
+}
+
+.full-reviews-link:hover {
+  color: rgb(0, 187, 0);
 }

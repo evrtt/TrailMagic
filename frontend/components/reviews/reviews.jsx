@@ -2,6 +2,8 @@ import React from 'react';
 import ReviewListItemContainer from './review_list_item_container';
 import RatingStars from '../ratings/rating_stars';
 import RatingPercentages from '../ratings/rating_percentages';
+import { Link } from 'react-router-dom'
+
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -45,7 +47,15 @@ class Reviews extends React.Component {
         } else {
           reviews = reviews = <div className="empty-reviews">
             <span>
-              Log in or sign up and be the first to leave a review on this trail.
+              <Link to='/signup' className="empty-reviews-link">
+                Sign up
+              </Link>
+              {" or "} 
+              <Link to='/login' className="empty-reviews-link">
+                log in 
+              </Link>
+
+              {" and be the first to leave a review on this trail."}
             </span>
           </div>
         }
@@ -93,6 +103,17 @@ class Reviews extends React.Component {
           return <div>
             <div className="reviews-header">
               {rating}
+              <span className="full-reviews-logged-out">
+                <Link to='/signup' className="full-reviews-link">
+                  Sign up
+              </Link>
+                {" or "}
+                <Link to='/login' className="full-reviews-link">
+                  log in
+              </Link>
+
+                {" to write a review."}
+              </span>
             </div>
             {reviews}
           </div>       
