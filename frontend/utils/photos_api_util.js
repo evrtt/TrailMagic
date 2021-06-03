@@ -5,17 +5,19 @@ export const fetchTrailPhotos = (trailId) => (
   })
 )
 
-export const postPhotos = (photos, trailId) => (
+export const postPhotos = (formData, trailId) => (
   $.ajax({
     url: `/api/trails/${trailId}/photos`,
     method: 'POST',
-    data: {photos}
+    data: formData,
+    contentType: false,
+    processData: false
   })
 )
 
-export const destroyPhoto = (photoId, trailId) => (
+export const destroyPhotos = (photoId, trailId) => (
   $.ajax({
-    url: `/api/trails/${trailId}/photos`,
+    url: `/api/trails/${trailId}/photos/${photoId}`,
     method: 'DESTROY'
   })
 )

@@ -9,7 +9,7 @@ import {
   faMapSigns,
   faSearch
 } from '@fortawesome/free-solid-svg-icons';
-import TrailPhotosContainer from './trail_photos_container';
+import TrailPhotosContainer from '../photos/trail_photos_container';
 import { StaticMap } from 'react-map-gl';
 import TrailIndexContainer from '../trails/trail_index_container';
 import { Link } from 'react-router-dom';

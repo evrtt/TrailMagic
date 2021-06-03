@@ -34,4 +34,5 @@ class Api::TrailsController < ApplicationController
       render json: ["Something went wrong. Please try again"], status: 500
     end
   end
+  
 end
