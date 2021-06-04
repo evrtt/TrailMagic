@@ -4,15 +4,12 @@ import { Link, Route, Switch } from 'react-router-dom'
 import LoginFormContainer from './session/login_form_container';
 import SignUpFormContainer from './session/signup_form_container';
 import { 
-  AuthRoute, 
-  ProtectedRoute,
   RedirectorRoute
 } from '../utils/route_util';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
   faGithub, 
   faLinkedin, 
-  faLinkedinIn 
 } from '@fortawesome/free-brands-svg-icons';
 import HeaderLogo from './header_logo';
 import SplashContainer from './splash/splash_container';

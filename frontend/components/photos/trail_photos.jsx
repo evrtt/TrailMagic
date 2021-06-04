@@ -20,6 +20,8 @@ class TrailPhotos extends React.Component {
     )
   }
 
+  showPhoto()
+
   render() {
 
     let photosHeaderBlurb = <div className="photos-header-blurb">
@@ -80,6 +82,7 @@ class TrailPhotos extends React.Component {
                     <li
                       key={`photo-${idx + 1}`}
                       className={`${this.props.prefix}-photo-li`}
+                      onClick={this.showPhoto(url, this.props.trailId)}
                     >
                       <img
                         src={url}

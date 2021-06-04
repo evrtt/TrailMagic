@@ -7,7 +7,8 @@ const mSTP = (state, ownProps) => ({
   prefix: ownProps.prefix,
   visible: ownProps.visible,
   loggedIn: !!state.session.id,
-  trailId: ownProps.trailId
+  trailId: ownProps.trailId,
+  trailName: ownProps.trailName
 })
 
 const mDTP = (dispatch) => ({

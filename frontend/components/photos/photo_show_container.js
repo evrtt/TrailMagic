@@ -1,10 +1,13 @@
 import { connect } from 'react-redux';
-import PhotoForm from './photo_form';
+import PhotoShow from './photo_show';
 import { destroyPhoto } from '../../actions/photo_actions';
 import { closeModal } from '../../actions/modal_actions';
 
 const mSTP = (state, ownProps) => ({
-  photos: ownProps.data.photos
+  trailTitle: ownProps.data.trailTitle,
+  trailId: ownProps.data.trailId,
+  photos: ownProps.data.photos,
+  currentPhoto: ownProps.data.currentPhoto
 })
 
 const mDTP = (dispatch) => ({
@@ -12,4 +15,4 @@ const mDTP = (dispatch) => ({
   closeModal: () => dispatch(closeModal())
 })
 
-export default connect(mSTP, mDTP)(PhotoForm)
+export default connect(mSTP, mDTP)(PhotoShow)

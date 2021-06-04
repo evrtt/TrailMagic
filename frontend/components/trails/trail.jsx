@@ -300,12 +300,14 @@ class Trail extends React.Component {
                       <TrailPhotosContainer 
                         prefix={prefix} 
                         trailId={this.props.trail.id}
+                        trailTitle={this.props.trail.title}
                         visible={"visible"}
                       />
                       ) : (
                       <TrailPhotosContainer 
                         prefix={prefix} 
                         trailId={this.props.trail.id}
+                        trailTitle={this.props.trail.title}
                         visible={"hidden"}
                       />                      
                     )}
