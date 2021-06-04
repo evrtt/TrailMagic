@@ -20,7 +20,7 @@ import ModalContainer from './modal/modal_container';
 
 
 export default () => (
-  <section className={`main${suffix}`}>
+  <section className="main">
     <ModalContainer />
     <header className="site-header">
         <nav className="header-nav">
@@ -31,7 +31,7 @@ export default () => (
         <HeaderLogo />
         <WelcomeContainer />
     </header>
-    <section className={`main-section${suffix}`}>
+    <section className="main-section">
       <Switch>
         <RedirectorRoute exact path='/signup' component={SignUpFormContainer} />
         <RedirectorRoute exact path='/login' component={LoginFormContainer} />

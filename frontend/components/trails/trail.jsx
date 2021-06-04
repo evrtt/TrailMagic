@@ -122,7 +122,6 @@ class Trail extends React.Component {
 
   render () {
     let prefix = this.state.mapView ? "mapview" : "standard-view"
-    console.log(mainClass)
     let rating;
     if (Object.values(this.props.reviews).length === 0) {
       rating = 0;
