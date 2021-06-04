@@ -2,6 +2,8 @@ import React from 'react';
 import ReviewListItemContainer from './review_list_item_container';
 import RatingStars from '../ratings/rating_stars';
 import RatingPercentages from '../ratings/rating_percentages';
+import { Link } from 'react-router-dom'
+
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -36,11 +38,27 @@ class Reviews extends React.Component {
       let reviews;
       let rating;
       if (Object.values(this.props.reviews).length === 0) {
-        reviews = <div className="empty-reviews">
-          <span>
-            Be the first to leave a review on this trail.
-          </span>
-        </div>
+        if (this.props.loggedIn) {
+          reviews = <div className="empty-reviews">
+            <span>
+              Be the first to leave a review on this trail.
+            </span>
+          </div>
+        } else {
+          reviews = reviews = <div className="empty-reviews">
+            <span>
+              <Link to='/signup' className="empty-reviews-link">
+                Sign up
+              </Link>
+              {" or "} 
+              <Link to='/login' className="empty-reviews-link">
+                log in 
+              </Link>
+
+              {" and be the first to leave a review on this trail."}
+            </span>
+          </div>
+        }
       } else {
         reviews = <ul className={`${this.props.prefix}-reviews-container-${this.props.visible}`}>
           {this.props.reviews.map((review, idx) => (
@@ -81,12 +99,32 @@ class Reviews extends React.Component {
            </div>
          }
       } else {
-        return <div>
-          <div className="reviews-header">
-            {rating}
+        if(rating) {
+          return <div>
+            <div className="reviews-header">
+              {rating}
+              <span className="full-reviews-logged-out">
+                <Link to='/signup' className="full-reviews-link">
+                  Sign up
+              </Link>
+                {" or "}
+                <Link to='/login' className="full-reviews-link">
+                  log in
+              </Link>
+
+                {" to write a review."}
+              </span>
+            </div>
+            {reviews}
+          </div>       
+        } else {
+          return <div>
+            <div className="reviews-header-empty">
+              {rating}
+            </div>
+            {reviews}
           </div>
-          {reviews}
-        </div>       
+        }
       }
     }
   }

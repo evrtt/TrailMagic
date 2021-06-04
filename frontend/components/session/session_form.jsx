@@ -20,9 +20,6 @@ class SessionForm extends React.Component {
     if (Array.isArray(this.props.errors)) {
       this.props.clearErrors();
     }
-  }
-
-  componentDidMount() {
     window.scrollTo(0, 0)
   }
 

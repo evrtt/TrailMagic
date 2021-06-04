@@ -1,3 +1,85 @@
 // Place all the styles related to the api/photos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.photos-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: solid 1px lightgrey;
+  margin: 0 20px 0 20px;
+  height: 120px;
+
+  button {
+    border: none;
+    background-color: green;
+    font-size: 18px;
+    color: white;
+    padding: 10px 40px 10px 40px;
+    border-radius: 8px;
+    width: fit-content;
+  }
+
+  button:hover {
+    background-color: rgb(0, 153, 0);
+  }
+}
+
+.photos-header-logged-out{
+  height: 120px;
+  margin: 0 20px 0 20px;
+  border-bottom: solid 1px lightgrey;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+    
+  .photos-header-logged-out-links {
+    padding: 10px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 8px;
+    border: solid 1px lightgrey;
+    color: rgb(71, 71, 71);
+    font-size: 18px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 20px;
+    width: 150px;
+    text-align: left;
+  }
+}
+
+.photos-signed-out-link {
+  color: green;
+}
+
+.photos-signed-out-link:hover {
+  color: rgb(0, 185, 0);
+}
+
+.photos-header-blurb {
+  width: 55%;
+  background-color: none;
+  border: none;
+  text-align: left;
+  margin-right: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: rgb(65, 65, 65);
+  }
+
+  span {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(92, 92, 92);
+    font-weight: 200;
+    margin-top: 10px;
+    line-height: 18px;
+  }
+}

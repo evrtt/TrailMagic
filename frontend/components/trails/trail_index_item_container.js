@@ -8,7 +8,7 @@ import {
 import { 
   clearTrailPhotos, 
   fetchTrailPhotos 
-} from '../../actions/trails_actions';
+} from '../../actions/photo_actions';
 import { 
   fetchTrailReviews, 
   clearTrailReviews 

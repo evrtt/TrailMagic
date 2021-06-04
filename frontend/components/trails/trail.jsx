@@ -9,7 +9,7 @@ import {
   faMapSigns,
   faSearch
 } from '@fortawesome/free-solid-svg-icons';
-import TrailPhotosContainer from './trail_photos_container';
+import TrailPhotosContainer from '../photos/trail_photos_container';
 import { StaticMap } from 'react-map-gl';
 import TrailIndexContainer from '../trails/trail_index_container';
 import { Link } from 'react-router-dom';
@@ -121,7 +121,8 @@ class Trail extends React.Component {
   }
 
   render () {
-
+    let prefix = this.state.mapView ? "mapview" : "standard-view"
+    console.log(mainClass)
     let rating;
     if (Object.values(this.props.reviews).length === 0) {
       rating = 0;
@@ -178,167 +179,163 @@ class Trail extends React.Component {
     if (this.props.trail === undefined) {
       return <div></div>
     } else {
-      let prefix;
-      if (this.state.mapView) {
-      return <div></div>
-      } else if (!this.state.mapView) {
-        prefix = "standard-view"
-        return (
-          <div 
-            className={`${prefix}-grey-background`}
-            onClick={this.hideSearchList}
-          >
-            <div className={`${prefix}-trail-page-no-map`}>
-              <nav className={`${prefix}-trail-page-nav`}>
-                <div 
-                  className={`${prefix}-nav-spans`}
-                  onClick={this.hideSearchList}
-                >
-                  {this.props.trail.location.split(',').map( el =>
-                    <span>{el.toString()}</span>
+      return (
+        <div 
+          className={`${prefix}-grey-background`}
+          onClick={this.hideSearchList}
+        >
+          <div className={`${prefix}-trail-page-no-map`}>
+            <nav className={`${prefix}-trail-page-nav`}>
+              <div 
+                className={`${prefix}-nav-spans`}
+                onClick={this.hideSearchList}
+              >
+                {this.props.trail.location.split(',').map( el =>
+                  <span>{el.toString()}</span>
+                )}
+              </div>
+              <div 
+                className="trailpage-search-container"
+                onClick={e => e.stopPropagation()}
+              >
+                <form>
+                  <input 
+                    type="text"
+                    value={this.state.input}
+                    placeholder="Search by trail name"
+                    onChange={this.search()}
+                  />
+                  <button
+                    onClick={this.linkToTrail()}
+                  >
+                    <FontAwesomeIcon icon={faSearch}/>
+                  </button>
+                </form>
+                <div className={`${this.state.prefix}-trailpage-search-list`}>
+                  {searchList}
+                </div>
+              </div>
+            </nav>
+            <div 
+              className={`${prefix}-trail-page-header`}
+              style={{ 
+                backgroundImage: `url(${this.props.trail.mainPhotoURL})`, 
+                backgroundSize: "cover",
+                backgroundPosition: "center top 50%",
+                backgroundRepeat: "no-repeat"
+              }}
+              onClick={this.hideSearchList}
+            >
+              <div className={`${prefix}-trail-page-header-content`}>
+                <h1>{this.props.trail.title}</h1>
+                <div>
+                  <p className={`${prefix}-dif-${this.props.trail.difficulty}`}>{this.props.trail.difficulty}</p>
+                  <RatingStars rating={rating} />
+                  <p className="num-ratings-p">{`(${this.props.reviewsCount})`}</p>
+                </div>
+                <p className={`${prefix}-trail-location`}>{this.props.trail.location.split(",")[0].toString()}</p>
+              </div>
+            </div>
+            <div 
+              className={`${prefix}-green-bar`}
+              onClick={this.hideSearchList}
+            >
+            </div>
+            <div 
+              className={`${prefix}-trail-page-content`}
+              onClick={this.hideSearchList}
+            >
+              <div className={`${prefix}-trail-page-content-left`}>
+                <p className={`${prefix}-description`}>{this.props.trail.description}</p>
+                <div className={`${prefix}-content-spans`}>
+                  <div>
+                    <p>Length</p>
+                    <span> {this.props.trail.length} Mi</span>
+                  </div>
+                  <div>
+                    <p>Elevation gain</p>
+                    <span>{this.props.trail.elevationGain}</span>
+                  </div>
+                  <div>
+                    <p>Route type</p>
+                    <span>{this.props.trail.routeType}</span>
+                  </div>
+                </div>
+                <nav className={`${prefix}-content-left-nav`}>
+                  <button 
+                    className={`${prefix}-${reviewsBtn}`}
+                    onClick={this.props.switchToReviews}
+                  >{`Reviews (${this.props.reviewsCount})`}</button>
+                  <button 
+                    className={`${prefix}-${photosBtn}`}
+                    onClick={this.props.switchToPhotos}
+                  >{`Photos (${this.props.photosCount})`}</button>
+                </nav>
+                <div className={`${prefix}-${this.props.reviewsOrPhotos}-content`}>
+                  {this.props.reviewsOrPhotos === "reviews" ? (
+                    <TrailReviewsContainer 
+                      prefix={prefix}
+                      trailId={this.props.trail.id}
+                      trailTitle={this.props.trail.title}
+                      visible={"visible"}
+                      rating={rating}
+                      reviewCount={this.props.reviewsCount}
+                    />
+                  ) : (
+                    <TrailReviewsContainer
+                      prefix={prefix}
+                      trailId={this.props.trail.id}
+                      trailTitle={this.props.trail.title}
+                      visible={"hidden"}
+                      rating={rating}
+                      reviewCount={this.props.reviewsCount}
+
+                    />
+                  )}
+                  {this.props.reviewsOrPhotos === "photos" ? (
+                    <TrailPhotosContainer 
+                      prefix={prefix} 
+                      trailId={this.props.trail.id}
+                      trailTitle={this.props.trail.title}
+                      visible={"visible"}
+                    />
+                    ) : (
+                    <TrailPhotosContainer 
+                      prefix={prefix} 
+                      trailId={this.props.trail.id}
+                      trailTitle={this.props.trail.title}
+                      visible={"hidden"}
+                    />                      
                   )}
                 </div>
-                <div 
-                  className="trailpage-search-container"
-                  onClick={e => e.stopPropagation()}
-                >
-                  <form>
-                    <input 
-                      type="text"
-                      value={this.state.input}
-                      placeholder="Search by trail name"
-                      onChange={this.search()}
-                    />
-                    <button
-                      onClick={this.linkToTrail()}
-                    >
-                      <FontAwesomeIcon icon={faSearch}/>
-                    </button>
-                  </form>
-                  <div className={`${this.state.prefix}-trailpage-search-list`}>
-                    {searchList}
-                  </div>
-                </div>
-              </nav>
-              <div 
-                className={`${prefix}-trail-page-header`}
-                style={{ 
-                  backgroundImage: `url(${this.props.trail.mainPhotoURL})`, 
-                  backgroundSize: "cover",
-                  backgroundPosition: "center top 50%",
-                  backgroundRepeat: "no-repeat"
-                }}
-                onClick={this.hideSearchList}
-              >
-                <div className={`${prefix}-trail-page-header-content`}>
-                  <h1>{this.props.trail.title}</h1>
-                  <div>
-                    <p className={`${prefix}-dif-${this.props.trail.difficulty}`}>{this.props.trail.difficulty}</p>
-                    <RatingStars rating={rating} />
-                    <p className="num-ratings-p">{`(${this.props.reviewsCount})`}</p>
-                  </div>
-                  <p className={`${prefix}-trail-location`}>{this.props.trail.location.split(",")[0].toString()}</p>
-                </div>
               </div>
-              <div 
-                className={`${prefix}-green-bar`}
-                onClick={this.hideSearchList}
-              >
-              </div>
-              <div 
-                className={`${prefix}-trail-page-content`}
-                onClick={this.hideSearchList}
-              >
-                <div className={`${prefix}-trail-page-content-left`}>
-                  <p className={`${prefix}-description`}>{this.props.trail.description}</p>
-                  <div className={`${prefix}-content-spans`}>
-                    <div>
-                      <p>Length</p>
-                      <span> {this.props.trail.length} Mi</span>
-                    </div>
-                    <div>
-                      <p>Elevation gain</p>
-                      <span>{this.props.trail.elevationGain}</span>
-                    </div>
-                    <div>
-                      <p>Route type</p>
-                      <span>{this.props.trail.routeType}</span>
-                    </div>
-                  </div>
-                  <nav className={`${prefix}-content-left-nav`}>
-                    <button 
-                      className={`${prefix}-${reviewsBtn}`}
-                      onClick={this.props.switchToReviews}
-                    >{`Reviews (${this.props.reviewsCount})`}</button>
-                    <button 
-                      className={`${prefix}-${photosBtn}`}
-                      onClick={this.props.switchToPhotos}
-                    >{`Photos (${this.props.photosCount})`}</button>
-                  </nav>
-                  <div className={`${prefix}-${this.props.reviewsOrPhotos}-content`}>
-                    {this.props.reviewsOrPhotos === "reviews" ? (
-                      <TrailReviewsContainer 
-                        prefix={prefix}
-                        trailId={this.props.trail.id}
-                        trailTitle={this.props.trail.title}
-                        visible={"visible"}
-                        rating={rating}
-                        reviewCount={this.props.reviewsCount}
-                      />
-                    ) : (
-                      <TrailReviewsContainer
-                        prefix={prefix}
-                        trailId={this.props.trail.id}
-                        trailTitle={this.props.trail.title}
-                        visible={"hidden"}
-                        rating={rating}
-                        reviewCount={this.props.reviewsCount}
-
-                      />
-                    )}
-                    {this.props.reviewsOrPhotos === "photos" ? (
-                      <TrailPhotosContainer 
-                        prefix={prefix} 
-                        trailId={this.props.trail.id}
-                        visible={"visible"}
-                      />
-                      ) : (
-                      <TrailPhotosContainer 
-                        prefix={prefix} 
-                        trailId={this.props.trail.id}
-                        visible={"hidden"}
-                      />                      
-                    )}
-                  </div>
+              <div className={`${prefix}-trail-page-content-right`}>
+                <div className={`${prefix}-static-map`}>
+                  <StaticMap 
+                    width="100%"
+                    height="100%"
+                    latitude={this.props.trail.routeCoords[0][0]}
+                    longitude={this.props.trail.routeCoords[0][1]}
+                    zoom={12}
+                    mapStyle="mapbox://styles/mapbox/outdoors-v11"
+                    mapboxApiAccessToken={window.mapAPIKey}
+                  />
+                  <FontAwesomeIcon
+                    icon={faMapMarkerAlt}
+                    style={{position: 'relative', top: "-55%", left: '47%', color: "blue"}}
+                  />
                 </div>
-                <div className={`${prefix}-trail-page-content-right`}>
-                  <div className={`${prefix}-static-map`}>
-                    <StaticMap 
-                      width="100%"
-                      height="100%"
-                      latitude={this.props.trail.routeCoords[0][0]}
-                      longitude={this.props.trail.routeCoords[0][1]}
-                      zoom={12}
-                      mapStyle="mapbox://styles/mapbox/outdoors-v11"
-                      mapboxApiAccessToken={window.mapAPIKey}
-                    />
-                    <FontAwesomeIcon
-                      icon={faMapMarkerAlt}
-                      style={{position: 'relative', top: "-55%", left: '47%', color: "blue"}}
-                    />
-                  </div>
-                  {this.props.trails.map}
-                  <div>
-                    <TrailIndexContainer from="sidebar" currentTrailId={this.props.currentTrail}/>
-                  </div>
+                {this.props.trails.map}
+                <div>
+                  <TrailIndexContainer from="sidebar" currentTrailId={this.props.currentTrail}/>
                 </div>
               </div>
             </div>
           </div>
-        )
-      }
-    }  
-  }
+        </div>
+      )
+    }
+  }  
 }
 
 export default Trail;
