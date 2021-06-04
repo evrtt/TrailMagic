@@ -33,6 +33,20 @@
   border-bottom: 1px rgb(223, 223, 223) solid;
 }
 
+.standard-view-trail-page-no-map-no-scroll {
+  max-width: 1024px;
+  width: auto;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  background-color: rgb(243, 243, 243);
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px rgb(223, 223, 223) solid;
+  overflow: hidden;
+}
+
 .standard-view-trail-page-nav{
   display: flex;
   justify-content: space-between;
@@ -280,6 +294,7 @@
   object-fit: cover;
   object-position: center;
   border-radius: 8px;
+  cursor: pointer;
 
 }
 

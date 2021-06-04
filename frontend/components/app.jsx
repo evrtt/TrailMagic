@@ -9,7 +9,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
   faGithub, 
-  faLinkedin, 
+  faLinkedin 
 } from '@fortawesome/free-brands-svg-icons';
 import HeaderLogo from './header_logo';
 import SplashContainer from './splash/splash_container';
@@ -20,7 +20,7 @@ import ModalContainer from './modal/modal_container';
 
 
 export default () => (
-  <section className="main">
+  <section className={`main${suffix}`}>
     <ModalContainer />
     <header className="site-header">
         <nav className="header-nav">
@@ -31,7 +31,7 @@ export default () => (
         <HeaderLogo />
         <WelcomeContainer />
     </header>
-    <section className="main-section">
+    <section className={`main-section${suffix}`}>
       <Switch>
         <RedirectorRoute exact path='/signup' component={SignUpFormContainer} />
         <RedirectorRoute exact path='/login' component={LoginFormContainer} />

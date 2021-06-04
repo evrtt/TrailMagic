@@ -5,7 +5,8 @@ class TrailPhotos extends React.Component {
   constructor(props) {
     super(props)
 
-    this.handleClick = this.handleClick.bind(this)
+    this.handleClick = this.handleClick.bind(this);
+    this.showPhoto = this.showPhoto.bind(this);
   }
 
   handleClick(trailId) {
@@ -20,7 +21,20 @@ class TrailPhotos extends React.Component {
     )
   }
 
-  showPhoto()
+  showPhoto(idx) {
+    return (e) => {
+      e.preventDefault();
+      this.props.openModal({
+        type: 'showPhoto',
+        data: {
+          trailTitle: this.props.trailTitle,
+          trailId: this.props.trailId,
+          photos: this.props.photoURLs,
+          currentPhoto: idx
+        }
+      })
+    }
+  }
 
   render() {
 
@@ -82,7 +96,7 @@ class TrailPhotos extends React.Component {
                     <li
                       key={`photo-${idx + 1}`}
                       className={`${this.props.prefix}-photo-li`}
-                      onClick={this.showPhoto(url, this.props.trailId)}
+                      onClick={this.showPhoto(idx)}
                     >
                       <img
                         src={url}
