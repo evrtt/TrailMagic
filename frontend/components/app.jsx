@@ -3,9 +3,17 @@ import WelcomeContainer from './session/welcome_container';
 import { Link, Route, Switch } from 'react-router-dom'
 import LoginFormContainer from './session/login_form_container';
 import SignUpFormContainer from './session/signup_form_container';
-import { AuthRoute, ProtectedRoute } from '../utils/route_util';
+import { 
+  AuthRoute, 
+  ProtectedRoute,
+  RedirectorRoute
+} from '../utils/route_util';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faLinkedin, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { 
+  faGithub, 
+  faLinkedin, 
+  faLinkedinIn 
+} from '@fortawesome/free-brands-svg-icons';
 import HeaderLogo from './header_logo';
 import SplashContainer from './splash/splash_container';
 import TrailIndexContainer from './trails/trail_index_container';
@@ -28,8 +36,8 @@ export default () => (
     </header>
     <section className="main-section">
       <Switch>
-        <AuthRoute exact path='/signup' component={SignUpFormContainer} />
-        <AuthRoute exact path='/login' component={LoginFormContainer} />
+        <RedirectorRoute exact path='/signup' component={SignUpFormContainer} />
+        <RedirectorRoute exact path='/login' component={LoginFormContainer} />
         <Route exact path='/' component={SplashContainer} />
         <Route exact path='/trails' component={TrailIndexContainer} />
         <Route path='/trails/:trailId' component={TrailContainer} />

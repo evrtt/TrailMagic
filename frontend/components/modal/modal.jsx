@@ -2,6 +2,7 @@ import React from 'react';
 import CreateReviewFormContainer from '../reviews/create_review_form_container';
 import UpdateReviewFormContainer from '../reviews/update_review_form_containter';
 import PhotoFormContainer from '../photos/photo_form_container';
+import PhotoShowContainer from '../photos/photo_show_container'
 
 const Modal = ({modal, data, closeModal}) => {
   if (!modal) {
@@ -20,6 +21,9 @@ const Modal = ({modal, data, closeModal}) => {
       break;
     case 'uploadPhotos':
       component = <PhotoFormContainer data={data}/>;
+      break;
+    case 'showPhoto':
+      component = <PhotoShowContainer data={data}/>;
       break;
     default:
       return null;
