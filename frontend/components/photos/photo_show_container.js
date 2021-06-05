@@ -7,7 +7,9 @@ const mSTP = (state, ownProps) => ({
   trailTitle: ownProps.data.trailTitle,
   trailId: ownProps.data.trailId,
   photos: ownProps.data.photos,
-  currentPhoto: ownProps.data.currentPhoto
+  currentPhoto: ownProps.data.currentPhoto,
+  width: state.ui.window.width,
+  height: state.ui.window.height
 })
 
 const mDTP = (dispatch) => ({

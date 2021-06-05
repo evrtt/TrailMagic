@@ -47,31 +47,88 @@ class PhotoShow extends React.Component {
   }
 
   render() {
+
+    let img = (new Image)
+    img.src = this.props.photos[this.state.currentPhoto]
+    let currentPhotoStyle;
+    if (img.naturalHeight > img.naturalWidth) {
+      console.log("TALL")
+      currentPhotoStyle = {
+        height: `${parseInt(this.props.height) - 40}px`,
+        maxWidth: `${parseInt(this.props.width) - 40}px`,
+        zIndex: 3,
+        objectFit: "contain"
+      }
+    } else if (img.naturalHeight < img.naturalWidth) {
+      console.log("WIDE")
+      currentPhotoStyle = {
+        width: `${parseInt(this.props.width) - 40}px`,
+        maxHeight: `${parseInt(this.props.height) - 40}px`,
+        zIndex: 3,
+        objectFit: "contain"
+
+      }
+    } else {
+      currentPhotoStyle = {
+        height: `${parseInt(this.props.width) - 40}px`,
+        width: `${parseInt(this.props.height) - 40}px`,
+        zIndex: 3,
+        objectFit: "contain"
+
+      } 
+    }
+
     return (
       <div>
-        <div>
+        <div className="relative-parts">
           <div className="photo-show-last-button" onClick={this.moveLeft}>
             {'<'}
           </div>
+        </div>
+        <div className="relative-parts">
+          <div className="em-left">
+            <div className="photo-show-next-button" onClick={this.moveRight}>
+              {'>'}
+            </div>
+          </div>
+        </div>
+        <div className="relative-parts">
+          <div className="shift-x">
+            <div className="photo-show-header">
+              <p onClick={this.props.closeModal}>✕</p>
+            </div>
+          </div>
+        </div>
+        <div className="relative-parts">
+          <div className="shift-trail-name">
+            <div className="photo-show-footer-left">
+              <p>{this.props.trailTitle}</p>
+            </div>
+          </div>
+        </div>
+        <div className="relative-parts">
+          <div className="shift-delete-button">
+            <button className="photo-show-footer-right">
+              <p>Delete Photo</p>
+            </button>
+          </div>
+        </div>
+        <div 
+          className="photo-show-container"
+        >
           <img 
             src={this.props.photos[this.state.lastPhoto]} 
             className="last-photo" 
           />
           <img 
             src={this.props.photos[this.state.currentPhoto]} 
-            className="current-photo"
+            // className="current-photo"
+            style={currentPhotoStyle}
           />
           <img 
             src={this.props.photos[this.state.nextPhoto]} 
             className="next-photo" 
           />
-          <div className="photo-show-next-button" onClick={this.moveRight}>
-            {'>'}
-          </div>
-        </div>
-        <div className="photo-show-footer">
-          <p>{this.props.trailName}</p>
-          {/* <button onClick={this.props.}>Delete photo</button> */}
         </div>
       </div>
     )

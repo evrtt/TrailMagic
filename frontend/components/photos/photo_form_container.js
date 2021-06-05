@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PhotoForm from './photo_form';
-import { uploadTrailPhotos } from '../../actions/photo_actions';
+import { uploadTrailPhoto } from '../../actions/photo_actions';
 import { closeModal } from '../../actions/modal_actions';
 
 const mSTP = (state, ownProps) => ({
@@ -8,7 +8,7 @@ const mSTP = (state, ownProps) => ({
 })
 
 const mDTP = (dispatch) => ({
-  action: (photos, trailId) => dispatch(uploadTrailPhotos(photos, trailId)),
+  action: (photos, trailId) => dispatch(uploadTrailPhoto(photos, trailId)),
   closeModal: () => dispatch(closeModal())
 })
 

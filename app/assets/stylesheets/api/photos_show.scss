@@ -1,0 +1,144 @@
+// .photo-show-container {
+//   object-fit: contain;
+// }
+
+.shift-trail-name {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  top: -3.7rem;
+  right: 0.1rem;
+}
+
+.shift-delete-button {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  right: 9.7em;
+  top: -3.7rem;
+}
+
+.shift-x {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  left: -3.2em;
+}
+
+.next-photo {
+  display: none;
+}
+
+.last-photo {
+  display: none;
+}
+
+.relative-parts {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+.em-left {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  left: -3em;
+}
+
+
+.photo-show-last-button {
+  background-color: rgba(12, 12, 12, 0.4);
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(187, 187, 187);
+  padding: 20px;
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  right: 50vw;
+  top: -1.5em;
+  z-index: 4;
+}
+
+.photo-show-last-button:hover {
+  color: white;
+  background-color: rgba(12, 12, 12, 0.6);
+  padding: 20px 22px 20px 18px;
+}
+
+.photo-show-next-button {
+  background-color: rgba(12, 12, 12, 0.4);
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(187, 187, 187);
+  padding: 20px;
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+  z-index: 4;
+  position: relative;
+  top: -1.5em;  
+  right: -50vw;
+}
+
+.photo-show-next-button:hover {
+  color: white;
+  background-color: rgba(12, 12, 12, 0.6);
+  padding: 20px 18px 20px 22px;
+} 
+
+.photo-show-footer-left {
+  font-size: 20px;
+  padding: 20px;
+  width: fit-content;
+  background-color: rgba(12, 12, 12, 0.4);
+  position: relative;
+  top: 50vh;
+  right: 50vw;
+  z-index: 4;
+  color: rgb(187, 187, 187);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.photo-show-footer-right {
+  font-size: 20px;
+  border: none;
+  padding: 20px;
+  width: fit-content;
+  background-color: rgba(12, 12, 12, 0.4);
+  position: relative;
+  left: 50vw;
+  top: 50vh;
+  z-index: 4;
+  color: rgb(187, 187, 187);
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+
+.photo-show-footer-right:hover {
+  color: white;
+  background-color: rgba(12, 12, 12, 0.6);
+  padding: 18px 20px 22px 20px;
+}
+
+
+
+.photo-show-header {
+  color: rgb(187, 187, 187);
+  font-weight: 700;
+  font-size: 20px;
+  background-color: rgba(12, 12, 12, 0.4);
+  padding: 20px;
+  position: relative;
+  top: -50vh;
+  left: 50vw;
+  cursor: pointer;
+}
+
+.photo-show-header:hover {
+  color: white;
+  background-color: rgba(12, 12, 12, 0.6);
+  padding: 22px 20px 18px 20px;
+}
