@@ -3,7 +3,7 @@ import TrailPhotos from './trail_photos';
 import { openModal } from '../../actions/modal_actions';
 
 const mSTP = (state, ownProps) => ({
-  photoURLs: state.entities.photoURLs,
+  photos: state.entities.photos,
   prefix: ownProps.prefix,
   visible: ownProps.visible,
   loggedIn: !!state.session.id,

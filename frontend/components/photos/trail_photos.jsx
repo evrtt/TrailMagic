@@ -29,7 +29,7 @@ class TrailPhotos extends React.Component {
         data: {
           trailTitle: this.props.trailTitle,
           trailId: this.props.trailId,
-          photos: this.props.photoURLs,
+          photos: this.props.photos,
           currentPhoto: idx
         }
       })
@@ -63,7 +63,8 @@ class TrailPhotos extends React.Component {
     if(this.props.visible === "hidden") {
       return null
     } else {
-      if(Object.values(this.props.photoURLs).length === 0) {
+      const photos = Object.values(this.props.photos)
+      if(photos.length === 0) {
         if(this.props.loggedIn) {
           return <div className="photos-header">
             <div>
@@ -91,7 +92,7 @@ class TrailPhotos extends React.Component {
                 </button>
               </div>
               <ul className={`${this.props.prefix}-photos-container-${this.props.visible}`}>
-                {this.props.photoURLs.map((url, idx) => {
+                {photos.map((photo, idx) => {
                   return (
                     <li
                       key={`photo-${idx + 1}`}
@@ -99,7 +100,7 @@ class TrailPhotos extends React.Component {
                       onClick={this.showPhoto(idx)}
                     >
                       <img
-                        src={url}
+                        src={photo.url}
                         className={`${this.props.prefix}-photo`}
                       />
                     </li>
@@ -114,14 +115,14 @@ class TrailPhotos extends React.Component {
             <div>
               {loggedOutHeader}
               <ul className={`${this.props.prefix}-photos-container-${this.props.visible}`}>
-                {this.props.photoURLs.map((url, idx) => {
+                {photos.map((photo, idx) => {
                   return (
                   <li  
                     key={`photo-${idx + 1}`}
                     className={`${this.props.prefix}-photo-li`}
                   >
                     <img 
-                      src={url}
+                      src={photo.url}
                       className={`${this.props.prefix}-photo`}
                     />
                   </li>

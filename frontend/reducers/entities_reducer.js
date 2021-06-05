@@ -7,6 +7,6 @@ import reviews from './trails/reviews_reducer';
 export default combineReducers({
   users: usersReducer,
   trails: trailsReducer,
-  photoURLs: photosReducer,
+  photos: photosReducer,
   reviews
 })

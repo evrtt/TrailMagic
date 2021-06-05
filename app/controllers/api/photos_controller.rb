@@ -12,9 +12,13 @@ class Api::PhotosController < ApplicationController
 
   def create
     @trail = Trail.find_by(id: params[:trail_id])
-      if @trail
+    # @user = User.find_by(id: params[:user_id])
+      if @trail 
+        # && @user
         @trail.photos.attach(params[:photo])
+        # @user.photos.attach(params[:photo])
         @photo = @trail.photos.last
+        debugger
         render "/api/photos/show"
       else
         render json: ["The trail you are looking for does not exist."], status: 404
@@ -26,7 +30,7 @@ class Api::PhotosController < ApplicationController
       if @trail
         @photo = @trail.photos.find_by(id: params[:id])
         if @photo
-          @photo.purge
+          @photo.purge_later
           render "/api/photos/show"
         else
           render json: ["We couldn't find the photo you are looking for"], status: 404

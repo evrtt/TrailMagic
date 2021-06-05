@@ -10,7 +10,7 @@ class PhotoShow extends React.Component {
       lastPhoto: this.props.currentPhoto === 0 
         ? this.props.photos.length - 1
         : this.props.currentPhoto - 1,
-      nextPhoto: (this.props.currentPhoto + 1) % (this.props.photos.length - 1)
+      nextPhoto: (this.props.currentPhoto + 1) % (this.props.photos.length)
       
     }
 
@@ -36,7 +36,7 @@ class PhotoShow extends React.Component {
 
   moveRight() {
     let newCurrentPhoto = this.state.nextPhoto;
-    let newNextPhoto = (this.state.nextPhoto + 1) % (this.props.photos.length - 1)
+    let newNextPhoto = (this.state.nextPhoto + 1) % (this.props.photos.length)
     let newLastPhoto = this.state.currentPhoto
 
     this.setState({
@@ -48,8 +48,10 @@ class PhotoShow extends React.Component {
 
   render() {
 
+    console.log(this.state)
+
     let img = (new Image)
-    img.src = this.props.photos[this.state.currentPhoto]
+    img.src = this.props.photos[this.state.currentPhoto].url
     let currentPhotoStyle;
     if (img.naturalHeight > img.naturalWidth) {
       console.log("TALL")
@@ -117,16 +119,15 @@ class PhotoShow extends React.Component {
           className="photo-show-container"
         >
           <img 
-            src={this.props.photos[this.state.lastPhoto]} 
+            src={this.props.photos[this.state.lastPhoto].url} 
             className="last-photo" 
           />
           <img 
-            src={this.props.photos[this.state.currentPhoto]} 
-            // className="current-photo"
+            src={this.props.photos[this.state.currentPhoto].url} 
             style={currentPhotoStyle}
           />
           <img 
-            src={this.props.photos[this.state.nextPhoto]} 
+            src={this.props.photos[this.state.nextPhoto].url} 
             className="next-photo" 
           />
         </div>

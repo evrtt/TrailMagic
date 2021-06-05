@@ -31,7 +31,6 @@ class PhotosForm extends React.Component {
   handleFile(e) {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
-    debugger
     fileReader.onloadend = () => {
       this.setState({photoFile: file, photoURL: fileReader.result})
     }
@@ -97,7 +96,10 @@ class PhotosForm extends React.Component {
         </div>
       );
       browseFiles = (
-        <button onClick={this.openFile} className="browse-files-container">
+        <button 
+          onClick={this.openFile} 
+          className="browse-files-container"
+        >
           <FontAwesomeIcon icon={faCamera} className="browse-camera" />
           <span>
             Choose a file to upload

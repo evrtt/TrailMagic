@@ -5,19 +5,19 @@ export const CLEAR_TRAIL_PHOTOS = 'CLEAR_TRAIL_PHOTOS';
 export const INSERT_TRAIL_PHOTO = 'INSERT_TRAIL_PHOTOS';
 export const REMOVE_TRAIL_PHOTO = 'REMOVE_TRAIL_PHOTO';
 
-const receiveTrailPhotos = (photoURLs) => ({
+const receiveTrailPhotos = (photos) => ({
   type: RECEIVE_TRAIL_PHOTOS,
-  photoURLs
+  photos
 })
 
-const insertTrailPhoto = (photoURLs) => ({
-  type: INSERT_TRAIL_PHOTOS,
-  photoURLs
+const insertTrailPhoto = (photo) => ({
+  type: INSERT_TRAIL_PHOTO,
+  photo
 })
 
-const removeTrailPhoto = (photoURL) => ({
+const removeTrailPhoto = (photoId) => ({
   type: REMOVE_TRAIL_PHOTO,
-  photoURL
+  photoId
 })
 
 export const clearTrailPhotos = () => ({
@@ -27,7 +27,7 @@ export const clearTrailPhotos = () => ({
 export const fetchTrailPhotos = (trailId) => dispatch => {
   photosAPIUtil.fetchTrailPhotos(trailId)
     .then(
-      photoURLs => dispatch(receiveTrailPhotos(photoURLs)),
+      photos => dispatch(receiveTrailPhotos(photos)),
       err => dispatch(receivePhotosErrors(err))
     )
 }
@@ -35,7 +35,7 @@ export const fetchTrailPhotos = (trailId) => dispatch => {
 export const uploadTrailPhoto = (formData, trailId) => dispatch => {
   photosAPIUtil.postPhoto(formData, trailId)
     .then(
-      photoURL => dispatch(insertTrailPhoto(photoURL)),
+      photo => dispatch(insertTrailPhoto(photo)),
       err => dispatch(receivePhotoErrors(err))
     )
 }
@@ -43,7 +43,7 @@ export const uploadTrailPhoto = (formData, trailId) => dispatch => {
 export const destroyPhoto = (photoId, trailId) => dispatch => {
   photosAPIUtil.destroyPhoto(photoId, trailId)
     .then(
-      photoURL => dispatch(removeTrailPhoto(photoURL)),
+      photo => dispatch(removeTrailPhoto(photo)),
       err => dispatch(receivePhotosErrors(err))
     )
 }
