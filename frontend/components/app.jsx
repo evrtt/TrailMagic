@@ -49,10 +49,18 @@ export default () => (
         <div className="icons-container">
           <span>Find me on</span>
           <div className="icons">
-            <a href="https://www.linkedin.com/in/everett-smith-924798153">
+            <a 
+              href="https://www.linkedin.com/in/everett-smith-924798153"
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
               <FontAwesomeIcon icon={faLinkedin} />
             </a>
-            <a href="https://github.com/evrtt">
+            <a 
+              href="https://github.com/evrtt"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FontAwesomeIcon icon={faGithub} />
             </a>
           </div>
