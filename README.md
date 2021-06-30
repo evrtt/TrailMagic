@@ -1,6 +1,6 @@
 # Trail Magic
 
-<img href="https://media.giphy.com/media/qLMIrCgcr1VyH2K692/giphy.gif" alt="drawing" width="100vw"/>
+<img href="https://media.giphy.com/media/qLMIrCgcr1VyH2K692/giphy.gif" width="100vw"/>
 
 <!-- ![](https://media.giphy.com/media/qLMIrCgcr1VyH2K692/giphy.gif)
  -->
