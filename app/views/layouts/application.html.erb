@@ -14,7 +14,14 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= favicon_link_tag 'favicons/favicon.ico' %>
-
+    <meta property="og:title" content="Trail Magic" />
+    <meta property="og:image" content="<%= image_url('project_pic.png') %>" />
+     <meta property="og:description"
+       content="An Alltrails clone allowing users to view and contribute to trail guides."
+     />
+     <meta property="og:url"
+       content="https://trailmagic.herokuapp.com/#/"
+     />
   </head>
 
   <body>
