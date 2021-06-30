@@ -1,6 +1,6 @@
 # Trail Magic
 
-<img src="https://media.giphy.com/media/U7c2TesYruxCiw11qK/giphy.gif" width="100%">
+<img src="https://media.giphy.com/media/YsNVlqrQkvLuaeILSO/giphy.gif" width="100%">
 
 Welcome to Trail Magic, a clone of the app Alltrails, that makes it easy for users to explore the natural world (of Colorado). The website currently allows users to create their own account with username and password, explore a map of twelve trails in Colorado and see currated trailguides with information about, a map, and photos of each trail. Users can search for trails by name on the splash page, write, edit and delete reviews of trails for all users to see, upload and delete their own photos of trails.
 
